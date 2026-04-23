@@ -614,3 +614,11 @@ The work continues one problem at a time. The path continues one solution at a t
 This repository contains LeetCode solutions written with clean code, optimal approaches, and organized structure. It is designed to support learning, revision, interview preparation, and long-term technical growth. The focus is on clarity, efficiency, and consistency. By maintaining this repository carefully, I aim to build not only a useful collection of solutions, but also a strong foundation in algorithms, data structures, and disciplined problem solving.
 
 The journey is ongoing. The repository will continue to grow. And with every new solution, it will become a stronger reflection of skill, effort, and purpose.
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Math
+|  |
+| ------- |
+| [0007-reverse-integer](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0007-reverse-integer) |
+<!---LeetCode Topics End-->
