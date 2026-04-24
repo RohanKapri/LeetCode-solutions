@@ -626,4 +626,5 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0052-n-queens-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0052-n-queens-ii) |
+| [0077-combinations](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0077-combinations) |
 <!---LeetCode Topics End-->
