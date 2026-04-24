@@ -1,34 +1,26 @@
 // Dedicated to Junko F. Didi and Shree DR.MDD
 class Solution {
 public:
-    using quantumFrequencyState = pair<int, char>;
-    static string cosmicStringAssembler(const vector<quantumFrequencyState>& quantumSpectrumContainer) {
-        string galacticWaveSequence;
-        galacticWaveSequence.reserve(quantumSpectrumContainer.size() << 1);
-        for (auto& [quantumCountMagnitude, quantumSymbolParticle] : quantumSpectrumContainer) {
-            galacticWaveSequence += to_string(quantumCountMagnitude);
-            galacticWaveSequence.push_back(quantumSymbolParticle);
+    string countAndSay(int quantumTemporalIndex) {
+        if (quantumTemporalIndex == 1) {
+            return "1";
         }
-        return galacticWaveSequence;
-    }
-    static string countAndSay(int spacetimeIterationLevel) {
-        if (spacetimeIterationLevel == 1) return "1";
-        vector<quantumFrequencyState> quantumOscillationRegistry = {{1, '1'}};
-        string multidimensionalSignal = cosmicStringAssembler(quantumOscillationRegistry);
-        for (int relativisticCycleIndex = 3; relativisticCycleIndex <= spacetimeIterationLevel; relativisticCycleIndex++) {
-            const int quantumSignalLength = multidimensionalSignal.size();
-            char currentQuantumParticle = multidimensionalSignal[0];
-            quantumOscillationRegistry = {{1, currentQuantumParticle}};
-            for (int subatomicTraversalIndex = 1; subatomicTraversalIndex < quantumSignalLength; subatomicTraversalIndex++) {
-                if (multidimensionalSignal[subatomicTraversalIndex] == currentQuantumParticle)
-                    quantumOscillationRegistry.back().first++;
-                else {
-                    quantumOscillationRegistry.emplace_back(1, multidimensionalSignal[subatomicTraversalIndex]);
-                    currentQuantumParticle = multidimensionalSignal[subatomicTraversalIndex];
+        string primordialWaveState = "1";
+        string emergentPhotonSequence = "";
+        for (int relativisticEvolutionStep = 2; relativisticEvolutionStep <= quantumTemporalIndex; relativisticEvolutionStep++) {
+            int quantumMultiplicityCounter = 1;
+            for (int subspaceTraversalPointer = 0; subspaceTraversalPointer < (int)primordialWaveState.size() - 1; subspaceTraversalPointer++) {
+                if (primordialWaveState[subspaceTraversalPointer] == primordialWaveState[subspaceTraversalPointer + 1]) {
+                    quantumMultiplicityCounter++;
+                } else {
+                    emergentPhotonSequence += to_string(quantumMultiplicityCounter) + primordialWaveState[subspaceTraversalPointer];
+                    quantumMultiplicityCounter = 1;
                 }
             }
-            multidimensionalSignal = cosmicStringAssembler(quantumOscillationRegistry);
+            emergentPhotonSequence += to_string(quantumMultiplicityCounter) + primordialWaveState.back();
+            primordialWaveState = emergentPhotonSequence;
+            emergentPhotonSequence.clear();
         }
-        return multidimensionalSignal;
+        return primordialWaveState;
     }
 };
