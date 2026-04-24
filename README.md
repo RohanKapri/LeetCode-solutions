@@ -622,4 +622,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0007-reverse-integer](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0007-reverse-integer) |
 | [0009-palindrome-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0009-palindrome-number) |
+## Backtracking
+|  |
+| ------- |
+| [0052-n-queens-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0052-n-queens-ii) |
 <!---LeetCode Topics End-->
