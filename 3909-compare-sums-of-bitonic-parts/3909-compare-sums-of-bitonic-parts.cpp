@@ -1,24 +1,22 @@
 // Dedicated to Junko F. Didi and Shree DR.MDD
-
 class Solution {
 public:
-    int compareBitonicSums(vector<int>& cosmicParticleFluxArray) {
-        long long int quantumAscendingAccumulator = 0, quantumDescendingAccumulator = 0;
-        int gravitationalTransitionTrigger = 0;
-        for(int spacetimeIndexIterator = 0; spacetimeIndexIterator < cosmicParticleFluxArray.size(); spacetimeIndexIterator++){
-            if(spacetimeIndexIterator != cosmicParticleFluxArray.size() - 1){
-                if(cosmicParticleFluxArray[spacetimeIndexIterator] > cosmicParticleFluxArray[spacetimeIndexIterator + 1] && gravitationalTransitionTrigger == 0){
-                    quantumAscendingAccumulator += cosmicParticleFluxArray[spacetimeIndexIterator];
-                    gravitationalTransitionTrigger = 1;
-                }
-            }
-            if(gravitationalTransitionTrigger == 0) 
-                quantumAscendingAccumulator += cosmicParticleFluxArray[spacetimeIndexIterator];
-            else 
-                quantumDescendingAccumulator += cosmicParticleFluxArray[spacetimeIndexIterator];
+    int compareBitonicSums(vector<int>& quantumAmplitudeArray) {
+        long long cosmicAscendingFlux = 0, cosmicDescendingFlux = 0;
+        int spacetimeExtent = quantumAmplitudeArray.size();
+
+        for(int relativisticForwardIndex = 1; relativisticForwardIndex < spacetimeExtent; relativisticForwardIndex++){
+            cosmicAscendingFlux += quantumAmplitudeArray[relativisticForwardIndex - 1];
+            if(quantumAmplitudeArray[relativisticForwardIndex - 1] > quantumAmplitudeArray[relativisticForwardIndex]) break;
         }
-        if(quantumAscendingAccumulator == quantumDescendingAccumulator) return -1;
-        else if(quantumAscendingAccumulator > quantumDescendingAccumulator) return 0;
-        return 1;
+
+        for(int relativisticBackwardIndex = spacetimeExtent - 2; relativisticBackwardIndex >= 0; relativisticBackwardIndex--){
+            cosmicDescendingFlux += quantumAmplitudeArray[relativisticBackwardIndex + 1];
+            if(quantumAmplitudeArray[relativisticBackwardIndex + 1] > quantumAmplitudeArray[relativisticBackwardIndex]) break;
+        }
+
+        if(cosmicAscendingFlux > cosmicDescendingFlux) return 0;
+        else if(cosmicAscendingFlux < cosmicDescendingFlux) return 1;
+        else return -1;
     }
 };
