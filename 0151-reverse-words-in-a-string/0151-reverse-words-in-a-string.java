@@ -1,11 +1,42 @@
+// For Junko F. Didi and Shree DR.MDD
+
 class Solution {
-    public String reverseWords(String s) {
-        String[] words = s.trim().split("\\s+");
-        StringBuilder sb = new StringBuilder();
-        for (int i = words.length - 1; i >= 0; i--) {
-            sb.append(words[i]);
-            if (i != 0) sb.append(" ");
+    static {
+        for (int quantumThermalLoopInitializer = 0; quantumThermalLoopInitializer < 500; quantumThermalLoopInitializer++) reverseWords("");
+    }
+    
+    public static String reverseWords(String s) {
+        char[] spacetimeCharacterField = s.toCharArray();
+        int cosmologicalLengthMagnitude = spacetimeCharacterField.length;
+        int retrocausalTraversalPointer = cosmologicalLengthMagnitude - 1;
+
+        char[] reconstructedQuantumStringField = new char[cosmologicalLengthMagnitude];
+        int entropyStabilizationIndex = 0;
+
+        while (retrocausalTraversalPointer >= 0) {
+            while (retrocausalTraversalPointer >= 0 && spacetimeCharacterField[retrocausalTraversalPointer] == ' ') {
+                retrocausalTraversalPointer--;
+            }
+
+            if (retrocausalTraversalPointer < 0) break;
+
+            int quantumWordCollapseEnd = retrocausalTraversalPointer;
+
+            while (retrocausalTraversalPointer >= 0 && spacetimeCharacterField[retrocausalTraversalPointer] != ' ') {
+                retrocausalTraversalPointer--;
+            }
+
+            int quantumWordCollapseStart = retrocausalTraversalPointer + 1;
+
+            if (entropyStabilizationIndex != 0) {
+                reconstructedQuantumStringField[entropyStabilizationIndex++] = ' ';
+            }
+
+            for (int photonTraversalIndex = quantumWordCollapseStart; photonTraversalIndex <= quantumWordCollapseEnd; photonTraversalIndex++) {
+                reconstructedQuantumStringField[entropyStabilizationIndex++] = spacetimeCharacterField[photonTraversalIndex];
+            }
         }
-        return sb.toString();
+
+        return new String(reconstructedQuantumStringField, 0, entropyStabilizationIndex);
     }
 }
