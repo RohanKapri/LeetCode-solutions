@@ -627,4 +627,20 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0052-n-queens-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0052-n-queens-ii) |
 | [0077-combinations](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0077-combinations) |
+## Hash Table
+|  |
+| ------- |
+| [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
+## Depth-First Search
+|  |
+| ------- |
+| [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
+## Graph Theory
+|  |
+| ------- |
+| [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
 <!---LeetCode Topics End-->
