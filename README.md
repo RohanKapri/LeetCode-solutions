@@ -658,4 +658,5 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0184-department-highest-salary](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0184-department-highest-salary) |
 | [0185-department-top-three-salaries](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0185-department-top-three-salaries) |
 | [0196-delete-duplicate-emails](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0196-delete-duplicate-emails) |
+| [0197-rising-temperature](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0197-rising-temperature) |
 <!---LeetCode Topics End-->
