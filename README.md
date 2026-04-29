@@ -647,6 +647,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
+| [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
 ## Database
 |  |
 | ------- |
@@ -666,4 +667,5 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
+| [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
 <!---LeetCode Topics End-->
