@@ -644,4 +644,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
+## Database
+|  |
+| ------- |
+| [0175-combine-two-tables](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0175-combine-two-tables) |
 <!---LeetCode Topics End-->
