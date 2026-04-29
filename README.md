@@ -648,4 +648,5 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0175-combine-two-tables](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0175-combine-two-tables) |
+| [0176-second-highest-salary](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0176-second-highest-salary) |
 <!---LeetCode Topics End-->
