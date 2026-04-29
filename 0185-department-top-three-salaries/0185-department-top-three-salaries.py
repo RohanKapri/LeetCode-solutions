@@ -1,0 +1,8 @@
+import pandas as pd
+
+def top_three_salaries(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+    employee['rank'] = employee.groupby('departmentId')['salary'].rank(method='dense', ascending=False)
+    top_three = employee[employee['rank'] <= 3]
+    result = top_three.merge(department, left_on='departmentId', right_on='id', how='left')
+    result = result[['name_y', 'name_x', 'salary']].rename(columns={'name_y': 'Department', 'name_x': 'Employee'})
+    return result
