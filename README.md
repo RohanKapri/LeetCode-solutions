@@ -652,4 +652,5 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0177-nth-highest-salary](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0177-nth-highest-salary) |
 | [0178-rank-scores](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0178-rank-scores) |
 | [0180-consecutive-numbers](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0180-consecutive-numbers) |
+| [0181-employees-earning-more-than-their-managers](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0181-employees-earning-more-than-their-managers) |
 <!---LeetCode Topics End-->
