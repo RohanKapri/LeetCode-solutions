@@ -625,6 +625,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0172-factorial-trailing-zeroes](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0172-factorial-trailing-zeroes) |
 | [0223-rectangle-area](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0223-rectangle-area) |
 | [0258-add-digits](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0258-add-digits) |
+| [0263-ugly-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0263-ugly-number) |
 ## Backtracking
 |  |
 | ------- |
