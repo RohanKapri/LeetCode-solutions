@@ -623,6 +623,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0007-reverse-integer](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0007-reverse-integer) |
 | [0009-palindrome-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0009-palindrome-number) |
 | [0172-factorial-trailing-zeroes](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0172-factorial-trailing-zeroes) |
+| [0223-rectangle-area](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0223-rectangle-area) |
 ## Backtracking
 |  |
 | ------- |
@@ -672,4 +673,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
+## Geometry
+|  |
+| ------- |
+| [0223-rectangle-area](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0223-rectangle-area) |
 <!---LeetCode Topics End-->
