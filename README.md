@@ -672,6 +672,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0185-department-top-three-salaries](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0185-department-top-three-salaries) |
 | [0196-delete-duplicate-emails](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0196-delete-duplicate-emails) |
 | [0197-rising-temperature](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0197-rising-temperature) |
+| [0262-trips-and-users](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0262-trips-and-users) |
 ## Topological Sort
 |  |
 | ------- |
