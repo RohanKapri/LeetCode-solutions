@@ -627,6 +627,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0258-add-digits](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0258-add-digits) |
 | [0263-ugly-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0263-ugly-number) |
 | [0292-nim-game](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0292-nim-game) |
+| [0319-bulb-switcher](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0319-bulb-switcher) |
 ## Backtracking
 |  |
 | ------- |
@@ -705,6 +706,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0292-nim-game](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0292-nim-game) |
+| [0319-bulb-switcher](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0319-bulb-switcher) |
 ## Game Theory
 |  |
 | ------- |
