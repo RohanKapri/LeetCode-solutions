@@ -638,6 +638,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
+| [0359-logger-rate-limiter](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0359-logger-rate-limiter) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -717,4 +718,12 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0292-nim-game](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0292-nim-game) |
+## Design
+|  |
+| ------- |
+| [0359-logger-rate-limiter](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0359-logger-rate-limiter) |
+## Data Stream
+|  |
+| ------- |
+| [0359-logger-rate-limiter](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0359-logger-rate-limiter) |
 <!---LeetCode Topics End-->
