@@ -646,6 +646,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
 | [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
+| [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -654,6 +655,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
 | [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
+| [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 ## Graph Theory
 |  |
 | ------- |
@@ -662,6 +664,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
 | [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
+| [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 | [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
 ## Database
 |  |
@@ -702,6 +705,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
+| [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 ## Brainteaser
 |  |
 | ------- |
