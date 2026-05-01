@@ -644,6 +644,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
+| [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -651,6 +652,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
+| [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
 ## Graph Theory
 |  |
 | ------- |
@@ -658,6 +660,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
+| [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
 | [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
 ## Database
 |  |
@@ -680,6 +683,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0207-course-schedule](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0210-course-schedule-ii) |
+| [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
 | [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
 ## Geometry
 |  |
