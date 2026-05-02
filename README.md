@@ -630,6 +630,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0319-bulb-switcher](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0319-bulb-switcher) |
 | [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
 | [0372-super-pow](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0372-super-pow) |
+| [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 ## Backtracking
 |  |
 | ------- |
@@ -641,6 +642,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
 | [0359-logger-rate-limiter](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0359-logger-rate-limiter) |
+| [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -739,4 +741,12 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0386-lexicographical-numbers](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0386-lexicographical-numbers) |
+## Reservoir Sampling
+|  |
+| ------- |
+| [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
+## Randomized
+|  |
+| ------- |
+| [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 <!---LeetCode Topics End-->
