@@ -629,6 +629,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0292-nim-game](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0292-nim-game) |
 | [0319-bulb-switcher](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0319-bulb-switcher) |
 | [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
+| [0372-super-pow](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0372-super-pow) |
 ## Backtracking
 |  |
 | ------- |
@@ -729,4 +730,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0359-logger-rate-limiter](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0359-logger-rate-limiter) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0372-super-pow](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0372-super-pow) |
 <!---LeetCode Topics End-->
