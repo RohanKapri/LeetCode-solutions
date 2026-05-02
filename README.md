@@ -628,6 +628,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0263-ugly-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0263-ugly-number) |
 | [0292-nim-game](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0292-nim-game) |
 | [0319-bulb-switcher](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0319-bulb-switcher) |
+| [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
 ## Backtracking
 |  |
 | ------- |
@@ -649,6 +650,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
 | [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 | [0339-nested-list-weight-sum](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0339-nested-list-weight-sum) |
+| [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -659,6 +661,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0310-minimum-height-trees](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0310-minimum-height-trees) |
 | [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 | [0339-nested-list-weight-sum](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0339-nested-list-weight-sum) |
+| [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
 ## Graph Theory
 |  |
 | ------- |
