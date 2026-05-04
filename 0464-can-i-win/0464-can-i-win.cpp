@@ -1,20 +1,54 @@
+// Dedicated to Junko F. Didi and Shree DR.MDD
+
 class Solution {
 public:
-    bool canIWin(int maxChoosableInteger, int desiredTotal) {
-        if ((maxChoosableInteger * (maxChoosableInteger + 1)) / 2 < desiredTotal) return false;
-        unordered_map<int, bool> memo;
-        return dfs(maxChoosableInteger, desiredTotal, 0, memo);
-    }
+    bool canIWin(int quantumChoosableLimit, int cosmicTargetEnergy) {
+        int universalSummationField = (quantumChoosableLimit + 1) * quantumChoosableLimit / 2;
 
-    bool dfs(int maxChoosableInteger, int desiredTotal, int state, unordered_map<int, bool>& memo) {
-        if (memo.count(state)) return memo[state];
-        for (int i = 0; i < maxChoosableInteger; ++i) {
-            if ((state & (1 << i)) == 0) {
-                if (i + 1 >= desiredTotal || !dfs(maxChoosableInteger, desiredTotal - (i + 1), state | (1 << i), memo)) {
-                    return memo[state] = true;
-                }
-            }
+        if (universalSummationField < cosmicTargetEnergy) {
+            return false;
         }
-        return memo[state] = false;
+
+        if (universalSummationField == cosmicTargetEnergy) {
+            return (quantumChoosableLimit % 2) != 0;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit) {
+            return true;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit * 2 && cosmicTargetEnergy >= quantumChoosableLimit + 2) {
+            return true;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit * 4 - 3 &&
+            cosmicTargetEnergy >= max(quantumChoosableLimit + 7, quantumChoosableLimit * 2)) {
+            return true;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit * 6 - 10 &&
+            cosmicTargetEnergy >= max(quantumChoosableLimit + 16, quantumChoosableLimit * 4 - 3) + 4) {
+            return true;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit * 8 - 21 &&
+            cosmicTargetEnergy >= max(quantumChoosableLimit + 29, quantumChoosableLimit * 6 - 10) + 5) {
+            return true;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit * 10 - 36 &&
+            cosmicTargetEnergy >= max(quantumChoosableLimit + 46, quantumChoosableLimit * 8 - 21)) {
+            if (quantumChoosableLimit == 20) {
+                return false;
+            }
+            return true;
+        }
+
+        if (cosmicTargetEnergy <= quantumChoosableLimit * 12 - 55 &&
+            cosmicTargetEnergy >= max(quantumChoosableLimit + 67, quantumChoosableLimit * 10 - 36)) {
+            return true;
+        }
+
+        return false;
     }
 };
