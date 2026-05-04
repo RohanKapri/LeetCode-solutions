@@ -633,6 +633,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 | [0470-implement-rand10-using-rand7](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0470-implement-rand10-using-rand7) |
 | [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
+| [0479-largest-palindrome-product](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0479-largest-palindrome-product) |
 ## Backtracking
 |  |
 | ------- |
@@ -764,4 +765,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0470-implement-rand10-using-rand7](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0470-implement-rand10-using-rand7) |
+## Enumeration
+|  |
+| ------- |
+| [0479-largest-palindrome-product](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0479-largest-palindrome-product) |
 <!---LeetCode Topics End-->
