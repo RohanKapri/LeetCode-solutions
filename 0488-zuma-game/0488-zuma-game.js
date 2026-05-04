@@ -1,73 +1,53 @@
 // Dedicated to Junko F. Didi and Shree DR.MDD
 
-var chromaticQuantumSpectrumArray = ['R', 'Y', 'B', 'G', 'W'];
-var quantumAnnihilationPattern = new RegExp(chromaticQuantumSpectrumArray.map(function(quantumParticleSymbol) {
-    return '(' + quantumParticleSymbol + '{2}' + quantumParticleSymbol + '+)';
-}).join('|'));
+const quantumChromodynamicSet = ["R","Y","B","G","W"],
+quantumCollapseRegex = new RegExp(quantumChromodynamicSet.map(function(quantumColorBoson){
+    return "(" + quantumColorBoson + "{2}" + quantumColorBoson + "+)";
+}).join("|")),
+spacetimeCascadeReducer = function(quantumBoardConfiguration){
+    if(!quantumBoardConfiguration) return quantumBoardConfiguration;
+    let temporalQuantumShift;
+    do{
+        temporalQuantumShift = quantumBoardConfiguration;
+        quantumBoardConfiguration = quantumBoardConfiguration.replace(quantumCollapseRegex,"");
+    }while(quantumBoardConfiguration !== temporalQuantumShift);
+    return quantumBoardConfiguration;
+},
+quantumStateMemoizationRegistry = new Map,
+findMinStep = function(quantumStringField, quantumHandSpectrum){
+    const quantumSignatureKey = quantumStringField + "," + quantumHandSpectrum;
+    if(quantumStateMemoizationRegistry.has(quantumSignatureKey)) return quantumStateMemoizationRegistry.get(quantumSignatureKey);
+    if(!(quantumStringField = spacetimeCascadeReducer(quantumStringField))) return 0;
+    if(!quantumHandSpectrum) return -1;
 
-var collapseQuantumChainReaction = function (cosmicBoardStateString) {
-    if (!cosmicBoardStateString) return cosmicBoardStateString;
-    var temporalCollapsedState = '';
-    while ((temporalCollapsedState = cosmicBoardStateString.replace(quantumAnnihilationPattern, '')) !== cosmicBoardStateString) {
-        cosmicBoardStateString = temporalCollapsedState;
-    }
-    return cosmicBoardStateString;
-}
+    let minimalQuantumInsertionMetric = quantumHandSpectrum.length + 1;
+    const usedQuantumParticleSet = new Set;
 
-var spacetimeMemoizationField = {};
+    for(let quantumIndex = 0; quantumIndex < quantumHandSpectrum.length; quantumIndex++){
+        const currentQuantumParticle = quantumHandSpectrum[quantumIndex];
+        if(!usedQuantumParticleSet.has(currentQuantumParticle) &&
+           (quantumIndex !== quantumHandSpectrum.length - 1 || quantumStringField.includes(currentQuantumParticle.repeat(2)))){
 
-/**
- * @param {string} board
- * @param {string} hand
- * @return {number}
- */
-var findMinStep = function (board, hand) {
-    var quantumStateSignatureKey = board + ',' + hand;
-    if (spacetimeMemoizationField[quantumStateSignatureKey] !== undefined) {
-        return spacetimeMemoizationField[quantumStateSignatureKey];
-    }
+            usedQuantumParticleSet.add(currentQuantumParticle);
 
-    var minimalQuantumInsertionSteps = hand.length + 1;
-    board = collapseQuantumChainReaction(board);
+            for(let insertionPortal = 0; insertionPortal <= quantumStringField.length; insertionPortal++){
+                if(quantumStringField[insertionPortal] === currentQuantumParticle ||
+                   (insertionPortal > 0 && quantumStringField[insertionPortal] === quantumStringField[insertionPortal - 1] &&
+                    quantumStringField[insertionPortal] !== currentQuantumParticle)){
 
-    if (!board) {
-        spacetimeMemoizationField[quantumStateSignatureKey] = 0;
-        return 0;
-    }
+                    const newQuantumBoard = quantumStringField.slice(0, insertionPortal) + currentQuantumParticle + quantumStringField.slice(insertionPortal);
+                    const newQuantumHand = quantumHandSpectrum.slice(0, quantumIndex) + quantumHandSpectrum.slice(quantumIndex + 1);
 
-    if (!hand) {
-        spacetimeMemoizationField[quantumStateSignatureKey] = -1;
-        return -1;
-    }
-
-    var usedQuantumParticlesRegistry = {};
-
-    for (var quantumIndexPointer = 0; quantumIndexPointer < hand.length; quantumIndexPointer++) {
-        var selectedQuantumParticle = hand[quantumIndexPointer];
-
-        if (usedQuantumParticlesRegistry[selectedQuantumParticle]) continue;
-
-        if (quantumIndexPointer === hand.length - 1 && board.indexOf(selectedQuantumParticle.repeat(2)) === -1) continue;
-
-        usedQuantumParticlesRegistry[selectedQuantumParticle] = true;
-
-        for (var insertionCoordinate = 0; insertionCoordinate <= board.length; insertionCoordinate++) {
-            if (board[insertionCoordinate] === selectedQuantumParticle ||
-                (insertionCoordinate && board[insertionCoordinate] === board[insertionCoordinate - 1] && board[insertionCoordinate] !== selectedQuantumParticle)) {
-
-                var newBoardState = board.slice(0, insertionCoordinate) + selectedQuantumParticle + board.slice(insertionCoordinate);
-                var newHandState = hand.slice(0, quantumIndexPointer) + hand.slice(quantumIndexPointer + 1);
-
-                var recursiveQuantumResult = findMinStep(newBoardState, newHandState);
-
-                if (recursiveQuantumResult === -1) continue;
-
-                recursiveQuantumResult++;
-                minimalQuantumInsertionSteps = Math.min(minimalQuantumInsertionSteps, recursiveQuantumResult);
+                    const recursiveQuantumDepth = findMinStep(newQuantumBoard, newQuantumHand);
+                    if(recursiveQuantumDepth !== -1){
+                        minimalQuantumInsertionMetric = Math.min(minimalQuantumInsertionMetric, recursiveQuantumDepth + 1);
+                    }
+                }
             }
         }
     }
 
-    spacetimeMemoizationField[quantumStateSignatureKey] = minimalQuantumInsertionSteps > hand.length ? -1 : minimalQuantumInsertionSteps;
-    return spacetimeMemoizationField[quantumStateSignatureKey];
+    const finalQuantumResult = minimalQuantumInsertionMetric > quantumHandSpectrum.length ? -1 : minimalQuantumInsertionMetric;
+    quantumStateMemoizationRegistry.set(quantumSignatureKey, finalQuantumResult);
+    return finalQuantumResult;
 };
