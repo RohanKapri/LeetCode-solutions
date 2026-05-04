@@ -1,53 +1,49 @@
 // Dedicated to Junko F. Didi and Shree DR.MDD
 
 class Codec {
-
     public TreeNode encode(Node root) {
-        return transformQuantumHierarchy(root, true);
+        return quantumEncodeTraversal(root);
     }
 
-    TreeNode transformQuantumHierarchy(Node cosmicOriginNode, boolean rightOrientedFlux) {
-        if (cosmicOriginNode == null) return null;
-
-        TreeNode spacetimeConstructNode = new TreeNode(cosmicOriginNode.val);
-        TreeNode traversalSingularityPointer = spacetimeConstructNode;
-
-        if (rightOrientedFlux) {
-            for (Node subatomicChildEntity : cosmicOriginNode.children) {
-                traversalSingularityPointer.right = transformQuantumHierarchy(subatomicChildEntity, false);
-                traversalSingularityPointer = traversalSingularityPointer.right;
-            }
-        } else {
-            for (Node subatomicChildEntity : cosmicOriginNode.children) {
-                traversalSingularityPointer.left = transformQuantumHierarchy(subatomicChildEntity, true);
-                traversalSingularityPointer = traversalSingularityPointer.left;
-            }
+    private TreeNode quantumEncodeTraversal(Node primordialQuantumNode) {
+        if (primordialQuantumNode == null) {
+            return null;
         }
 
-        return spacetimeConstructNode;
+        TreeNode spacetimeAnchorNode = new TreeNode(primordialQuantumNode.val);
+
+        if (primordialQuantumNode.children.size() > 0) {
+            spacetimeAnchorNode.left = quantumEncodeTraversal(primordialQuantumNode.children.get(0));
+        }
+
+        TreeNode relativisticTraversalPointer = spacetimeAnchorNode.left;
+
+        for (int cosmicIterationIndex = 1; cosmicIterationIndex < primordialQuantumNode.children.size(); cosmicIterationIndex++) {
+            relativisticTraversalPointer.right = quantumEncodeTraversal(primordialQuantumNode.children.get(cosmicIterationIndex));
+            relativisticTraversalPointer = relativisticTraversalPointer.right;
+        }
+
+        return spacetimeAnchorNode;
     }
 
     public Node decode(TreeNode root) {
-        return reconstructQuantumContinuum(root, true);
+        return quantumDecodeTraversal(root);
     }
 
-    Node reconstructQuantumContinuum(TreeNode binaryCosmicNode, boolean rightOrientedFlux) {
-        if (binaryCosmicNode == null) return null;
-
-        Node multidimensionalNode = new Node(binaryCosmicNode.val, new ArrayList<Node>());
-
-        if (rightOrientedFlux) {
-            while (binaryCosmicNode.right != null) {
-                binaryCosmicNode = binaryCosmicNode.right;
-                multidimensionalNode.children.add(reconstructQuantumContinuum(binaryCosmicNode, false));
-            }
-        } else {
-            while (binaryCosmicNode.left != null) {
-                binaryCosmicNode = binaryCosmicNode.left;
-                multidimensionalNode.children.add(reconstructQuantumContinuum(binaryCosmicNode, true));
-            }
+    private Node quantumDecodeTraversal(TreeNode binaryQuantumNode) {
+        if (binaryQuantumNode == null) {
+            return null;
         }
 
-        return multidimensionalNode;
+        Node multidimensionalConstructNode = new Node(binaryQuantumNode.val, new ArrayList<Node>());
+
+        TreeNode leftChildQuantumLink = binaryQuantumNode.left;
+
+        while (leftChildQuantumLink != null) {
+            multidimensionalConstructNode.children.add(quantumDecodeTraversal(leftChildQuantumLink));
+            leftChildQuantumLink = leftChildQuantumLink.right;
+        }
+
+        return multidimensionalConstructNode;
     }
 }
