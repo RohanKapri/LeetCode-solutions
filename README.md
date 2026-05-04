@@ -741,6 +741,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0386-lexicographical-numbers](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0386-lexicographical-numbers) |
+| [0440-k-th-smallest-in-lexicographical-order](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0440-k-th-smallest-in-lexicographical-order) |
 ## Reservoir Sampling
 |  |
 | ------- |
