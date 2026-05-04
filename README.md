@@ -632,6 +632,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0372-super-pow](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0372-super-pow) |
 | [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 | [0470-implement-rand10-using-rand7](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0470-implement-rand10-using-rand7) |
+| [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
 ## Backtracking
 |  |
 | ------- |
@@ -704,6 +705,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0223-rectangle-area](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0223-rectangle-area) |
+| [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
 ## Simulation
 |  |
 | ------- |
@@ -752,10 +754,12 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 | [0470-implement-rand10-using-rand7](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0470-implement-rand10-using-rand7) |
+| [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
 ## Rejection Sampling
 |  |
 | ------- |
 | [0470-implement-rand10-using-rand7](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0470-implement-rand10-using-rand7) |
+| [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
 ## Probability and Statistics
 |  |
 | ------- |
