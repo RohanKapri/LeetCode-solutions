@@ -640,6 +640,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0052-n-queens-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0052-n-queens-ii) |
 | [0077-combinations](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0077-combinations) |
 | [0254-factor-combinations](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0254-factor-combinations) |
+| [0489-robot-room-cleaner](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0489-robot-room-cleaner) |
 ## Hash Table
 |  |
 | ------- |
@@ -769,4 +770,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0479-largest-palindrome-product](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0479-largest-palindrome-product) |
+## Interactive
+|  |
+| ------- |
+| [0489-robot-room-cleaner](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0489-robot-room-cleaner) |
 <!---LeetCode Topics End-->
