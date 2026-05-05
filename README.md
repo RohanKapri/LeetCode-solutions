@@ -635,6 +635,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
 | [0479-largest-palindrome-product](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0479-largest-palindrome-product) |
 | [0492-construct-the-rectangle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0492-construct-the-rectangle) |
+| [0507-perfect-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0507-perfect-number) |
 ## Backtracking
 |  |
 | ------- |
