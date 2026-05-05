@@ -699,6 +699,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0197-rising-temperature](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0197-rising-temperature) |
 | [0262-trips-and-users](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0262-trips-and-users) |
 | [0511-game-play-analysis-i](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0511-game-play-analysis-i) |
+| [0512-game-play-analysis-ii](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0512-game-play-analysis-ii) |
 ## Topological Sort
 |  |
 | ------- |
