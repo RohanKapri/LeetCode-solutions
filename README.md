@@ -636,6 +636,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0479-largest-palindrome-product](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0479-largest-palindrome-product) |
 | [0492-construct-the-rectangle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0492-construct-the-rectangle) |
 | [0507-perfect-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0507-perfect-number) |
+| [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
 ## Backtracking
 |  |
 | ------- |
@@ -649,6 +650,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0133-clone-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0133-clone-graph) |
 | [0359-logger-rate-limiter](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0359-logger-rate-limiter) |
 | [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
+| [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -755,12 +757,14 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
+| [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
 ## Randomized
 |  |
 | ------- |
 | [0398-random-pick-index](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0398-random-pick-index) |
 | [0470-implement-rand10-using-rand7](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0470-implement-rand10-using-rand7) |
 | [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
+| [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
 ## Rejection Sampling
 |  |
 | ------- |
