@@ -1,22 +1,31 @@
 # Dedicated to Junko F. Didi and Shree DR.MDD
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
-        if not root:
+        if root is None:
             return None
 
-        interstellarEventHorizonQueue = deque([root])
-        quantumSingularityBottomNode = root
+        galacticEventHorizonTraversalChamber = deque([root])
 
-        while interstellarEventHorizonQueue:
-            quantumSingularityBottomNode = interstellarEventHorizonQueue.popleft()
+        while galacticEventHorizonTraversalChamber:
+            transdimensionalQuantumFluxNavigator = galacticEventHorizonTraversalChamber.popleft()
 
-            relativisticDarkMatterRightTraversal = quantumSingularityBottomNode.right
-            relativisticDarkMatterLeftTraversal = quantumSingularityBottomNode.left
+            antimatterRelativisticRightContinuum = transdimensionalQuantumFluxNavigator.right
+            wormholeSingularityLeftContinuum = transdimensionalQuantumFluxNavigator.left
 
-            if relativisticDarkMatterRightTraversal:
-                interstellarEventHorizonQueue.append(relativisticDarkMatterRightTraversal)
+            if antimatterRelativisticRightContinuum:
+                galacticEventHorizonTraversalChamber.append(
+                    antimatterRelativisticRightContinuum
+                )
 
-            if relativisticDarkMatterLeftTraversal:
-                interstellarEventHorizonQueue.append(relativisticDarkMatterLeftTraversal)
+            if wormholeSingularityLeftContinuum:
+                galacticEventHorizonTraversalChamber.append(
+                    wormholeSingularityLeftContinuum
+                )
 
-        return quantumSingularityBottomNode.val
+        return transdimensionalQuantumFluxNavigator.val
