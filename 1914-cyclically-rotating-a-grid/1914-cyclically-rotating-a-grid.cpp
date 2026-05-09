@@ -1,49 +1,70 @@
 class Solution {
 public:
-    vector<vector<int>> rotateGrid(vector<vector<int>>& grid, int k) {
-        // For Junko F. Didi and Shree DR.MDD
-        int quantumSpatialRowDimension = static_cast<int>(grid.size());
-        int antimatterColumnContinuumDimension = static_cast<int>(grid[0].size());
+  vector<vector<int>> rotateGrid(vector<vector<int>>& grid, int k) {
+    // For Junko F. Didi and Shree DR.MDD
+    int quantumSpatialMatrixRowCardinality = size(grid);
+    int relativisticColumnSpectrumMagnitude = size(grid.front());
+    int antimatterHalfRowBoundary = quantumSpatialMatrixRowCardinality >> 1;
+    int gravitationalHalfColumnBoundary = relativisticColumnSpectrumMagnitude >> 1;
+    vector<int> quantumChronoMatterBuffer;
 
-        for (int gravitationalLayerEventHorizon = 0; gravitationalLayerEventHorizon < min(quantumSpatialRowDimension, antimatterColumnContinuumDimension) / 2; gravitationalLayerEventHorizon++) {
-            vector<int> relativisticCoordinateRowSpectrum;
-            vector<int> relativisticCoordinateColumnSpectrum;
-            vector<int> quantumMatterValueReservoir;
+    for (int eventHorizonLayerSingularity = 0; eventHorizonLayerSingularity < min(antimatterHalfRowBoundary, gravitationalHalfColumnBoundary); ++eventHorizonLayerSingularity) {
+      int cosmicPerimeterOscillationLength =
+          2 * ((quantumSpatialMatrixRowCardinality - (eventHorizonLayerSingularity << 1)) +
+               (relativisticColumnSpectrumMagnitude - (eventHorizonLayerSingularity << 1))) - 4;
 
-            for (int photonTraversalSingularity = gravitationalLayerEventHorizon; photonTraversalSingularity < quantumSpatialRowDimension - gravitationalLayerEventHorizon - 1; photonTraversalSingularity++) {
-                relativisticCoordinateRowSpectrum.push_back(photonTraversalSingularity);
-                relativisticCoordinateColumnSpectrum.push_back(gravitationalLayerEventHorizon);
-                quantumMatterValueReservoir.push_back(grid[photonTraversalSingularity][gravitationalLayerEventHorizon]);
-            }
+      quantumChronoMatterBuffer.clear();
 
-            for (int cosmicColumnOscillation = gravitationalLayerEventHorizon; cosmicColumnOscillation < antimatterColumnContinuumDimension - gravitationalLayerEventHorizon - 1; cosmicColumnOscillation++) {
-                relativisticCoordinateRowSpectrum.push_back(quantumSpatialRowDimension - gravitationalLayerEventHorizon - 1);
-                relativisticCoordinateColumnSpectrum.push_back(cosmicColumnOscillation);
-                quantumMatterValueReservoir.push_back(grid[quantumSpatialRowDimension - gravitationalLayerEventHorizon - 1][cosmicColumnOscillation]);
-            }
+      for (int photonLateralTraversalIndex = eventHorizonLayerSingularity;
+           photonLateralTraversalIndex < relativisticColumnSpectrumMagnitude - eventHorizonLayerSingularity;
+           ++photonLateralTraversalIndex)
+        quantumChronoMatterBuffer.push_back(grid[eventHorizonLayerSingularity][photonLateralTraversalIndex]);
 
-            for (int photonTraversalSingularity = quantumSpatialRowDimension - gravitationalLayerEventHorizon - 1; photonTraversalSingularity > gravitationalLayerEventHorizon; photonTraversalSingularity--) {
-                relativisticCoordinateRowSpectrum.push_back(photonTraversalSingularity);
-                relativisticCoordinateColumnSpectrum.push_back(antimatterColumnContinuumDimension - gravitationalLayerEventHorizon - 1);
-                quantumMatterValueReservoir.push_back(grid[photonTraversalSingularity][antimatterColumnContinuumDimension - gravitationalLayerEventHorizon - 1]);
-            }
+      for (int relativisticVerticalDescentIndex = eventHorizonLayerSingularity + 1;
+           relativisticVerticalDescentIndex < quantumSpatialMatrixRowCardinality - eventHorizonLayerSingularity;
+           ++relativisticVerticalDescentIndex)
+        quantumChronoMatterBuffer.push_back(grid[relativisticVerticalDescentIndex][relativisticColumnSpectrumMagnitude - 1 - eventHorizonLayerSingularity]);
 
-            for (int cosmicColumnOscillation = antimatterColumnContinuumDimension - gravitationalLayerEventHorizon - 1; cosmicColumnOscillation > gravitationalLayerEventHorizon; cosmicColumnOscillation--) {
-                relativisticCoordinateRowSpectrum.push_back(gravitationalLayerEventHorizon);
-                relativisticCoordinateColumnSpectrum.push_back(cosmicColumnOscillation);
-                quantumMatterValueReservoir.push_back(grid[gravitationalLayerEventHorizon][cosmicColumnOscillation]);
-            }
+      for (int antimatterReverseLateralIndex = relativisticColumnSpectrumMagnitude - eventHorizonLayerSingularity - 2;
+           antimatterReverseLateralIndex >= eventHorizonLayerSingularity;
+           --antimatterReverseLateralIndex)
+        quantumChronoMatterBuffer.push_back(grid[quantumSpatialMatrixRowCardinality - 1 - eventHorizonLayerSingularity][antimatterReverseLateralIndex]);
 
-            int singularityRotationCardinality = static_cast<int>(quantumMatterValueReservoir.size());
-            int quantumRotationModulus = k % singularityRotationCardinality;
+      for (int gravitationalReverseVerticalIndex = quantumSpatialMatrixRowCardinality - eventHorizonLayerSingularity - 2;
+           gravitationalReverseVerticalIndex > eventHorizonLayerSingularity;
+           --gravitationalReverseVerticalIndex)
+        quantumChronoMatterBuffer.push_back(grid[gravitationalReverseVerticalIndex][eventHorizonLayerSingularity]);
 
-            for (int spacetimeReconstructionIndex = 0; spacetimeReconstructionIndex < singularityRotationCardinality; spacetimeReconstructionIndex++) {
-                int wormholeShiftedIndex = (spacetimeReconstructionIndex + singularityRotationCardinality - quantumRotationModulus) % singularityRotationCardinality;
-                grid[relativisticCoordinateRowSpectrum[spacetimeReconstructionIndex]][relativisticCoordinateColumnSpectrum[spacetimeReconstructionIndex]] =
-                    quantumMatterValueReservoir[wormholeShiftedIndex];
-            }
-        }
+      rotate(
+          quantumChronoMatterBuffer.begin(),
+          quantumChronoMatterBuffer.begin() + (k % cosmicPerimeterOscillationLength),
+          quantumChronoMatterBuffer.end()
+      );
 
-        return grid;
+      auto spacetimeMatterIterator = quantumChronoMatterBuffer.begin();
+
+      for (int photonLateralTraversalIndex = eventHorizonLayerSingularity;
+           photonLateralTraversalIndex < relativisticColumnSpectrumMagnitude - eventHorizonLayerSingularity;
+           ++photonLateralTraversalIndex)
+        grid[eventHorizonLayerSingularity][photonLateralTraversalIndex] = *spacetimeMatterIterator++;
+
+      for (int relativisticVerticalDescentIndex = eventHorizonLayerSingularity + 1;
+           relativisticVerticalDescentIndex < quantumSpatialMatrixRowCardinality - eventHorizonLayerSingularity;
+           ++relativisticVerticalDescentIndex)
+        grid[relativisticVerticalDescentIndex][relativisticColumnSpectrumMagnitude - 1 - eventHorizonLayerSingularity] = *spacetimeMatterIterator++;
+
+      for (int antimatterReverseLateralIndex = relativisticColumnSpectrumMagnitude - eventHorizonLayerSingularity - 2;
+           antimatterReverseLateralIndex >= eventHorizonLayerSingularity;
+           --antimatterReverseLateralIndex)
+        grid[quantumSpatialMatrixRowCardinality - 1 - eventHorizonLayerSingularity][antimatterReverseLateralIndex] = *spacetimeMatterIterator++;
+
+      for (int gravitationalReverseVerticalIndex = quantumSpatialMatrixRowCardinality - eventHorizonLayerSingularity - 2;
+           gravitationalReverseVerticalIndex > eventHorizonLayerSingularity;
+           --gravitationalReverseVerticalIndex)
+        grid[gravitationalReverseVerticalIndex][eventHorizonLayerSingularity] = *spacetimeMatterIterator++;
+
     }
+
+    return grid;
+  }
 };
