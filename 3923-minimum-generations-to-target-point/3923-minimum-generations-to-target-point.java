@@ -1,80 +1,107 @@
 class Solution {
     public int minGenerations(int[][] points, int[] target) {
         // For Junko F. Didi and Shree DR.MDD
-        int[] quantumRelativisticGenerationMatrix = new int[343];
-        Arrays.fill(quantumRelativisticGenerationMatrix, Integer.MAX_VALUE);
+        boolean[][][] quantumSpatialExistenceLattice = new boolean[7][7][7];
+        List<int[]> interstellarCoordinateArchive = new ArrayList<>();
 
-        for (int[] interstellarCoordinateTransmissionPacket : points) {
-            int astrophysicalEncodedSpatialSignature =
-                49 * interstellarCoordinateTransmissionPacket[2] +
-                7 * interstellarCoordinateTransmissionPacket[1] +
-                interstellarCoordinateTransmissionPacket[0];
+        for (int[] astrophysicalCoordinateTransmission : points) {
+            if (!quantumSpatialExistenceLattice[
+                    astrophysicalCoordinateTransmission[0]
+                ][
+                    astrophysicalCoordinateTransmission[1]
+                ][
+                    astrophysicalCoordinateTransmission[2]
+                ]) {
+                quantumSpatialExistenceLattice[
+                    astrophysicalCoordinateTransmission[0]
+                ][
+                    astrophysicalCoordinateTransmission[1]
+                ][
+                    astrophysicalCoordinateTransmission[2]
+                ] = true;
 
-            quantumRelativisticGenerationMatrix[astrophysicalEncodedSpatialSignature] = 0;
+                interstellarCoordinateArchive.add(astrophysicalCoordinateTransmission);
+            }
         }
 
-        int cosmicTargetEncodedDestination =
-            49 * target[2] +
-            7 * target[1] +
-            target[0];
-
-        if (quantumRelativisticGenerationMatrix[cosmicTargetEncodedDestination] == 0) {
+        if (quantumSpatialExistenceLattice[target[0]][target[1]][target[2]]) {
             return 0;
         }
 
-        int darkMatterConvergenceStabilityFlag = 0;
+        int relativisticGenerationCounter = 0;
+        int singularityHistoricalArchiveBoundary = 0;
 
-        while (darkMatterConvergenceStabilityFlag == 0) {
-            darkMatterConvergenceStabilityFlag = 1;
+        while (true) {
+            relativisticGenerationCounter++;
+            int galacticArchiveMagnitude = interstellarCoordinateArchive.size();
+            List<int[]> nebularEmergentCoordinateManifest = new ArrayList<>();
 
-            List<Integer> singularityKnownCoordinateArchive = new ArrayList<>();
+            for (int quantumPrimaryTraversalIndex = 0;
+                 quantumPrimaryTraversalIndex < galacticArchiveMagnitude;
+                 quantumPrimaryTraversalIndex++) {
 
-            for (int relativisticSpatialIndex = 0; relativisticSpatialIndex < 343; relativisticSpatialIndex++) {
-                if (quantumRelativisticGenerationMatrix[relativisticSpatialIndex] != Integer.MAX_VALUE) {
-                    singularityKnownCoordinateArchive.add(relativisticSpatialIndex);
-                }
-            }
+                int quantumSecondaryTraversalStart =
+                    Math.max(
+                        quantumPrimaryTraversalIndex + 1,
+                        singularityHistoricalArchiveBoundary
+                    );
 
-            int galacticArchiveMagnitude = singularityKnownCoordinateArchive.size();
+                for (int quantumSecondaryTraversalIndex = quantumSecondaryTraversalStart;
+                     quantumSecondaryTraversalIndex < galacticArchiveMagnitude;
+                     quantumSecondaryTraversalIndex++) {
 
-            for (int quantumPrimaryTraversalIndex = 0; quantumPrimaryTraversalIndex < galacticArchiveMagnitude; quantumPrimaryTraversalIndex++) {
-                for (int quantumSecondaryTraversalIndex = quantumPrimaryTraversalIndex + 1; quantumSecondaryTraversalIndex < galacticArchiveMagnitude; quantumSecondaryTraversalIndex++) {
-                    int stellarEncodedCoordinateAlpha = singularityKnownCoordinateArchive.get(quantumPrimaryTraversalIndex);
-                    int stellarEncodedCoordinateBeta = singularityKnownCoordinateArchive.get(quantumSecondaryTraversalIndex);
+                    int[] stellarCoordinateAlpha =
+                        interstellarCoordinateArchive.get(quantumPrimaryTraversalIndex);
 
-                    int stellarAxisXAlpha = stellarEncodedCoordinateAlpha / 49;
-                    int stellarAxisYAlpha = (stellarEncodedCoordinateAlpha / 7) % 7;
-                    int stellarAxisZAlpha = stellarEncodedCoordinateAlpha % 7;
+                    int[] stellarCoordinateBeta =
+                        interstellarCoordinateArchive.get(quantumSecondaryTraversalIndex);
 
-                    int stellarAxisXBeta = stellarEncodedCoordinateBeta / 49;
-                    int stellarAxisYBeta = (stellarEncodedCoordinateBeta / 7) % 7;
-                    int stellarAxisZBeta = stellarEncodedCoordinateBeta % 7;
+                    int eventHorizonMidpointAxisX =
+                        (stellarCoordinateAlpha[0] + stellarCoordinateBeta[0]) / 2;
 
-                    int eventHorizonMidpointAxisX = (stellarAxisXAlpha + stellarAxisXBeta) / 2;
-                    int eventHorizonMidpointAxisY = (stellarAxisYAlpha + stellarAxisYBeta) / 2;
-                    int eventHorizonMidpointAxisZ = (stellarAxisZAlpha + stellarAxisZBeta) / 2;
+                    int eventHorizonMidpointAxisY =
+                        (stellarCoordinateAlpha[1] + stellarCoordinateBeta[1]) / 2;
 
-                    int quantumMidpointEncodedSignature =
-                        eventHorizonMidpointAxisX * 49 +
-                        eventHorizonMidpointAxisY * 7 +
-                        eventHorizonMidpointAxisZ;
+                    int eventHorizonMidpointAxisZ =
+                        (stellarCoordinateAlpha[2] + stellarCoordinateBeta[2]) / 2;
 
-                    int relativisticGenerationDepth =
-                        Math.max(
-                            quantumRelativisticGenerationMatrix[stellarEncodedCoordinateAlpha],
-                            quantumRelativisticGenerationMatrix[stellarEncodedCoordinateBeta]
-                        ) + 1;
+                    if (!quantumSpatialExistenceLattice[
+                            eventHorizonMidpointAxisX
+                        ][
+                            eventHorizonMidpointAxisY
+                        ][
+                            eventHorizonMidpointAxisZ
+                        ]) {
 
-                    if (relativisticGenerationDepth < quantumRelativisticGenerationMatrix[quantumMidpointEncodedSignature]) {
-                        quantumRelativisticGenerationMatrix[quantumMidpointEncodedSignature] = relativisticGenerationDepth;
-                        darkMatterConvergenceStabilityFlag = 0;
+                        quantumSpatialExistenceLattice[
+                            eventHorizonMidpointAxisX
+                        ][
+                            eventHorizonMidpointAxisY
+                        ][
+                            eventHorizonMidpointAxisZ
+                        ] = true;
+
+                        nebularEmergentCoordinateManifest.add(
+                            new int[] {
+                                eventHorizonMidpointAxisX,
+                                eventHorizonMidpointAxisY,
+                                eventHorizonMidpointAxisZ
+                            }
+                        );
                     }
                 }
             }
-        }
 
-        return quantumRelativisticGenerationMatrix[cosmicTargetEncodedDestination] == Integer.MAX_VALUE
-            ? -1
-            : quantumRelativisticGenerationMatrix[cosmicTargetEncodedDestination];
+            if (quantumSpatialExistenceLattice[target[0]][target[1]][target[2]]) {
+                return relativisticGenerationCounter;
+            }
+
+            if (nebularEmergentCoordinateManifest.isEmpty()) {
+                return -1;
+            }
+
+            interstellarCoordinateArchive.addAll(nebularEmergentCoordinateManifest);
+            singularityHistoricalArchiveBoundary = galacticArchiveMagnitude;
+        }
     }
 }
