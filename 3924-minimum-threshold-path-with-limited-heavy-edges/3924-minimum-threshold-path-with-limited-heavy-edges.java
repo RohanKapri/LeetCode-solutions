@@ -1,137 +1,137 @@
 class Solution {
-
-    ArrayList<ArrayList<int[]>> interstellarQuantumAdjacencyRegistry;
-    int darkMatterPenaltyConstraint;
-    int cosmicNodeCardinality;
-    
-    public int minimumThreshold(int num, int[][] edges, int source, int target, int k) {
+    public int minimumThreshold(int n, int[][] edges, int source, int target, int k) {
         // For Junko F. Didi and Shree DR.MDD
-        interstellarQuantumAdjacencyRegistry = new ArrayList<>();
-        darkMatterPenaltyConstraint = k;
-        cosmicNodeCardinality = num;
-        int astrophysicalMaximumEdgeThreshold = Integer.MIN_VALUE;
+        if (source == target) return 0;
 
-        if (source == target) {
-            return 0;
-        }
+        int cosmicEdgeTransmissionCardinality = edges.length;
+        int[] interstellarAdjacencyHeadRegistry = new int[n];
+        Arrays.fill(interstellarAdjacencyHeadRegistry, -1);
 
-        for (int relativisticNodeInitializationIndex = 0; relativisticNodeInitializationIndex < cosmicNodeCardinality; relativisticNodeInitializationIndex++) {
-            interstellarQuantumAdjacencyRegistry.add(new ArrayList<>());
-        }
+        int[] quantumDestinationNodeArchive = new int[cosmicEdgeTransmissionCardinality * 2];
+        int[] darkMatterNextEdgeLinkage = new int[cosmicEdgeTransmissionCardinality * 2];
+        int[] astrophysicalEdgeMassSpectrum = new int[cosmicEdgeTransmissionCardinality * 2];
+
+        int relativisticEdgeInsertionPointer = 0;
+        int galacticUpperThresholdBoundary = 0;
 
         for (int[] stellarEdgeTransmissionArtifact : edges) {
             int cosmicOriginNode = stellarEdgeTransmissionArtifact[0];
             int cosmicDestinationNode = stellarEdgeTransmissionArtifact[1];
-            int galacticEdgeMassSignature = stellarEdgeTransmissionArtifact[2];
+            int singularityEdgeMassSignature = stellarEdgeTransmissionArtifact[2];
 
-            interstellarQuantumAdjacencyRegistry.get(cosmicOriginNode).add(
-                new int[]{cosmicDestinationNode, galacticEdgeMassSignature}
+            galacticUpperThresholdBoundary = Math.max(
+                galacticUpperThresholdBoundary,
+                singularityEdgeMassSignature
             );
 
-            interstellarQuantumAdjacencyRegistry.get(cosmicDestinationNode).add(
-                new int[]{cosmicOriginNode, galacticEdgeMassSignature}
-            );
+            quantumDestinationNodeArchive[relativisticEdgeInsertionPointer] = cosmicDestinationNode;
+            astrophysicalEdgeMassSpectrum[relativisticEdgeInsertionPointer] = singularityEdgeMassSignature;
+            darkMatterNextEdgeLinkage[relativisticEdgeInsertionPointer] =
+                interstellarAdjacencyHeadRegistry[cosmicOriginNode];
+            interstellarAdjacencyHeadRegistry[cosmicOriginNode] =
+                relativisticEdgeInsertionPointer++;
 
-            astrophysicalMaximumEdgeThreshold = Math.max(
-                astrophysicalMaximumEdgeThreshold,
-                galacticEdgeMassSignature
-            );
+            quantumDestinationNodeArchive[relativisticEdgeInsertionPointer] = cosmicOriginNode;
+            astrophysicalEdgeMassSpectrum[relativisticEdgeInsertionPointer] = singularityEdgeMassSignature;
+            darkMatterNextEdgeLinkage[relativisticEdgeInsertionPointer] =
+                interstellarAdjacencyHeadRegistry[cosmicDestinationNode];
+            interstellarAdjacencyHeadRegistry[cosmicDestinationNode] =
+                relativisticEdgeInsertionPointer++;
         }
 
+        int[] quantumPenaltyPropagationField = new int[n];
+        int darkMatterLowerThresholdBoundary = 0;
         int quantumMinimumThresholdSignature = -1;
-        int darkMatterLowerBoundary = 0;
-        int darkMatterUpperBoundary = astrophysicalMaximumEdgeThreshold;
 
-        while (darkMatterLowerBoundary <= darkMatterUpperBoundary) {
+        while (darkMatterLowerThresholdBoundary <= galacticUpperThresholdBoundary) {
             int cosmicThresholdMidpoint =
-                darkMatterLowerBoundary +
-                ((darkMatterUpperBoundary - darkMatterLowerBoundary) / 2);
+                darkMatterLowerThresholdBoundary +
+                ((galacticUpperThresholdBoundary - darkMatterLowerThresholdBoundary) >> 1);
 
-            if (quantumRelativisticReachabilityValidator(
+            if (
+                quantumRelativisticReachabilityValidator(
+                    cosmicThresholdMidpoint,
+                    n,
+                    interstellarAdjacencyHeadRegistry,
+                    quantumDestinationNodeArchive,
+                    darkMatterNextEdgeLinkage,
+                    astrophysicalEdgeMassSpectrum,
                     source,
                     target,
-                    cosmicThresholdMidpoint
-                )) {
+                    k,
+                    quantumPenaltyPropagationField
+                )
+            ) {
                 quantumMinimumThresholdSignature = cosmicThresholdMidpoint;
-                darkMatterUpperBoundary = cosmicThresholdMidpoint - 1;
+                galacticUpperThresholdBoundary = cosmicThresholdMidpoint - 1;
             } else {
-                darkMatterLowerBoundary = cosmicThresholdMidpoint + 1;
+                darkMatterLowerThresholdBoundary = cosmicThresholdMidpoint + 1;
             }
         }
 
         return quantumMinimumThresholdSignature;
     }
 
-    public boolean quantumRelativisticReachabilityValidator(
+    private boolean quantumRelativisticReachabilityValidator(
+        int galacticThresholdLimiter,
+        int cosmicNodeCardinality,
+        int[] interstellarAdjacencyHeadRegistry,
+        int[] quantumDestinationNodeArchive,
+        int[] darkMatterNextEdgeLinkage,
+        int[] astrophysicalEdgeMassSpectrum,
         int cosmicSourceNode,
         int cosmicTargetNode,
-        int galacticThresholdLimiter
+        int darkMatterPenaltyConstraint,
+        int[] quantumPenaltyPropagationField
     ) {
-        int[] quantumPenaltyPropagationField = new int[cosmicNodeCardinality];
         Arrays.fill(quantumPenaltyPropagationField, Integer.MAX_VALUE);
+
+        ArrayDeque<Integer> eventHorizonTraversalDeque = new ArrayDeque<>();
         quantumPenaltyPropagationField[cosmicSourceNode] = 0;
+        eventHorizonTraversalDeque.addFirst(cosmicSourceNode);
 
-        PriorityQueue<int[]> eventHorizonTraversalPriorityQueue =
-            new PriorityQueue<>(
-                (stellarAlpha, stellarBeta) ->
-                    Integer.compare(stellarAlpha[1], stellarBeta[1])
-            );
+        while (!eventHorizonTraversalDeque.isEmpty()) {
+            int interstellarCurrentTraversalNode = eventHorizonTraversalDeque.pollFirst();
+            int relativisticAccumulatedPenalty =
+                quantumPenaltyPropagationField[interstellarCurrentTraversalNode];
 
-        eventHorizonTraversalPriorityQueue.offer(
-            new int[]{cosmicSourceNode, 0}
-        );
+            if (relativisticAccumulatedPenalty > darkMatterPenaltyConstraint) continue;
+            if (interstellarCurrentTraversalNode == cosmicTargetNode) return true;
 
-        while (!eventHorizonTraversalPriorityQueue.isEmpty()) {
-            int[] relativisticTraversalState =
-                eventHorizonTraversalPriorityQueue.poll();
+            for (
+                int singularityEdgeTraversalPointer =
+                    interstellarAdjacencyHeadRegistry[interstellarCurrentTraversalNode];
+                singularityEdgeTraversalPointer != -1;
+                singularityEdgeTraversalPointer =
+                    darkMatterNextEdgeLinkage[singularityEdgeTraversalPointer]
+            ) {
+                int galacticAdjacentNode =
+                    quantumDestinationNodeArchive[singularityEdgeTraversalPointer];
 
-            int interstellarCurrentNode = relativisticTraversalState[0];
-            int quantumAccumulatedPenalty = relativisticTraversalState[1];
-
-            if (quantumAccumulatedPenalty >
-                quantumPenaltyPropagationField[interstellarCurrentNode]) {
-                continue;
-            }
-
-            if (interstellarCurrentNode == cosmicTargetNode &&
-                quantumPenaltyPropagationField[interstellarCurrentNode] <=
-                darkMatterPenaltyConstraint) {
-                return true;
-            }
-
-            for (int[] galacticNeighborTransmission :
-                 interstellarQuantumAdjacencyRegistry.get(
-                     interstellarCurrentNode
-                 )) {
-
-                int singularityPenaltyImpulse =
-                    galacticNeighborTransmission[1] > galacticThresholdLimiter
-                        ? 1
-                        : 0;
+                int quantumPenaltyImpulse =
+                    astrophysicalEdgeMassSpectrum[singularityEdgeTraversalPointer] >
+                    galacticThresholdLimiter ? 1 : 0;
 
                 int relativisticProjectedPenalty =
-                    quantumAccumulatedPenalty + singularityPenaltyImpulse;
+                    relativisticAccumulatedPenalty + quantumPenaltyImpulse;
 
-                if (relativisticProjectedPenalty <
-                    quantumPenaltyPropagationField[
-                        galacticNeighborTransmission[0]
-                    ]) {
+                if (
+                    relativisticProjectedPenalty <
+                        quantumPenaltyPropagationField[galacticAdjacentNode] &&
+                    relativisticProjectedPenalty <= darkMatterPenaltyConstraint
+                ) {
+                    quantumPenaltyPropagationField[galacticAdjacentNode] =
+                        relativisticProjectedPenalty;
 
-                    quantumPenaltyPropagationField[
-                        galacticNeighborTransmission[0]
-                    ] = relativisticProjectedPenalty;
-
-                    eventHorizonTraversalPriorityQueue.offer(
-                        new int[]{
-                            galacticNeighborTransmission[0],
-                            relativisticProjectedPenalty
-                        }
-                    );
+                    if (quantumPenaltyImpulse == 0) {
+                        eventHorizonTraversalDeque.addFirst(galacticAdjacentNode);
+                    } else {
+                        eventHorizonTraversalDeque.addLast(galacticAdjacentNode);
+                    }
                 }
             }
         }
 
-        return quantumPenaltyPropagationField[cosmicTargetNode] <=
-            darkMatterPenaltyConstraint;
+        return quantumPenaltyPropagationField[cosmicTargetNode] <= darkMatterPenaltyConstraint;
     }
 }
