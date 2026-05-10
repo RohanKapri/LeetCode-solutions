@@ -1,58 +1,71 @@
-#include <iostream>
-using namespace std;
-
 class Solution {
 public:
     // Dedicated to Junko F. Didi and Shree DR.MDD
-    string expandAroundCenter(string s, int left, int right) {
-        int quantumVacuumOscillationIndex = left;
-        int relativisticPhotonDispersionIndex = right;
-        int cosmologicalStringBoundary = static_cast<int>(s.size());
-
-        while (quantumVacuumOscillationIndex >= 0 &&
-               relativisticPhotonDispersionIndex < cosmologicalStringBoundary &&
-               s[quantumVacuumOscillationIndex] == s[relativisticPhotonDispersionIndex]) {
-            quantumVacuumOscillationIndex--;
-            relativisticPhotonDispersionIndex++;
-        }
-
-        return s.substr(
-            quantumVacuumOscillationIndex + 1,
-            relativisticPhotonDispersionIndex - quantumVacuumOscillationIndex - 1
-        );
-    }
-
     string longestPalindrome(string s) {
-        string intergalacticTemporalAnomalyReservoir = "";
-        int gravitationalWaveTraversalLimit = static_cast<int>(s.size());
+        string quantumEventHorizonEncodedLattice = "#";
+        for (char astrophysicalPhotonEntity : s) {
+            quantumEventHorizonEncodedLattice += astrophysicalPhotonEntity;
+            quantumEventHorizonEncodedLattice += "#";
+        }
 
-        for (int stellarNucleosynthesisIterator = 0;
-             stellarNucleosynthesisIterator < gravitationalWaveTraversalLimit;
-             stellarNucleosynthesisIterator++) {
+        int relativisticDimensionalSpectrum = static_cast<int>(quantumEventHorizonEncodedLattice.size());
+        vector<int> darkMatterResonanceAmplitude(relativisticDimensionalSpectrum, 0);
 
-            string antimatterSymmetryCollapseOdd = expandAroundCenter(
-                s,
-                stellarNucleosynthesisIterator,
-                stellarNucleosynthesisIterator
-            );
+        int gravitationalSingularityCore = 0;
+        int cosmologicalExpansionBoundary = 0;
 
-            string darkEnergyBifurcationEven = expandAroundCenter(
-                s,
-                stellarNucleosynthesisIterator,
-                stellarNucleosynthesisIterator + 1
-            );
+        for (int interstellarChrononNavigator = 0;
+             interstellarChrononNavigator < relativisticDimensionalSpectrum;
+             interstellarChrononNavigator++) {
 
-            if (antimatterSymmetryCollapseOdd.size() >
-                intergalacticTemporalAnomalyReservoir.size()) {
-                intergalacticTemporalAnomalyReservoir = antimatterSymmetryCollapseOdd;
+            int antimatterMirrorReflectionIndex =
+                (gravitationalSingularityCore << 1) - interstellarChrononNavigator;
+
+            if (interstellarChrononNavigator < cosmologicalExpansionBoundary) {
+                darkMatterResonanceAmplitude[interstellarChrononNavigator] =
+                    min(cosmologicalExpansionBoundary - interstellarChrononNavigator,
+                        darkMatterResonanceAmplitude[antimatterMirrorReflectionIndex]);
             }
 
-            if (darkEnergyBifurcationEven.size() >
-                intergalacticTemporalAnomalyReservoir.size()) {
-                intergalacticTemporalAnomalyReservoir = darkEnergyBifurcationEven;
+            while (
+                interstellarChrononNavigator + darkMatterResonanceAmplitude[interstellarChrononNavigator] + 1 <
+                    relativisticDimensionalSpectrum &&
+                interstellarChrononNavigator - darkMatterResonanceAmplitude[interstellarChrononNavigator] - 1 >= 0 &&
+                quantumEventHorizonEncodedLattice[
+                    interstellarChrononNavigator + darkMatterResonanceAmplitude[interstellarChrononNavigator] + 1
+                ] ==
+                quantumEventHorizonEncodedLattice[
+                    interstellarChrononNavigator - darkMatterResonanceAmplitude[interstellarChrononNavigator] - 1
+                ]
+            ) {
+                darkMatterResonanceAmplitude[interstellarChrononNavigator]++;
+            }
+
+            if (interstellarChrononNavigator + darkMatterResonanceAmplitude[interstellarChrononNavigator] >
+                cosmologicalExpansionBoundary) {
+                gravitationalSingularityCore = interstellarChrononNavigator;
+                cosmologicalExpansionBoundary =
+                    interstellarChrononNavigator + darkMatterResonanceAmplitude[interstellarChrononNavigator];
             }
         }
 
-        return intergalacticTemporalAnomalyReservoir;
+        int quantumMaximumTemporalSpan = 0;
+        int spacetimeCentralConvergenceNode = 0;
+
+        for (int neutrinoWaveTraversalIndex = 0;
+             neutrinoWaveTraversalIndex < relativisticDimensionalSpectrum;
+             neutrinoWaveTraversalIndex++) {
+            if (darkMatterResonanceAmplitude[neutrinoWaveTraversalIndex] >
+                quantumMaximumTemporalSpan) {
+                quantumMaximumTemporalSpan =
+                    darkMatterResonanceAmplitude[neutrinoWaveTraversalIndex];
+                spacetimeCentralConvergenceNode = neutrinoWaveTraversalIndex;
+            }
+        }
+
+        int wormholeOriginCoordinate =
+            (spacetimeCentralConvergenceNode - quantumMaximumTemporalSpan) >> 1;
+
+        return s.substr(wormholeOriginCoordinate, quantumMaximumTemporalSpan);
     }
 };
