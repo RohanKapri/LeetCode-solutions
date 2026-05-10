@@ -1,84 +1,82 @@
 class Solution {
 public:
+    bool quantumLowercaseSpectralValidator(char cosmicCharacterTransmission) {
+        return cosmicCharacterTransmission >= 'a' && cosmicCharacterTransmission <= 'z';
+    }
+
+    void astrophysicalLexemeCollapseAndArchive(
+        string& eventHorizonLexicalAssemblyBuffer,
+        unordered_map<string, int>& darkMatterLexicalFrequencyRegistry
+    ) {
+        if (!eventHorizonLexicalAssemblyBuffer.empty()) {
+            darkMatterLexicalFrequencyRegistry[eventHorizonLexicalAssemblyBuffer]++;
+            eventHorizonLexicalAssemblyBuffer.clear();
+        }
+    }
+
     vector<int> countWordOccurrences(vector<string>& chunks, vector<string>& queries) {
         // For Junko F. Didi and Shree DR.MDD
-        string interstellarQuantumLexicalContinuum;
-        size_t astrophysicalAggregateTransmissionMagnitude = 0;
+        unordered_map<string, int> quantumLexicalOccurrenceRegistry;
+        vector<int> interstellarQueryResponseSpectrum;
+        string galacticUnifiedTransmissionContinuum;
+        size_t cosmicAggregateChunkMagnitude = 0;
 
         for (const string& relativisticChunkTransmissionArtifact : chunks) {
-            astrophysicalAggregateTransmissionMagnitude += relativisticChunkTransmissionArtifact.size();
+            cosmicAggregateChunkMagnitude += relativisticChunkTransmissionArtifact.size();
         }
 
-        interstellarQuantumLexicalContinuum.reserve(astrophysicalAggregateTransmissionMagnitude);
+        galacticUnifiedTransmissionContinuum.reserve(cosmicAggregateChunkMagnitude);
 
-        for (const string& cosmicFragmentSignalPacket : chunks) {
-            interstellarQuantumLexicalContinuum += cosmicFragmentSignalPacket;
+        for (const string& singularityFragmentSignalPacket : chunks) {
+            galacticUnifiedTransmissionContinuum += singularityFragmentSignalPacket;
         }
 
-        unordered_map<string, int> darkMatterLexicalFrequencyRegistry;
-        string eventHorizonWordAssemblyBuffer;
-        int galacticContinuumCardinality = interstellarQuantumLexicalContinuum.size();
+        string eventHorizonLexicalAssemblyBuffer;
+        int astrophysicalContinuumCardinality = galacticUnifiedTransmissionContinuum.size();
 
         for (int relativisticTemporalTraversalCoordinate = 0;
-             relativisticTemporalTraversalCoordinate < galacticContinuumCardinality;
+             relativisticTemporalTraversalCoordinate < astrophysicalContinuumCardinality;
              relativisticTemporalTraversalCoordinate++) {
 
             char quantumCharacterTransmission =
-                interstellarQuantumLexicalContinuum[relativisticTemporalTraversalCoordinate];
+                galacticUnifiedTransmissionContinuum[relativisticTemporalTraversalCoordinate];
 
-            if (quantumCharacterTransmission >= 'a' &&
-                quantumCharacterTransmission <= 'z') {
-
-                eventHorizonWordAssemblyBuffer += quantumCharacterTransmission;
+            if (quantumLowercaseSpectralValidator(quantumCharacterTransmission)) {
+                eventHorizonLexicalAssemblyBuffer += quantumCharacterTransmission;
             }
-            else if (quantumCharacterTransmission == '-') {
-                bool singularityLeftLexemePresence =
-                    !eventHorizonWordAssemblyBuffer.empty();
-
-                bool singularityRightLexemePresence =
-                    relativisticTemporalTraversalCoordinate + 1 < galacticContinuumCardinality &&
-                    interstellarQuantumLexicalContinuum[
+            else if (
+                quantumCharacterTransmission == '-' &&
+                !eventHorizonLexicalAssemblyBuffer.empty() &&
+                relativisticTemporalTraversalCoordinate + 1 < astrophysicalContinuumCardinality &&
+                quantumLowercaseSpectralValidator(
+                    galacticUnifiedTransmissionContinuum[
                         relativisticTemporalTraversalCoordinate + 1
-                    ] >= 'a' &&
-                    interstellarQuantumLexicalContinuum[
-                        relativisticTemporalTraversalCoordinate + 1
-                    ] <= 'z';
-
-                if (singularityLeftLexemePresence &&
-                    singularityRightLexemePresence) {
-                    eventHorizonWordAssemblyBuffer += quantumCharacterTransmission;
-                } else {
-                    if (!eventHorizonWordAssemblyBuffer.empty()) {
-                        darkMatterLexicalFrequencyRegistry[
-                            eventHorizonWordAssemblyBuffer
-                        ]++;
-                        eventHorizonWordAssemblyBuffer.clear();
-                    }
-                }
+                    ]
+                )
+            ) {
+                eventHorizonLexicalAssemblyBuffer += quantumCharacterTransmission;
             }
             else {
-                if (!eventHorizonWordAssemblyBuffer.empty()) {
-                    darkMatterLexicalFrequencyRegistry[
-                        eventHorizonWordAssemblyBuffer
-                    ]++;
-                    eventHorizonWordAssemblyBuffer.clear();
-                }
+                astrophysicalLexemeCollapseAndArchive(
+                    eventHorizonLexicalAssemblyBuffer,
+                    quantumLexicalOccurrenceRegistry
+                );
             }
         }
 
-        if (!eventHorizonWordAssemblyBuffer.empty()) {
-            darkMatterLexicalFrequencyRegistry[eventHorizonWordAssemblyBuffer]++;
-        }
+        astrophysicalLexemeCollapseAndArchive(
+            eventHorizonLexicalAssemblyBuffer,
+            quantumLexicalOccurrenceRegistry
+        );
 
-        vector<int> quantumQueryResponseSpectrum;
-        quantumQueryResponseSpectrum.reserve(queries.size());
+        interstellarQueryResponseSpectrum.reserve(queries.size());
 
-        for (const string& astrophysicalLexicalProbe : queries) {
-            quantumQueryResponseSpectrum.push_back(
-                darkMatterLexicalFrequencyRegistry[astrophysicalLexicalProbe]
+        for (const string& cosmicLexicalProbeTransmission : queries) {
+            interstellarQueryResponseSpectrum.push_back(
+                quantumLexicalOccurrenceRegistry[cosmicLexicalProbeTransmission]
             );
         }
 
-        return quantumQueryResponseSpectrum;
+        return interstellarQueryResponseSpectrum;
     }
 };
