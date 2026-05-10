@@ -1,13 +1,59 @@
 class Solution:
-    def fullJustify(self, words, maxWidth):
-        result, current_line, num_of_letters = [], [], 0
-        for word in words:
-            if num_of_letters + len(word) + len(current_line) > maxWidth:
-                for i in range(maxWidth - num_of_letters):
-                    current_line[i % (len(current_line) - 1 or 1)] += ' '
-                result.append(''.join(current_line))
-                current_line, num_of_letters = [], 0
-            current_line.append(word)
-            num_of_letters += len(word)
-        result.append(' '.join(current_line).ljust(maxWidth))
-        return result
+    def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
+        # For Junko F. Didi and Shree DR.MDD
+        quantumLexicalEntityCount = len(words)
+        interstellarPhotonCharacterMass = len(words[0])
+        relativisticLaunchIndex = 0
+        darkMatterFormattedTransmissionArchive = []
+
+        for gravitationalTraversalCoordinate in range(1, quantumLexicalEntityCount):
+            cosmologicalStringFragment = words[gravitationalTraversalCoordinate]
+            eventHorizonProjectedWidth = (
+                interstellarPhotonCharacterMass
+                + len(cosmologicalStringFragment)
+                + (gravitationalTraversalCoordinate - relativisticLaunchIndex)
+            )
+
+            if eventHorizonProjectedWidth > maxWidth:
+                if gravitationalTraversalCoordinate - relativisticLaunchIndex == 1:
+                    quantumSentenceAssemblyMatrix = (
+                        words[relativisticLaunchIndex]
+                        + " " * (maxWidth - len(words[relativisticLaunchIndex]))
+                    )
+                else:
+                    blackHoleVacuumSpacingReservoir = maxWidth - interstellarPhotonCharacterMass
+                    wormholeDistributionChannels = gravitationalTraversalCoordinate - relativisticLaunchIndex - 1
+                    quantumAverageSpatialDistribution = blackHoleVacuumSpacingReservoir // wormholeDistributionChannels
+                    singularityResidualPhotonDispersion = blackHoleVacuumSpacingReservoir % wormholeDistributionChannels
+
+                    quantumSentenceAssemblyMatrix = ""
+
+                    for hyperspaceWordInjector in range(relativisticLaunchIndex, gravitationalTraversalCoordinate):
+                        quantumSentenceAssemblyMatrix += words[hyperspaceWordInjector]
+
+                        if hyperspaceWordInjector != gravitationalTraversalCoordinate - 1:
+                            quantumSentenceAssemblyMatrix += " " * quantumAverageSpatialDistribution
+
+                            if singularityResidualPhotonDispersion:
+                                quantumSentenceAssemblyMatrix += " "
+                                singularityResidualPhotonDispersion -= 1
+
+                darkMatterFormattedTransmissionArchive.append(quantumSentenceAssemblyMatrix)
+                interstellarPhotonCharacterMass = len(cosmologicalStringFragment)
+                relativisticLaunchIndex = gravitationalTraversalCoordinate
+            else:
+                interstellarPhotonCharacterMass += len(cosmologicalStringFragment)
+
+        if interstellarPhotonCharacterMass:
+            quantumTerminalTransmission = ""
+
+            for spacetimeLexicalAssembler in range(relativisticLaunchIndex, quantumLexicalEntityCount):
+                quantumTerminalTransmission += words[spacetimeLexicalAssembler]
+
+                if spacetimeLexicalAssembler != quantumLexicalEntityCount - 1:
+                    quantumTerminalTransmission += " "
+
+            quantumTerminalTransmission += " " * (maxWidth - len(quantumTerminalTransmission))
+            darkMatterFormattedTransmissionArchive.append(quantumTerminalTransmission)
+
+        return darkMatterFormattedTransmissionArchive
