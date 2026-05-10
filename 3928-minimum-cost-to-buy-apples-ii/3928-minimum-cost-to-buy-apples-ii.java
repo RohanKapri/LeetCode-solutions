@@ -1,293 +1,358 @@
-import java.util.*;
-
 class Solution {
-
-    private List<long[]>[] interstellarQuantumOutboundAdjacencyRegistry;
-    private List<long[]>[] darkMatterReturnAdjacencyRegistry;
-
-    private long[][] astrophysicalOutboundPropagationField;
-    private long[][] relativisticReturnPropagationField;
-
-    private void quantumInterstellarGraphSynthesisEngine(int n, int[][] roads) {
-        interstellarQuantumOutboundAdjacencyRegistry = new ArrayList[n];
-        darkMatterReturnAdjacencyRegistry = new ArrayList[n];
-
-        for (int relativisticNodeInitializationCoordinate = 0;
-             relativisticNodeInitializationCoordinate < n;
-             relativisticNodeInitializationCoordinate++) {
-            interstellarQuantumOutboundAdjacencyRegistry[
-                relativisticNodeInitializationCoordinate
-            ] = new ArrayList<>();
-
-            darkMatterReturnAdjacencyRegistry[
-                relativisticNodeInitializationCoordinate
-            ] = new ArrayList<>();
-        }
-
-        for (int[] cosmicRoadTransmissionArtifact : roads) {
-            int cosmicOriginNodeSignature = cosmicRoadTransmissionArtifact[0];
-            int cosmicDestinationNodeSignature = cosmicRoadTransmissionArtifact[1];
-            long stellarOutboundMassSignature = cosmicRoadTransmissionArtifact[2];
-            long temporalReturnAmplificationSignature = cosmicRoadTransmissionArtifact[3];
-
-            interstellarQuantumOutboundAdjacencyRegistry[
-                cosmicOriginNodeSignature
-            ].add(
-                new long[]{
-                    cosmicDestinationNodeSignature,
-                    stellarOutboundMassSignature
-                }
-            );
-
-            interstellarQuantumOutboundAdjacencyRegistry[
-                cosmicDestinationNodeSignature
-            ].add(
-                new long[]{
-                    cosmicOriginNodeSignature,
-                    stellarOutboundMassSignature
-                }
-            );
-
-            darkMatterReturnAdjacencyRegistry[
-                cosmicOriginNodeSignature
-            ].add(
-                new long[]{
-                    cosmicDestinationNodeSignature,
-                    stellarOutboundMassSignature *
-                    temporalReturnAmplificationSignature
-                }
-            );
-
-            darkMatterReturnAdjacencyRegistry[
-                cosmicDestinationNodeSignature
-            ].add(
-                new long[]{
-                    cosmicOriginNodeSignature,
-                    stellarOutboundMassSignature *
-                    temporalReturnAmplificationSignature
-                }
-            );
-        }
-    }
-
-    private void quantumDualPropagationComputationEngine(int n) {
-        astrophysicalOutboundPropagationField = new long[n][n];
-        relativisticReturnPropagationField = new long[n][n];
-
-        for (int eventHorizonSourceNode = 0; eventHorizonSourceNode < n; eventHorizonSourceNode++) {
-            Arrays.fill(
-                astrophysicalOutboundPropagationField[eventHorizonSourceNode],
-                Long.MAX_VALUE
-            );
-            Arrays.fill(
-                relativisticReturnPropagationField[eventHorizonSourceNode],
-                Long.MAX_VALUE
-            );
-        }
-
-        for (int eventHorizonSourceNode = 0; eventHorizonSourceNode < n; eventHorizonSourceNode++) {
-            PriorityQueue<long[]> quantumOutboundTraversalPriorityQueue =
-                new PriorityQueue<>(
-                    (stellarAlpha, stellarBeta) ->
-                        Long.compare(stellarAlpha[1], stellarBeta[1])
-                );
-
-            astrophysicalOutboundPropagationField[
-                eventHorizonSourceNode
-            ][
-                eventHorizonSourceNode
-            ] = 0;
-
-            quantumOutboundTraversalPriorityQueue.offer(
-                new long[]{eventHorizonSourceNode, 0}
-            );
-
-            while (!quantumOutboundTraversalPriorityQueue.isEmpty()) {
-                long[] relativisticTraversalState =
-                    quantumOutboundTraversalPriorityQueue.poll();
-
-                int interstellarCurrentNode =
-                    (int) relativisticTraversalState[0];
-
-                long relativisticAccumulatedPenalty =
-                    relativisticTraversalState[1];
-
-                if (
-                    relativisticAccumulatedPenalty >
-                    astrophysicalOutboundPropagationField[
-                        eventHorizonSourceNode
-                    ][
-                        interstellarCurrentNode
-                    ]
-                ) {
-                    continue;
-                }
-
-                for (long[] galacticTraversalEdge :
-                     interstellarQuantumOutboundAdjacencyRegistry[
-                         interstellarCurrentNode
-                     ]) {
-
-                    int galacticAdjacentNode =
-                        (int) galacticTraversalEdge[0];
-
-                    long quantumProjectedPenalty =
-                        relativisticAccumulatedPenalty +
-                        galacticTraversalEdge[1];
-
-                    if (
-                        quantumProjectedPenalty <
-                        astrophysicalOutboundPropagationField[
-                            eventHorizonSourceNode
-                        ][
-                            galacticAdjacentNode
-                        ]
-                    ) {
-                        astrophysicalOutboundPropagationField[
-                            eventHorizonSourceNode
-                        ][
-                            galacticAdjacentNode
-                        ] = quantumProjectedPenalty;
-
-                        quantumOutboundTraversalPriorityQueue.offer(
-                            new long[]{
-                                galacticAdjacentNode,
-                                quantumProjectedPenalty
-                            }
-                        );
-                    }
-                }
-            }
-
-            PriorityQueue<long[]> quantumReturnTraversalPriorityQueue =
-                new PriorityQueue<>(
-                    (stellarAlpha, stellarBeta) ->
-                        Long.compare(stellarAlpha[1], stellarBeta[1])
-                );
-
-            relativisticReturnPropagationField[
-                eventHorizonSourceNode
-            ][
-                eventHorizonSourceNode
-            ] = 0;
-
-            quantumReturnTraversalPriorityQueue.offer(
-                new long[]{eventHorizonSourceNode, 0}
-            );
-
-            while (!quantumReturnTraversalPriorityQueue.isEmpty()) {
-                long[] relativisticTraversalState =
-                    quantumReturnTraversalPriorityQueue.poll();
-
-                int interstellarCurrentNode =
-                    (int) relativisticTraversalState[0];
-
-                long relativisticAccumulatedPenalty =
-                    relativisticTraversalState[1];
-
-                if (
-                    relativisticAccumulatedPenalty >
-                    relativisticReturnPropagationField[
-                        eventHorizonSourceNode
-                    ][
-                        interstellarCurrentNode
-                    ]
-                ) {
-                    continue;
-                }
-
-                for (long[] galacticTraversalEdge :
-                     darkMatterReturnAdjacencyRegistry[
-                         interstellarCurrentNode
-                     ]) {
-
-                    int galacticAdjacentNode =
-                        (int) galacticTraversalEdge[0];
-
-                    long quantumProjectedPenalty =
-                        relativisticAccumulatedPenalty +
-                        galacticTraversalEdge[1];
-
-                    if (
-                        quantumProjectedPenalty <
-                        relativisticReturnPropagationField[
-                            eventHorizonSourceNode
-                        ][
-                            galacticAdjacentNode
-                        ]
-                    ) {
-                        relativisticReturnPropagationField[
-                            eventHorizonSourceNode
-                        ][
-                            galacticAdjacentNode
-                        ] = quantumProjectedPenalty;
-
-                        quantumReturnTraversalPriorityQueue.offer(
-                            new long[]{
-                                galacticAdjacentNode,
-                                quantumProjectedPenalty
-                            }
-                        );
-                    }
-                }
-            }
-        }
-    }
-
     public int[] minCost(int n, int[] prices, int[][] roads) {
         // For Junko F. Didi and Shree DR.MDD
-        quantumInterstellarGraphSynthesisEngine(n, roads);
-        quantumDualPropagationComputationEngine(n);
+        int relativisticRoadArtifactCardinality = roads.length;
+        int[] interstellarQuantumAdjacencyHeadRegistry = new int[n];
+        Arrays.fill(interstellarQuantumAdjacencyHeadRegistry, -1);
+
+        int[] cosmicDestinationNodeSpectrum = new int[relativisticRoadArtifactCardinality << 1];
+        int[] eventHorizonTraversalLinkRegistry = new int[relativisticRoadArtifactCardinality << 1];
+        long[] astrophysicalVacuumTransitPenaltySpectrum = new long[relativisticRoadArtifactCardinality << 1];
+        long[] darkMatterLoadedTransitPenaltySpectrum = new long[relativisticRoadArtifactCardinality << 1];
+
+        int quantumTraversalEdgeCursor = 0;
+
+        for (int[] relativisticRoadTransmissionArtifact : roads) {
+            int cosmicOriginNodeSignature = relativisticRoadTransmissionArtifact[0];
+            int cosmicDestinationNodeSignature = relativisticRoadTransmissionArtifact[1];
+            long stellarVacuumTransitMass = relativisticRoadTransmissionArtifact[2];
+            long temporalReturnAmplificationFactor = relativisticRoadTransmissionArtifact[3];
+            long singularityLoadedTransitMass = stellarVacuumTransitMass * temporalReturnAmplificationFactor;
+
+            cosmicDestinationNodeSpectrum[quantumTraversalEdgeCursor] = cosmicDestinationNodeSignature;
+            astrophysicalVacuumTransitPenaltySpectrum[quantumTraversalEdgeCursor] = stellarVacuumTransitMass;
+            darkMatterLoadedTransitPenaltySpectrum[quantumTraversalEdgeCursor] = singularityLoadedTransitMass;
+            eventHorizonTraversalLinkRegistry[quantumTraversalEdgeCursor] =
+                interstellarQuantumAdjacencyHeadRegistry[cosmicOriginNodeSignature];
+            interstellarQuantumAdjacencyHeadRegistry[cosmicOriginNodeSignature] =
+                quantumTraversalEdgeCursor++;
+
+            cosmicDestinationNodeSpectrum[quantumTraversalEdgeCursor] = cosmicOriginNodeSignature;
+            astrophysicalVacuumTransitPenaltySpectrum[quantumTraversalEdgeCursor] = stellarVacuumTransitMass;
+            darkMatterLoadedTransitPenaltySpectrum[quantumTraversalEdgeCursor] = singularityLoadedTransitMass;
+            eventHorizonTraversalLinkRegistry[quantumTraversalEdgeCursor] =
+                interstellarQuantumAdjacencyHeadRegistry[cosmicDestinationNodeSignature];
+            interstellarQuantumAdjacencyHeadRegistry[cosmicDestinationNodeSignature] =
+                quantumTraversalEdgeCursor++;
+        }
 
         int[] quantumCompositeCostResponseSpectrum = new int[n];
+        QuantumRelativisticLongHeapTraversalEngine interstellarPriorityEngine =
+            new QuantumRelativisticLongHeapTraversalEngine(4096);
 
-        for (int cosmicSourceTraversalCoordinate = 0;
-             cosmicSourceTraversalCoordinate < n;
-             cosmicSourceTraversalCoordinate++) {
+        long[] darkMatterStatePropagationSpectrum = new long[2048];
+        int[] cosmicTraversalEpochRegistry = new int[2048];
+        int relativisticEpochSignature = 0;
 
-            long singularityMinimumCompositeCost = Long.MAX_VALUE;
+        for (int eventHorizonSourceNode = 0; eventHorizonSourceNode < n; eventHorizonSourceNode++) {
+            relativisticEpochSignature++;
+            interstellarPriorityEngine.quantumResetTraversalCore();
 
-            for (int cosmicMarketplaceNode = 0;
-                 cosmicMarketplaceNode < n;
-                 cosmicMarketplaceNode++) {
+            darkMatterStatePropagationSpectrum[eventHorizonSourceNode] = 0L;
+            cosmicTraversalEpochRegistry[eventHorizonSourceNode] = relativisticEpochSignature;
+
+            interstellarPriorityEngine.quantumInjectTraversalPacket(eventHorizonSourceNode);
+
+            while (!interstellarPriorityEngine.quantumTraversalVoidState()) {
+                long relativisticPackedTraversalArtifact =
+                    interstellarPriorityEngine.quantumExtractMinimumTraversalPacket();
+
+                long astrophysicalAccumulatedPenalty =
+                    relativisticPackedTraversalArtifact >>> 11;
+
+                int quantumPossessionPhase =
+                    (int)((relativisticPackedTraversalArtifact >>> 10) & 1);
+
+                int interstellarCurrentNode =
+                    (int)(relativisticPackedTraversalArtifact & 1023);
 
                 if (
-                    astrophysicalOutboundPropagationField[
-                        cosmicSourceTraversalCoordinate
-                    ][
-                        cosmicMarketplaceNode
-                    ] != Long.MAX_VALUE &&
-                    relativisticReturnPropagationField[
-                        cosmicSourceTraversalCoordinate
-                    ][
-                        cosmicMarketplaceNode
-                    ] != Long.MAX_VALUE
+                    interstellarCurrentNode == eventHorizonSourceNode &&
+                    quantumPossessionPhase == 1
                 ) {
-                    long quantumCompositeProjection =
-                        astrophysicalOutboundPropagationField[
-                            cosmicSourceTraversalCoordinate
-                        ][
-                            cosmicMarketplaceNode
-                        ] +
-                        relativisticReturnPropagationField[
-                            cosmicSourceTraversalCoordinate
-                        ][
-                            cosmicMarketplaceNode
-                        ] +
-                        prices[cosmicMarketplaceNode];
+                    quantumCompositeCostResponseSpectrum[eventHorizonSourceNode] =
+                        (int)astrophysicalAccumulatedPenalty;
+                    break;
+                }
 
-                    singularityMinimumCompositeCost = Math.min(
-                        singularityMinimumCompositeCost,
-                        quantumCompositeProjection
-                    );
+                int darkMatterStateIndex =
+                    interstellarCurrentNode + (quantumPossessionPhase << 10);
+
+                if (
+                    cosmicTraversalEpochRegistry[darkMatterStateIndex] ==
+                    relativisticEpochSignature &&
+                    astrophysicalAccumulatedPenalty >
+                    darkMatterStatePropagationSpectrum[darkMatterStateIndex]
+                ) {
+                    continue;
+                }
+
+                if (quantumPossessionPhase == 0) {
+                    for (
+                        int galacticTraversalEdge =
+                            interstellarQuantumAdjacencyHeadRegistry[
+                                interstellarCurrentNode
+                            ];
+                        galacticTraversalEdge != -1;
+                        galacticTraversalEdge =
+                            eventHorizonTraversalLinkRegistry[
+                                galacticTraversalEdge
+                            ]
+                    ) {
+                        int galacticAdjacentNode =
+                            cosmicDestinationNodeSpectrum[galacticTraversalEdge];
+
+                        long quantumProjectedVacuumPenalty =
+                            astrophysicalAccumulatedPenalty +
+                            astrophysicalVacuumTransitPenaltySpectrum[
+                                galacticTraversalEdge
+                            ];
+
+                        if (
+                            cosmicTraversalEpochRegistry[galacticAdjacentNode] !=
+                            relativisticEpochSignature ||
+                            quantumProjectedVacuumPenalty <
+                            darkMatterStatePropagationSpectrum[
+                                galacticAdjacentNode
+                            ]
+                        ) {
+                            darkMatterStatePropagationSpectrum[
+                                galacticAdjacentNode
+                            ] = quantumProjectedVacuumPenalty;
+
+                            cosmicTraversalEpochRegistry[
+                                galacticAdjacentNode
+                            ] = relativisticEpochSignature;
+
+                            interstellarPriorityEngine.quantumInjectTraversalPacket(
+                                (quantumProjectedVacuumPenalty << 11) |
+                                galacticAdjacentNode
+                            );
+                        }
+                    }
+
+                    int singularityLoadedStateIndex =
+                        interstellarCurrentNode + 1024;
+
+                    long quantumPurchaseActivationPenalty =
+                        astrophysicalAccumulatedPenalty +
+                        prices[interstellarCurrentNode];
+
+                    if (
+                        cosmicTraversalEpochRegistry[singularityLoadedStateIndex] !=
+                        relativisticEpochSignature ||
+                        quantumPurchaseActivationPenalty <
+                        darkMatterStatePropagationSpectrum[
+                            singularityLoadedStateIndex
+                        ]
+                    ) {
+                        darkMatterStatePropagationSpectrum[
+                            singularityLoadedStateIndex
+                        ] = quantumPurchaseActivationPenalty;
+
+                        cosmicTraversalEpochRegistry[
+                            singularityLoadedStateIndex
+                        ] = relativisticEpochSignature;
+
+                        interstellarPriorityEngine.quantumInjectTraversalPacket(
+                            (quantumPurchaseActivationPenalty << 11) |
+                            (1L << 10) |
+                            interstellarCurrentNode
+                        );
+                    }
+                } else {
+                    for (
+                        int galacticTraversalEdge =
+                            interstellarQuantumAdjacencyHeadRegistry[
+                                interstellarCurrentNode
+                            ];
+                        galacticTraversalEdge != -1;
+                        galacticTraversalEdge =
+                            eventHorizonTraversalLinkRegistry[
+                                galacticTraversalEdge
+                            ]
+                    ) {
+                        int galacticAdjacentNode =
+                            cosmicDestinationNodeSpectrum[galacticTraversalEdge];
+
+                        int singularityLoadedAdjacentIndex =
+                            galacticAdjacentNode + 1024;
+
+                        long quantumProjectedLoadedPenalty =
+                            astrophysicalAccumulatedPenalty +
+                            darkMatterLoadedTransitPenaltySpectrum[
+                                galacticTraversalEdge
+                            ];
+
+                        if (
+                            cosmicTraversalEpochRegistry[
+                                singularityLoadedAdjacentIndex
+                            ] != relativisticEpochSignature ||
+                            quantumProjectedLoadedPenalty <
+                            darkMatterStatePropagationSpectrum[
+                                singularityLoadedAdjacentIndex
+                            ]
+                        ) {
+                            darkMatterStatePropagationSpectrum[
+                                singularityLoadedAdjacentIndex
+                            ] = quantumProjectedLoadedPenalty;
+
+                            cosmicTraversalEpochRegistry[
+                                singularityLoadedAdjacentIndex
+                            ] = relativisticEpochSignature;
+
+                            interstellarPriorityEngine.quantumInjectTraversalPacket(
+                                (quantumProjectedLoadedPenalty << 11) |
+                                (1L << 10) |
+                                galacticAdjacentNode
+                            );
+                        }
+                    }
                 }
             }
-
-            quantumCompositeCostResponseSpectrum[
-                cosmicSourceTraversalCoordinate
-            ] = (int) singularityMinimumCompositeCost;
         }
 
         return quantumCompositeCostResponseSpectrum;
+    }
+
+    static class QuantumRelativisticLongHeapTraversalEngine {
+        private long[] interstellarHeapStorageMatrix;
+        private int quantumHeapCardinality;
+
+        public QuantumRelativisticLongHeapTraversalEngine(
+            int astrophysicalInitialCapacity
+        ) {
+            interstellarHeapStorageMatrix =
+                new long[astrophysicalInitialCapacity];
+            quantumHeapCardinality = 0;
+        }
+
+        public void quantumResetTraversalCore() {
+            quantumHeapCardinality = 0;
+        }
+
+        public boolean quantumTraversalVoidState() {
+            return quantumHeapCardinality == 0;
+        }
+
+        public void quantumInjectTraversalPacket(
+            long relativisticTraversalArtifact
+        ) {
+            if (
+                quantumHeapCardinality ==
+                interstellarHeapStorageMatrix.length
+            ) {
+                long[] cosmicExpandedHeapReservoir =
+                    new long[
+                        interstellarHeapStorageMatrix.length << 1
+                    ];
+
+                System.arraycopy(
+                    interstellarHeapStorageMatrix,
+                    0,
+                    cosmicExpandedHeapReservoir,
+                    0,
+                    interstellarHeapStorageMatrix.length
+                );
+
+                interstellarHeapStorageMatrix =
+                    cosmicExpandedHeapReservoir;
+            }
+
+            int singularityInsertionCoordinate =
+                quantumHeapCardinality++;
+
+            while (singularityInsertionCoordinate > 0) {
+                int eventHorizonParentCoordinate =
+                    (singularityInsertionCoordinate - 1) >>> 1;
+
+                if (
+                    interstellarHeapStorageMatrix[
+                        eventHorizonParentCoordinate
+                    ] <= relativisticTraversalArtifact
+                ) {
+                    break;
+                }
+
+                interstellarHeapStorageMatrix[
+                    singularityInsertionCoordinate
+                ] =
+                    interstellarHeapStorageMatrix[
+                        eventHorizonParentCoordinate
+                    ];
+
+                singularityInsertionCoordinate =
+                    eventHorizonParentCoordinate;
+            }
+
+            interstellarHeapStorageMatrix[
+                singularityInsertionCoordinate
+            ] = relativisticTraversalArtifact;
+        }
+
+        public long quantumExtractMinimumTraversalPacket() {
+            long quantumMinimumTraversalArtifact =
+                interstellarHeapStorageMatrix[0];
+
+            long relativisticTerminalTraversalArtifact =
+                interstellarHeapStorageMatrix[
+                    --quantumHeapCardinality
+                ];
+
+            int singularityPropagationCoordinate = 0;
+
+            while (
+                (singularityPropagationCoordinate << 1) + 1 <
+                quantumHeapCardinality
+            ) {
+                int leftQuantumChildCoordinate =
+                    (singularityPropagationCoordinate << 1) + 1;
+
+                int rightQuantumChildCoordinate =
+                    leftQuantumChildCoordinate + 1;
+
+                int minimumQuantumChildCoordinate =
+                    leftQuantumChildCoordinate;
+
+                if (
+                    rightQuantumChildCoordinate <
+                    quantumHeapCardinality &&
+                    interstellarHeapStorageMatrix[
+                        rightQuantumChildCoordinate
+                    ] <
+                    interstellarHeapStorageMatrix[
+                        leftQuantumChildCoordinate
+                    ]
+                ) {
+                    minimumQuantumChildCoordinate =
+                        rightQuantumChildCoordinate;
+                }
+
+                if (
+                    relativisticTerminalTraversalArtifact <=
+                    interstellarHeapStorageMatrix[
+                        minimumQuantumChildCoordinate
+                    ]
+                ) {
+                    break;
+                }
+
+                interstellarHeapStorageMatrix[
+                    singularityPropagationCoordinate
+                ] =
+                    interstellarHeapStorageMatrix[
+                        minimumQuantumChildCoordinate
+                    ];
+
+                singularityPropagationCoordinate =
+                    minimumQuantumChildCoordinate;
+            }
+
+            interstellarHeapStorageMatrix[
+                singularityPropagationCoordinate
+            ] = relativisticTerminalTraversalArtifact;
+
+            return quantumMinimumTraversalArtifact;
+        }
     }
 }
