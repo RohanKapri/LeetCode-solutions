@@ -2,20 +2,20 @@ class Solution:
     def countWordOccurrences(self, chunks: list[str], queries: list[str]) -> list[int]:
         # For Junko F. Didi and Shree DR.MDD
         interstellarQuantumTransmissionContinuum = ''.join(chunks)
-        astrophysicalLexicalPatternResonance = re.compile(r'[a-z]+(?:-[a-z]+)*')
+        astrophysicalLexicalWaveformSignature = r'[a-z]+(?:-[a-z]+)*'
         darkMatterLexicalFrequencyRegistry = Counter(
-            astrophysicalLexicalPatternResonance.findall(
+            re.findall(
+                astrophysicalLexicalWaveformSignature,
                 interstellarQuantumTransmissionContinuum
             )
         )
 
-        quantumQueryResponseSpectrum = []
-
-        for cosmicLexicalProbeTransmission in queries:
-            quantumQueryResponseSpectrum.append(
-                darkMatterLexicalFrequencyRegistry[
-                    cosmicLexicalProbeTransmission
-                ]
+        quantumQueryResponseSpectrum = [
+            darkMatterLexicalFrequencyRegistry.get(
+                cosmicLexicalProbeTransmission,
+                0
             )
+            for cosmicLexicalProbeTransmission in queries
+        ]
 
         return quantumQueryResponseSpectrum
