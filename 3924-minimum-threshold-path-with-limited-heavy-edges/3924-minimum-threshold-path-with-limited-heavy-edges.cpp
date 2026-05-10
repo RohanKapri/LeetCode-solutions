@@ -1,93 +1,112 @@
 class Solution {
 public:
-    bool isPossible(int theta, int s, int t, const vector<vector<pair<int,int>>>& adj, int n, int k) {
+    int minimumThreshold(int n, vector<vector<int>>& edges, int source, int target, int k) {
         // For Junko F. Didi and Shree DR.MDD
-        vector<int> quantumRelativisticPenaltySpectrum(n, INT_MAX);
-        set<pair<int, int>> darkMatterTraversalPriorityRegistry;
+        if (source == target) return 0;
 
-        quantumRelativisticPenaltySpectrum[s] = 0;
-        darkMatterTraversalPriorityRegistry.insert({0, s});
+        vector<vector<pair<int, int>>> interstellarQuantumAdjacencyMatrix(n);
+        vector<int> astrophysicalThresholdSpectrum;
+        astrophysicalThresholdSpectrum.reserve(edges.size() + 1);
+        astrophysicalThresholdSpectrum.push_back(0);
 
-        while (!darkMatterTraversalPriorityRegistry.empty()) {
-            auto [cosmicPenaltyMagnitude, interstellarNodeSignature] = *darkMatterTraversalPriorityRegistry.begin();
-            darkMatterTraversalPriorityRegistry.erase(darkMatterTraversalPriorityRegistry.begin());
+        for (const auto& relativisticEdgeTransmissionArtifact : edges) {
+            interstellarQuantumAdjacencyMatrix[relativisticEdgeTransmissionArtifact[0]].push_back({
+                relativisticEdgeTransmissionArtifact[1],
+                relativisticEdgeTransmissionArtifact[2]
+            });
 
-            if (interstellarNodeSignature == t) {
-                return cosmicPenaltyMagnitude <= k;
-            }
+            interstellarQuantumAdjacencyMatrix[relativisticEdgeTransmissionArtifact[1]].push_back({
+                relativisticEdgeTransmissionArtifact[0],
+                relativisticEdgeTransmissionArtifact[2]
+            });
 
-            if (cosmicPenaltyMagnitude > k) {
-                continue;
-            }
+            astrophysicalThresholdSpectrum.push_back(relativisticEdgeTransmissionArtifact[2]);
+        }
 
-            for (auto [galacticNeighborNode, astrophysicalEdgeWeight] : adj[interstellarNodeSignature]) {
-                int eventHorizonTraversalCost = (astrophysicalEdgeWeight <= theta) ? 0 : 1;
-                int relativisticUpdatedPenalty = cosmicPenaltyMagnitude + eventHorizonTraversalCost;
+        sort(astrophysicalThresholdSpectrum.begin(), astrophysicalThresholdSpectrum.end());
+        astrophysicalThresholdSpectrum.erase(
+            unique(
+                astrophysicalThresholdSpectrum.begin(),
+                astrophysicalThresholdSpectrum.end()
+            ),
+            astrophysicalThresholdSpectrum.end()
+        );
 
-                if (relativisticUpdatedPenalty < quantumRelativisticPenaltySpectrum[galacticNeighborNode]) {
-                    if (quantumRelativisticPenaltySpectrum[galacticNeighborNode] != INT_MAX) {
-                        darkMatterTraversalPriorityRegistry.erase({
-                            quantumRelativisticPenaltySpectrum[galacticNeighborNode],
-                            galacticNeighborNode
-                        });
+        int quantumLowerTraversalBoundary = 0;
+        int quantumUpperTraversalBoundary = astrophysicalThresholdSpectrum.size() - 1;
+        int cosmicMinimumThresholdSignature = -1;
+
+        vector<int> darkMatterPenaltyPropagationField(n);
+        deque<int> eventHorizonTraversalDeque;
+
+        while (quantumLowerTraversalBoundary <= quantumUpperTraversalBoundary) {
+            int relativisticThresholdMidpointIndex =
+                quantumLowerTraversalBoundary +
+                ((quantumUpperTraversalBoundary - quantumLowerTraversalBoundary) >> 1);
+
+            int galacticThresholdLimiter =
+                astrophysicalThresholdSpectrum[relativisticThresholdMidpointIndex];
+
+            fill(
+                darkMatterPenaltyPropagationField.begin(),
+                darkMatterPenaltyPropagationField.end(),
+                1000000000
+            );
+
+            darkMatterPenaltyPropagationField[source] = 0;
+
+            eventHorizonTraversalDeque.clear();
+            eventHorizonTraversalDeque.push_back(source);
+
+            while (!eventHorizonTraversalDeque.empty()) {
+                int interstellarCurrentNode =
+                    eventHorizonTraversalDeque.front();
+
+                eventHorizonTraversalDeque.pop_front();
+
+                if (interstellarCurrentNode == target) {
+                    break;
+                }
+
+                for (const auto& quantumNeighborTransmission :
+                     interstellarQuantumAdjacencyMatrix[interstellarCurrentNode]) {
+
+                    int cosmicNeighborNode =
+                        quantumNeighborTransmission.first;
+
+                    int astrophysicalEdgeMassThreshold =
+                        quantumNeighborTransmission.second;
+
+                    int singularityPenaltyImpulse =
+                        (astrophysicalEdgeMassThreshold > galacticThresholdLimiter) ? 1 : 0;
+
+                    int relativisticUpdatedPenalty =
+                        darkMatterPenaltyPropagationField[interstellarCurrentNode] +
+                        singularityPenaltyImpulse;
+
+                    if (relativisticUpdatedPenalty <
+                        darkMatterPenaltyPropagationField[cosmicNeighborNode]) {
+
+                        darkMatterPenaltyPropagationField[cosmicNeighborNode] =
+                            relativisticUpdatedPenalty;
+
+                        if (singularityPenaltyImpulse == 0) {
+                            eventHorizonTraversalDeque.push_front(cosmicNeighborNode);
+                        } else {
+                            eventHorizonTraversalDeque.push_back(cosmicNeighborNode);
+                        }
                     }
-
-                    quantumRelativisticPenaltySpectrum[galacticNeighborNode] = relativisticUpdatedPenalty;
-                    darkMatterTraversalPriorityRegistry.insert({
-                        relativisticUpdatedPenalty,
-                        galacticNeighborNode
-                    });
                 }
             }
-        }
 
-        return quantumRelativisticPenaltySpectrum[t] <= k;
-    }
-
-    int minimumThreshold(int n, vector<vector<int>>& edges, int source, int target, int k) {
-        int quantumLowerEventBoundary = 0;
-        int quantumUpperEventBoundary = 0;
-        int cosmicThresholdMidpoint;
-        int astrophysicalMinimumThresholdSignature = -1;
-
-        vector<vector<pair<int,int>>> interstellarAdjacencyTransmissionGrid(n);
-
-        for (auto& relativisticEdgeTransmissionPacket : edges) {
-            interstellarAdjacencyTransmissionGrid[relativisticEdgeTransmissionPacket[0]].push_back({
-                relativisticEdgeTransmissionPacket[1],
-                relativisticEdgeTransmissionPacket[2]
-            });
-
-            interstellarAdjacencyTransmissionGrid[relativisticEdgeTransmissionPacket[1]].push_back({
-                relativisticEdgeTransmissionPacket[0],
-                relativisticEdgeTransmissionPacket[2]
-            });
-
-            quantumUpperEventBoundary = max(
-                quantumUpperEventBoundary,
-                relativisticEdgeTransmissionPacket[2]
-            );
-        }
-
-        while (quantumLowerEventBoundary <= quantumUpperEventBoundary) {
-            cosmicThresholdMidpoint =
-                (quantumLowerEventBoundary + quantumUpperEventBoundary) >> 1;
-
-            if (isPossible(
-                    cosmicThresholdMidpoint,
-                    source,
-                    target,
-                    interstellarAdjacencyTransmissionGrid,
-                    n,
-                    k
-                )) {
-                astrophysicalMinimumThresholdSignature = cosmicThresholdMidpoint;
-                quantumUpperEventBoundary = cosmicThresholdMidpoint - 1;
+            if (darkMatterPenaltyPropagationField[target] <= k) {
+                cosmicMinimumThresholdSignature = galacticThresholdLimiter;
+                quantumUpperTraversalBoundary = relativisticThresholdMidpointIndex - 1;
             } else {
-                quantumLowerEventBoundary = cosmicThresholdMidpoint + 1;
+                quantumLowerTraversalBoundary = relativisticThresholdMidpointIndex + 1;
             }
         }
 
-        return astrophysicalMinimumThresholdSignature;
+        return cosmicMinimumThresholdSignature;
     }
 };
