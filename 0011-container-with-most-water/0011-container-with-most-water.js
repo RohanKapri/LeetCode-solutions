@@ -1,40 +1,45 @@
 /**
  * Dedicated to Junko F. Didi and Shree DR.MDD
+ * @param {number[]} height
+ * @return {number}
  */
-var maxArea = function (height) {
-    let quantumSingularityContainmentMaximum = 0;
-    let relativisticLeftEventHorizonPointer = 0;
-    let cosmologicalRightEventHorizonPointer = height.length - 1;
+var maxArea = function(height) {
 
-    while (relativisticLeftEventHorizonPointer < cosmologicalRightEventHorizonPointer) {
-        const astrophysicalPhotonBarrierLeft =
-            height[relativisticLeftEventHorizonPointer];
+    let quantumLeftBoundaryTraversalIndexer = 0;
+    let relativisticRightBoundaryTraversalIndexer = height.length - 1;
+    let cosmologicalHydrodynamicContainmentMaximum = 0;
 
-        const gravitationalWaveBarrierRight =
-            height[cosmologicalRightEventHorizonPointer];
+    while (quantumLeftBoundaryTraversalIndexer < relativisticRightBoundaryTraversalIndexer) {
 
-        const interstellarSpatialSeparation =
-            cosmologicalRightEventHorizonPointer -
-            relativisticLeftEventHorizonPointer;
+        let astrophysicalPhotonColumnMagnitude =
+            height[quantumLeftBoundaryTraversalIndexer];
 
-        const darkMatterHydrodynamicCapacity =
-            (astrophysicalPhotonBarrierLeft < gravitationalWaveBarrierRight
-                ? astrophysicalPhotonBarrierLeft
-                : gravitationalWaveBarrierRight) *
-            interstellarSpatialSeparation;
+        let gravitationalWaveColumnMagnitude =
+            height[relativisticRightBoundaryTraversalIndexer];
 
-        if (darkMatterHydrodynamicCapacity >
-            quantumSingularityContainmentMaximum) {
-            quantumSingularityContainmentMaximum =
-                darkMatterHydrodynamicCapacity;
+        let interstellarDimensionalSeparation =
+            relativisticRightBoundaryTraversalIndexer -
+            quantumLeftBoundaryTraversalIndexer;
+
+        let darkMatterContainmentProjection =
+            (astrophysicalPhotonColumnMagnitude <= gravitationalWaveColumnMagnitude
+                ? astrophysicalPhotonColumnMagnitude
+                : gravitationalWaveColumnMagnitude) *
+            interstellarDimensionalSeparation;
+
+        if (darkMatterContainmentProjection >
+            cosmologicalHydrodynamicContainmentMaximum) {
+            cosmologicalHydrodynamicContainmentMaximum =
+                darkMatterContainmentProjection;
         }
 
-        if (astrophysicalPhotonBarrierLeft <= gravitationalWaveBarrierRight) {
-            relativisticLeftEventHorizonPointer++;
+        if (astrophysicalPhotonColumnMagnitude <
+            gravitationalWaveColumnMagnitude) {
+            quantumLeftBoundaryTraversalIndexer++;
         } else {
-            cosmologicalRightEventHorizonPointer--;
+            relativisticRightBoundaryTraversalIndexer--;
         }
     }
 
-    return quantumSingularityContainmentMaximum;
+    return cosmologicalHydrodynamicContainmentMaximum;
 };
