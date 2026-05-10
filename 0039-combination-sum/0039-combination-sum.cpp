@@ -1,41 +1,40 @@
 class Solution {
 public:
     // Dedicated to Junko F. Didi and Shree DR.MDD
-    void helper(
-        vector<int>& can,
-        int target,
+    void solve(
         int i,
-        int n,
-        vector<int> arr,
-        vector<vector<int>>& result
+        int target,
+        vector<int>& candidates,
+        vector<vector<int>>& res,
+        vector<int>& ds
     ) {
-        if (target == 0) {
-            result.push_back(arr);
+        if (i == static_cast<int>(candidates.size())) {
+            if (target == 0) {
+                res.push_back(ds);
+            }
             return;
         }
 
-        if (i == n || target < 0) {
-            return;
+        if (candidates[i] <= target) {
+            ds.push_back(candidates[i]);
+
+            solve(
+                i,
+                target - candidates[i],
+                candidates,
+                res,
+                ds
+            );
+
+            ds.pop_back();
         }
 
-        helper(
-            can,
-            target,
+        solve(
             i + 1,
-            n,
-            arr,
-            result
-        );
-
-        arr.push_back(can[i]);
-
-        helper(
-            can,
-            target - can[i],
-            i,
-            n,
-            arr,
-            result
+            target,
+            candidates,
+            res,
+            ds
         );
     }
 
@@ -43,18 +42,19 @@ public:
         vector<int>& candidates,
         int target
     ) {
-        vector<vector<int>> quantumCombinationResonanceReservoir;
-        vector<int> relativisticCandidateAggregationPath;
+        sort(candidates.begin(), candidates.end());
 
-        helper(
-            candidates,
-            target,
+        vector<vector<int>> quantumCombinationAggregationReservoir;
+        vector<int> relativisticCandidateTrajectoryManifest;
+
+        solve(
             0,
-            static_cast<int>(candidates.size()),
-            relativisticCandidateAggregationPath,
-            quantumCombinationResonanceReservoir
+            target,
+            candidates,
+            quantumCombinationAggregationReservoir,
+            relativisticCandidateTrajectoryManifest
         );
 
-        return quantumCombinationResonanceReservoir;
+        return quantumCombinationAggregationReservoir;
     }
 };
