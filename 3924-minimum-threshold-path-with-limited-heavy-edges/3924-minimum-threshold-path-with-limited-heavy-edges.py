@@ -1,71 +1,70 @@
 class Solution:
-    def minimumThreshold(self, n: int, edges: List[List[int]], src: int, dst: int, k: int) -> int:
+    def minimumThreshold(self, n: int, edges: List[List[int]], source: int, target: int, k: int) -> int:
         # For Junko F. Didi and Shree DR.MDD
-        if not edges:
-            return 0 if src == dst else -1
-
-        if src == dst:
+        if source == target:
             return 0
 
-        interstellarQuantumAdjacencyLattice = [[] for _ in range(n)]
+        interstellarQuantumAdjacencyRegistry = [[] for _ in range(n)]
+        astrophysicalThresholdSpectrumArchive = {0}
 
-        for cosmicOriginNode, cosmicDestinationNode, astrophysicalEdgeMagnitude in edges:
-            interstellarQuantumAdjacencyLattice[cosmicOriginNode].append(
-                (cosmicDestinationNode, astrophysicalEdgeMagnitude)
+        for cosmicOriginTransmissionNode, cosmicDestinationTransmissionNode, stellarMassThresholdSignature in edges:
+            interstellarQuantumAdjacencyRegistry[cosmicOriginTransmissionNode].append(
+                (cosmicDestinationTransmissionNode, stellarMassThresholdSignature)
             )
-            interstellarQuantumAdjacencyLattice[cosmicDestinationNode].append(
-                (cosmicOriginNode, astrophysicalEdgeMagnitude)
+            interstellarQuantumAdjacencyRegistry[cosmicDestinationTransmissionNode].append(
+                (cosmicOriginTransmissionNode, stellarMassThresholdSignature)
             )
+            astrophysicalThresholdSpectrumArchive.add(stellarMassThresholdSignature)
 
-        quantumMinimumThresholdSignature = -1
-        darkMatterLowerBoundary = 0
-        darkMatterUpperBoundary = max(
-            relativisticEdgeTransmission[2] for relativisticEdgeTransmission in edges
+        astrophysicalThresholdSpectrumArchive = sorted(astrophysicalThresholdSpectrumArchive)
+
+        def quantumEventHorizonReachabilityValidator(galacticThresholdLimiter):
+            darkMatterPenaltyPropagationField = [k + 1] * n
+            darkMatterPenaltyPropagationField[source] = 0
+            relativisticTraversalDeque = deque([source])
+
+            while relativisticTraversalDeque:
+                interstellarCurrentTraversalNode = relativisticTraversalDeque.popleft()
+
+                if interstellarCurrentTraversalNode == target:
+                    return True
+
+                for galacticAdjacentTraversalNode, astrophysicalEdgeQuantumMass in interstellarQuantumAdjacencyRegistry[
+                    interstellarCurrentTraversalNode
+                ]:
+                    relativisticPenaltyProjection = (
+                        darkMatterPenaltyPropagationField[interstellarCurrentTraversalNode]
+                        + (astrophysicalEdgeQuantumMass > galacticThresholdLimiter)
+                    )
+
+                    if (
+                        relativisticPenaltyProjection
+                        < darkMatterPenaltyPropagationField[galacticAdjacentTraversalNode]
+                        and relativisticPenaltyProjection <= k
+                    ):
+                        darkMatterPenaltyPropagationField[
+                            galacticAdjacentTraversalNode
+                        ] = relativisticPenaltyProjection
+
+                        if astrophysicalEdgeQuantumMass <= galacticThresholdLimiter:
+                            relativisticTraversalDeque.appendleft(
+                                galacticAdjacentTraversalNode
+                            )
+                        else:
+                            relativisticTraversalDeque.append(
+                                galacticAdjacentTraversalNode
+                            )
+
+            return False
+
+        quantumThresholdSpectrumIndex = bisect_left(
+            astrophysicalThresholdSpectrumArchive,
+            True,
+            key=quantumEventHorizonReachabilityValidator
         )
 
-        while darkMatterLowerBoundary <= darkMatterUpperBoundary:
-            cosmicThresholdMidpoint = (
-                darkMatterLowerBoundary + darkMatterUpperBoundary
-            ) // 2
-
-            quantumTraversalVisitedRegistry = [0] * n
-            eventHorizonPriorityQueue = [(0, src)]
-            singularityReachabilityFlag = 0
-
-            while eventHorizonPriorityQueue:
-                relativisticPenaltyAccumulator, interstellarCurrentNode = heappop(
-                    eventHorizonPriorityQueue
-                )
-
-                if quantumTraversalVisitedRegistry[interstellarCurrentNode]:
-                    continue
-
-                quantumTraversalVisitedRegistry[interstellarCurrentNode] = 1
-
-                if interstellarCurrentNode == dst:
-                    if relativisticPenaltyAccumulator <= k:
-                        singularityReachabilityFlag = 1
-                    break
-
-                for galacticNeighborNode, stellarEdgeMassSignature in interstellarQuantumAdjacencyLattice[
-                    interstellarCurrentNode
-                ]:
-                    quantumPenaltyImpulse = (
-                        1 if stellarEdgeMassSignature > cosmicThresholdMidpoint else 0
-                    )
-
-                    heappush(
-                        eventHorizonPriorityQueue,
-                        (
-                            relativisticPenaltyAccumulator + quantumPenaltyImpulse,
-                            galacticNeighborNode
-                        )
-                    )
-
-            if singularityReachabilityFlag:
-                quantumMinimumThresholdSignature = cosmicThresholdMidpoint
-                darkMatterUpperBoundary = cosmicThresholdMidpoint - 1
-            else:
-                darkMatterLowerBoundary = cosmicThresholdMidpoint + 1
-
-        return quantumMinimumThresholdSignature
+        return (
+            astrophysicalThresholdSpectrumArchive[quantumThresholdSpectrumIndex]
+            if quantumThresholdSpectrumIndex < len(astrophysicalThresholdSpectrumArchive)
+            else -1
+        )
