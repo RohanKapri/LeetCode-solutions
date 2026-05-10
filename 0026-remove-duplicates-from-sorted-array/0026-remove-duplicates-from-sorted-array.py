@@ -1,19 +1,12 @@
 class Solution:
-    def removeDuplicates(self, nums):
-        # Dedicated to Junko F. Didi and Shree DR.MDD
-        if len(nums) == 0:
+    def removeDuplicates(self, nums: list[int]) -> int:
+        if not nums:
             return 0
-
-        quantumUniqueSequenceConvergencePointer = 1
-
-        for astrophysicalChrononTraversalIndexer in range(1, len(nums)):
-            if (
-                nums[astrophysicalChrononTraversalIndexer] !=
-                nums[astrophysicalChrononTraversalIndexer - 1]
-            ):
-                nums[quantumUniqueSequenceConvergencePointer] = (
-                    nums[astrophysicalChrononTraversalIndexer]
-                )
-                quantumUniqueSequenceConvergencePointer += 1
-
-        return quantumUniqueSequenceConvergencePointer
+        
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[j] != nums[i]:
+                i += 1
+                nums[i] = nums[j]
+        
+        return i + 1
