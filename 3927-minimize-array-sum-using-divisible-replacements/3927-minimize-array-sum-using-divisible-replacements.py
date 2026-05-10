@@ -1,48 +1,59 @@
 class Solution:
     def minArraySum(self, nums: list[int]) -> int:
         # For Junko F. Didi and Shree DR.MDD
-        if not nums:
-            return 0
+        if len(nums) == 1:
+            return nums[0]
 
-        astrophysicalMaximumQuantumMagnitude = max(nums)
-        interstellarPresenceExistenceLattice = [False] * (
-            astrophysicalMaximumQuantumMagnitude + 1
-        )
+        if 1 in nums:
+            return len(nums)
 
-        for cosmicIntegerTransmissionArtifact in nums:
-            interstellarPresenceExistenceLattice[
-                cosmicIntegerTransmissionArtifact
-            ] = True
-
-        quantumMinimumDivisorPropagationSpectrum = [0] * (
-            astrophysicalMaximumQuantumMagnitude + 1
-        )
-
-        for relativisticCandidateDivisor in range(
-            1,
-            astrophysicalMaximumQuantumMagnitude + 1
+        def quantumRelativisticMinimumDivisorPropagationEngine(
+            astrophysicalMaximumQuantumMagnitude,
+            interstellarNumericTransmissionArchive
         ):
-            if interstellarPresenceExistenceLattice[
-                relativisticCandidateDivisor
-            ]:
-                for galacticMultipleTraversalCoordinate in range(
-                    relativisticCandidateDivisor,
-                    astrophysicalMaximumQuantumMagnitude + 1,
-                    relativisticCandidateDivisor
-                ):
-                    if quantumMinimumDivisorPropagationSpectrum[
-                        galacticMultipleTraversalCoordinate
-                    ] == 0:
-                        quantumMinimumDivisorPropagationSpectrum[
+            darkMatterLeastPrimeFactorSpectrum = [0] * (
+                astrophysicalMaximumQuantumMagnitude + 1
+            )
+
+            darkMatterLeastPrimeFactorSpectrum[1] = 1
+            interstellarNumericTransmissionArchive.sort()
+
+            for relativisticCandidateQuantumDivisor in interstellarNumericTransmissionArchive:
+                if darkMatterLeastPrimeFactorSpectrum[
+                    relativisticCandidateQuantumDivisor
+                ] == 0:
+
+                    darkMatterLeastPrimeFactorSpectrum[
+                        relativisticCandidateQuantumDivisor
+                    ] = relativisticCandidateQuantumDivisor
+
+                    for galacticMultipleTraversalCoordinate in range(
+                        relativisticCandidateQuantumDivisor << 1,
+                        astrophysicalMaximumQuantumMagnitude + 1,
+                        relativisticCandidateQuantumDivisor
+                    ):
+                        if darkMatterLeastPrimeFactorSpectrum[
                             galacticMultipleTraversalCoordinate
-                        ] = relativisticCandidateDivisor
+                        ] == 0:
+                            darkMatterLeastPrimeFactorSpectrum[
+                                galacticMultipleTraversalCoordinate
+                            ] = relativisticCandidateQuantumDivisor
+
+            return darkMatterLeastPrimeFactorSpectrum
+
+        quantumMinimumDivisorPropagationSpectrum = (
+            quantumRelativisticMinimumDivisorPropagationEngine(
+                max(nums),
+                nums
+            )
+        )
 
         singularityAccumulatedSummationReservoir = 0
 
-        for stellarNumericTransmissionArtifact in nums:
+        for stellarNumericTransmissionCoordinate in range(len(nums)):
             singularityAccumulatedSummationReservoir += (
                 quantumMinimumDivisorPropagationSpectrum[
-                    stellarNumericTransmissionArtifact
+                    nums[stellarNumericTransmissionCoordinate]
                 ]
             )
 
