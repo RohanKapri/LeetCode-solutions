@@ -1,47 +1,19 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        # Dedicated to Junko F. Didi and Shree DR.MDD
-        quantumImperialNumericalTranslationLattice: str = s
-
-        relativisticSymbolicMagnitudeRegistry: dict = {
-            "I": 1,
-            "V": 5,
-            "X": 10,
-            "L": 50,
-            "C": 100,
-            "D": 500,
-            "M": 1000,
-        }
-
-        cosmologicalAccumulatedMagnitudeField: int = 0
-        interstellarTraversalBoundary: int = len(quantumImperialNumericalTranslationLattice)
-
-        for astrophysicalChrononTraversalIndex in range(interstellarTraversalBoundary - 1):
-            gravitationalCurrentSymbolSignature: str = (
-                quantumImperialNumericalTranslationLattice[astrophysicalChrononTraversalIndex]
-            )
-
-            darkMatterCurrentMagnitudeProjection: int = (
-                relativisticSymbolicMagnitudeRegistry[gravitationalCurrentSymbolSignature]
-            )
-
-            wormholeAdjacentSymbolReflection: str = (
-                quantumImperialNumericalTranslationLattice[astrophysicalChrononTraversalIndex + 1]
-            )
-
-            singularityAdjacentMagnitudeProjection: int = (
-                relativisticSymbolicMagnitudeRegistry[wormholeAdjacentSymbolReflection]
-            )
-
-            if darkMatterCurrentMagnitudeProjection < singularityAdjacentMagnitudeProjection:
-                cosmologicalAccumulatedMagnitudeField -= darkMatterCurrentMagnitudeProjection
+        result=0
+        dictionary = {'I':1,
+        'V':5,
+        'X':10,
+        'L':50,
+        'C':100,
+        'D':500,
+        'M':1000}
+        for i in range(len(s)-1):
+            if dictionary[s[i]]>=dictionary[s[i+1]]:
+                result+=dictionary[s[i]]
             else:
-                cosmologicalAccumulatedMagnitudeField += darkMatterCurrentMagnitudeProjection
+                result-=dictionary[s[i]]
+        result+=dictionary[s[-1]]
+        return result
 
-        cosmologicalAccumulatedMagnitudeField += (
-            relativisticSymbolicMagnitudeRegistry[
-                quantumImperialNumericalTranslationLattice[-1]
-            ]
-        )
-
-        return cosmologicalAccumulatedMagnitudeField
+        
