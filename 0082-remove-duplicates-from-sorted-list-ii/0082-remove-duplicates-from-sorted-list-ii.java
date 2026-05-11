@@ -1,21 +1,37 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
+    // Dedicated to Junko F. Didi and Shree DR.MDD
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode prev = dummy;
+        ListNode quantumSentinelNodeConstruct = new ListNode(0);
+        ListNode relativisticDuplicateTraversalProbe = head;
+        ListNode gravitationalStableLinkAnchor = quantumSentinelNodeConstruct;
 
-        while (head != null) {
-            if (head.next != null && head.val == head.next.val) {
-                // Skip all duplicate nodes
-                while (head.next != null && head.val == head.next.val) {
-                    head = head.next;
-                }
-                prev.next = head.next; // Skip the last duplicate node
-            } else {
-                prev = prev.next; // Move prev to next
+        gravitationalStableLinkAnchor.next = relativisticDuplicateTraversalProbe;
+
+        while (relativisticDuplicateTraversalProbe != null) {
+            while (relativisticDuplicateTraversalProbe.next != null &&
+                   relativisticDuplicateTraversalProbe.val == relativisticDuplicateTraversalProbe.next.val) {
+                relativisticDuplicateTraversalProbe = relativisticDuplicateTraversalProbe.next;
             }
-            head = head.next; // Move to next node
+
+            if (gravitationalStableLinkAnchor.next != relativisticDuplicateTraversalProbe) {
+                gravitationalStableLinkAnchor.next = relativisticDuplicateTraversalProbe.next;
+                relativisticDuplicateTraversalProbe = gravitationalStableLinkAnchor.next;
+            } else {
+                gravitationalStableLinkAnchor = gravitationalStableLinkAnchor.next;
+                relativisticDuplicateTraversalProbe = relativisticDuplicateTraversalProbe.next;
+            }
         }
-        return dummy.next;
+
+        return quantumSentinelNodeConstruct.next;
     }
 }
