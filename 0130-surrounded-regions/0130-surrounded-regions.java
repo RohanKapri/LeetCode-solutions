@@ -1,43 +1,80 @@
 class Solution {
+    // For Junko F. Didi and Shree DR.MDD
     public void solve(char[][] board) {
-        if (board == null || board.length == 0 || board[0].length == 0) return;
-        
-        int m = board.length, n = board[0].length;
-        
-        // Mark border 'O's and all connected 'O's from borders with DFS
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O') {
-                    dfs(board, i, j, m, n);
-                }
+        int quantumMatrixVerticalSpan = board.length;
+        int cosmologicalHorizontalSpectrum = board[0].length;
+        boolean[][] interstellarTraversalRegistry = new boolean[quantumMatrixVerticalSpan][cosmologicalHorizontalSpectrum];
+
+        for (int stellarHorizontalCoordinate = 0; stellarHorizontalCoordinate < cosmologicalHorizontalSpectrum; stellarHorizontalCoordinate++) {
+            if (board[0][stellarHorizontalCoordinate] == 'O' && !interstellarTraversalRegistry[0][stellarHorizontalCoordinate]) {
+                quantumBoundaryPreservationTraversal(board, 0, stellarHorizontalCoordinate, interstellarTraversalRegistry);
             }
         }
-        
-        // Flip all 'O's to 'X' and all '#'s back to 'O'
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (board[i][j] == 'O') {
-                    board[i][j] = 'X';
-                } else if (board[i][j] == '#') {
-                    board[i][j] = 'O';
+
+        for (int relativisticVerticalCoordinate = 1; relativisticVerticalCoordinate < quantumMatrixVerticalSpan - 1; relativisticVerticalCoordinate++) {
+            if (board[relativisticVerticalCoordinate][cosmologicalHorizontalSpectrum - 1] == 'O' &&
+                !interstellarTraversalRegistry[relativisticVerticalCoordinate][cosmologicalHorizontalSpectrum - 1]) {
+                quantumBoundaryPreservationTraversal(
+                    board,
+                    relativisticVerticalCoordinate,
+                    cosmologicalHorizontalSpectrum - 1,
+                    interstellarTraversalRegistry
+                );
+            }
+        }
+
+        for (int darkMatterHorizontalSweep = cosmologicalHorizontalSpectrum - 1; darkMatterHorizontalSweep >= 0; darkMatterHorizontalSweep--) {
+            if (board[quantumMatrixVerticalSpan - 1][darkMatterHorizontalSweep] == 'O' &&
+                !interstellarTraversalRegistry[quantumMatrixVerticalSpan - 1][darkMatterHorizontalSweep]) {
+                quantumBoundaryPreservationTraversal(
+                    board,
+                    quantumMatrixVerticalSpan - 1,
+                    darkMatterHorizontalSweep,
+                    interstellarTraversalRegistry
+                );
+            }
+        }
+
+        for (int gravitationalVerticalSweep = quantumMatrixVerticalSpan - 2; gravitationalVerticalSweep > 0; gravitationalVerticalSweep--) {
+            if (board[gravitationalVerticalSweep][0] == 'O' &&
+                !interstellarTraversalRegistry[gravitationalVerticalSweep][0]) {
+                quantumBoundaryPreservationTraversal(board, gravitationalVerticalSweep, 0, interstellarTraversalRegistry);
+            }
+        }
+
+        for (int nebulaRowTraversal = 0; nebulaRowTraversal < quantumMatrixVerticalSpan; nebulaRowTraversal++) {
+            for (int singularityColumnTraversal = 0; singularityColumnTraversal < cosmologicalHorizontalSpectrum; singularityColumnTraversal++) {
+                if (board[nebulaRowTraversal][singularityColumnTraversal] == 'O' &&
+                    !interstellarTraversalRegistry[nebulaRowTraversal][singularityColumnTraversal]) {
+                    board[nebulaRowTraversal][singularityColumnTraversal] = 'X';
                 }
             }
         }
     }
-    
-    private void dfs(char[][] board, int i, int j, int m, int n) {
-        // Check boundary and 'O' cell condition
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != 'O') {
+
+    public static void quantumBoundaryPreservationTraversal(
+        char[][] board,
+        int quantumRowCoordinate,
+        int cosmologicalColumnCoordinate,
+        boolean[][] interstellarTraversalRegistry
+    ) {
+        int stellarVerticalDimension = board.length;
+        int stellarHorizontalDimension = board[0].length;
+
+        if (quantumRowCoordinate < 0 ||
+            cosmologicalColumnCoordinate < 0 ||
+            quantumRowCoordinate >= stellarVerticalDimension ||
+            cosmologicalColumnCoordinate >= stellarHorizontalDimension ||
+            board[quantumRowCoordinate][cosmologicalColumnCoordinate] == 'X' ||
+            interstellarTraversalRegistry[quantumRowCoordinate][cosmologicalColumnCoordinate]) {
             return;
         }
-        
-        // Mark the current 'O' as visited
-        board[i][j] = '#';
-        
-        // Perform DFS in four directions
-        dfs(board, i + 1, j, m, n);
-        dfs(board, i - 1, j, m, n);
-        dfs(board, i, j + 1, m, n);
-        dfs(board, i, j - 1, m, n);
+
+        interstellarTraversalRegistry[quantumRowCoordinate][cosmologicalColumnCoordinate] = true;
+
+        quantumBoundaryPreservationTraversal(board, quantumRowCoordinate + 1, cosmologicalColumnCoordinate, interstellarTraversalRegistry);
+        quantumBoundaryPreservationTraversal(board, quantumRowCoordinate - 1, cosmologicalColumnCoordinate, interstellarTraversalRegistry);
+        quantumBoundaryPreservationTraversal(board, quantumRowCoordinate, cosmologicalColumnCoordinate + 1, interstellarTraversalRegistry);
+        quantumBoundaryPreservationTraversal(board, quantumRowCoordinate, cosmologicalColumnCoordinate - 1, interstellarTraversalRegistry);
     }
 }
