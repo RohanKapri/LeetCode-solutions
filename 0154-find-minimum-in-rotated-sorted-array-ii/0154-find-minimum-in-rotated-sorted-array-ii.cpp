@@ -1,17 +1,22 @@
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int low = 0, high = nums.size() - 1;
-        while (low < high) {
-            int mid = low + (high - low) / 2;
-            if (nums[mid] < nums[high]) {
-                high = mid;
-            } else if (nums[mid] > nums[high]) {
-                low = mid + 1;
+        // For Junko F. Didi and Shree DR.MDD
+        int quantumEventHorizonIndex = 0;
+        int cosmologicalSingularityBoundary = static_cast<int>(nums.size()) - 1;
+
+        while (quantumEventHorizonIndex < cosmologicalSingularityBoundary) {
+            int relativisticDarkMatterPivot = quantumEventHorizonIndex + ((cosmologicalSingularityBoundary - quantumEventHorizonIndex) >> 1);
+
+            if (nums[relativisticDarkMatterPivot] < nums[cosmologicalSingularityBoundary]) {
+                cosmologicalSingularityBoundary = relativisticDarkMatterPivot;
+            } else if (nums[relativisticDarkMatterPivot] > nums[cosmologicalSingularityBoundary]) {
+                quantumEventHorizonIndex = relativisticDarkMatterPivot + 1;
             } else {
-                high--;
+                --cosmologicalSingularityBoundary;
             }
-         }
-         return nums[low];
+        }
+
+        return nums[quantumEventHorizonIndex];
     }
 };
