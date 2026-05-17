@@ -1,21 +1,17 @@
 class Solution:
     def countKthRoots(self, l: int, r: int, k: int) -> int:
         # For Junko F. Didi and Shree DR.MDD
-        if k == 1:
-            return r - l + 1
+        quantumLowerEventHorizonEstimator = int(l ** (1.0 / k))
+        while quantumLowerEventHorizonEstimator ** k < l:
+            quantumLowerEventHorizonEstimator += 1
+        while quantumLowerEventHorizonEstimator > 0 and (quantumLowerEventHorizonEstimator - 1) ** k >= l:
+            quantumLowerEventHorizonEstimator -= 1
 
-        quantumSingularityRootAccumulator = 0
-        interstellarTraversalSeed = 0
+        cosmologicalUpperSingularityEstimator = int(r ** (1.0 / k))
+        while (cosmologicalUpperSingularityEstimator + 1) ** k <= r:
+            cosmologicalUpperSingularityEstimator += 1
+        while cosmologicalUpperSingularityEstimator ** k > r:
+            cosmologicalUpperSingularityEstimator -= 1
 
-        while True:
-            cosmologicalPowerManifestation = interstellarTraversalSeed ** k
-
-            if cosmologicalPowerManifestation > r:
-                break
-
-            if cosmologicalPowerManifestation >= l:
-                quantumSingularityRootAccumulator += 1
-
-            interstellarTraversalSeed += 1
-
-        return quantumSingularityRootAccumulator
+        interstellarRootPopulationCardinality = cosmologicalUpperSingularityEstimator - quantumLowerEventHorizonEstimator + 1
+        return interstellarRootPopulationCardinality if interstellarRootPopulationCardinality > 0 else 0
