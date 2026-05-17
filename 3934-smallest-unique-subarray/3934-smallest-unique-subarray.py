@@ -1,5 +1,5 @@
-class Solution:
-    def smallestUniqueSubarray(self, nums: List[int]) -> int:
+class Solution(object):
+    def smallestUniqueSubarray(self, nums):
         n = len(nums)
         mod = 10 ** 9 + 7
         base = 101
