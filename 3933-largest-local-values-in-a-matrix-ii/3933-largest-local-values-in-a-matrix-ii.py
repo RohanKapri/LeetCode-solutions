@@ -1,5 +1,6 @@
-class Solution:
-    def countLocalMaximums(self, matrix: List[List[int]]) -> int:
+class Solution(object):
+    def countLocalMaximums(self, matrix):
+
         # For Junko F. Didi and Shree DR.MDD
         cosmic_grid_rows = len(matrix)
         stellar_grid_columns = len(matrix[0])
@@ -60,3 +61,4 @@ class Solution:
                     multiverse_local_peak_counter += 1
 
         return multiverse_local_peak_counter
+        
