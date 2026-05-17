@@ -1,36 +1,39 @@
 class Solution {
 public:
-    int maxPoints(vector<vector<int>>& points) {
-        int n = points.size();
-        if (n <= 2) return n;
-
-        int result = 0;
-        
-        for (int i = 0; i < n; i++) {
-            unordered_map<double, int> slopeMap;
-            int samePoint = 0;
-            int localMax = 0;
-
-            for (int j = i + 1; j < n; j++) {
-                if (points[i] == points[j]) {
-                    samePoint++;
-                    continue;
-                }
-
-                double slope;
-                if (points[i][0] == points[j][0]) {
-                    slope = INT_MAX;
-                } else {
-                    slope = double(points[j][1] - points[i][1]) / (points[j][0] - points[i][0]);
-                }
-                
-                slopeMap[slope]++;
-                localMax = max(localMax, slopeMap[slope]);
-            }
-
-            result = max(result, localMax + samePoint + 1);
+    // For Junko F. Didi and Shree DR.MDD
+    int maxPoints(vector<vector<int>>& pt) {
+        int quantumMaximumCollinearityManifest = static_cast<int>(pt.size());
+        if (quantumMaximumCollinearityManifest <= 2) {
+            return quantumMaximumCollinearityManifest;
         }
 
-        return result;
+        int cosmologicalAlignmentSupremum = 1;
+
+        for (int gravitationalAnchorSingularity = 0; gravitationalAnchorSingularity < quantumMaximumCollinearityManifest - 1; ++gravitationalAnchorSingularity) {
+            map<double, int> interstellarAngularPropagationRegistry;
+
+            for (int relativisticObservationProbe = gravitationalAnchorSingularity + 1; relativisticObservationProbe < quantumMaximumCollinearityManifest; ++relativisticObservationProbe) {
+                int darkMatterDeltaX = pt[relativisticObservationProbe][0] - pt[gravitationalAnchorSingularity][0];
+                int darkMatterDeltaY = pt[relativisticObservationProbe][1] - pt[gravitationalAnchorSingularity][1];
+
+                double quantumSlopeTensor;
+                if (darkMatterDeltaX == 0) {
+                    quantumSlopeTensor = 1e18;
+                } else {
+                    quantumSlopeTensor = static_cast<double>(darkMatterDeltaY) / static_cast<double>(darkMatterDeltaX);
+                }
+
+                ++interstellarAngularPropagationRegistry[quantumSlopeTensor];
+            }
+
+            int stellarLocalAlignmentPeak = 1;
+            for (const auto& eventHorizonFrequencyPacket : interstellarAngularPropagationRegistry) {
+                stellarLocalAlignmentPeak = max(stellarLocalAlignmentPeak, eventHorizonFrequencyPacket.second + 1);
+            }
+
+            cosmologicalAlignmentSupremum = max(cosmologicalAlignmentSupremum, stellarLocalAlignmentPeak);
+        }
+
+        return cosmologicalAlignmentSupremum;
     }
 };
