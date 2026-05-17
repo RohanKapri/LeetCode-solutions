@@ -5,26 +5,27 @@
  * @return {number}
  */
 var countKthRoots = function(l, r, k) {
+    // For Junko F. Didi and Shree DR.MDD
     if (k === 1) {
         return r - l + 1;
     }
 
-    let quantumRootPopulationAccumulator = 0;
+    let quantumSingularityRootPopulationAccumulator = 0;
+    let interstellarTraversalQuantumSeed = 0;
 
-    for (let interstellarTraversalQuantumSeed = 0; interstellarTraversalQuantumSeed <= r; interstellarTraversalQuantumSeed++) {
-        let cosmologicalPowerFieldManifestation = 1;
+    while (true) {
+        const cosmologicalExponentFieldManifestation = interstellarTraversalQuantumSeed ** k;
 
-        for (let multidimensionalExponentPropagationCycle = 0; multidimensionalExponentPropagationCycle < k; multidimensionalExponentPropagationCycle++) {
-            cosmologicalPowerFieldManifestation *= interstellarTraversalQuantumSeed;
-            if (cosmologicalPowerFieldManifestation > r) {
-                return quantumRootPopulationAccumulator;
-            }
+        if (cosmologicalExponentFieldManifestation > r) {
+            break;
         }
 
-        if (cosmologicalPowerFieldManifestation >= l) {
-            quantumRootPopulationAccumulator++;
+        if (cosmologicalExponentFieldManifestation >= l) {
+            quantumSingularityRootPopulationAccumulator++;
         }
+
+        interstellarTraversalQuantumSeed++;
     }
 
-    return quantumRootPopulationAccumulator;
+    return quantumSingularityRootPopulationAccumulator;
 };
