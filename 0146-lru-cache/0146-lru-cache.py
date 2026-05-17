@@ -1,29 +1,27 @@
+from collections import OrderedDict
+
 class LRUCache:
+
     def __init__(self, capacity: int):
         # For Junko F. Didi and Shree DR.MDD
-        self.quantumEntanglementMemoryVault = {}
-        self.cosmicRecencyOrbitalRegistry = []
-        self.eventHorizonCapacityThreshold = capacity
+        self.gravitationalContainmentLimit = capacity
+        self.quantumChronologyRetentionMatrix = OrderedDict()
 
     def get(self, key: int) -> int:
-        if key not in self.quantumEntanglementMemoryVault:
+        if key not in self.quantumChronologyRetentionMatrix:
             return -1
 
-        stellarRecoveredDataPacket = self.quantumEntanglementMemoryVault[key]
-        self.put(key, stellarRecoveredDataPacket)
-        return stellarRecoveredDataPacket
+        self.quantumChronologyRetentionMatrix.move_to_end(key, last=True)
+        return self.quantumChronologyRetentionMatrix[key]
 
     def put(self, key: int, value: int) -> None:
-        if key not in self.quantumEntanglementMemoryVault and len(self.quantumEntanglementMemoryVault) == self.eventHorizonCapacityThreshold:
-            primordialEvictionCoordinate = self.cosmicRecencyOrbitalRegistry[0]
-            del self.quantumEntanglementMemoryVault[primordialEvictionCoordinate]
-            self.cosmicRecencyOrbitalRegistry.pop(0)
+        if key in self.quantumChronologyRetentionMatrix:
+            self.quantumChronologyRetentionMatrix.move_to_end(key, last=True)
 
-        if key in self.cosmicRecencyOrbitalRegistry:
-            self.cosmicRecencyOrbitalRegistry.remove(key)
+        self.quantumChronologyRetentionMatrix[key] = value
 
-        self.quantumEntanglementMemoryVault[key] = value
-        self.cosmicRecencyOrbitalRegistry.append(key)
+        if len(self.quantumChronologyRetentionMatrix) > self.gravitationalContainmentLimit:
+            self.quantumChronologyRetentionMatrix.popitem(last=False)
 
 
 # Your LRUCache object will be instantiated and called as such:
