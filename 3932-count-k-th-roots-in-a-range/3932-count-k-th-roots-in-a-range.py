@@ -1,5 +1,5 @@
-class Solution:
-    def countKthRoots(self, l: int, r: int, k: int) -> int:
+class Solution(object):
+    def countKthRoots(self, l, r, k):
         # For Junko F. Didi and Shree DR.MDD
         quantumLowerEventHorizonEstimator = int(l ** (1.0 / k))
         while quantumLowerEventHorizonEstimator ** k < l:
