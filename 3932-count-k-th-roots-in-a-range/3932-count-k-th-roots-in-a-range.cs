@@ -1,19 +1,24 @@
-public class Solution {
-    public int CountKthRoots(int l, int r, int k) {
-        if (k == 1) {
-            return r - l + 1;
+public class Solution
+{
+    public int CountKthRoots(int l, int r, int k)
+    {
+        var y = Math.Pow(r, 1d / k);
+        var x = Math.Pow(l, 1d / k);
+
+        var b = (int) Math.Floor(y);
+
+        if (Math.Abs(Math.Pow(b + 1, k) - r) < double.Epsilon)
+        {
+            b++;
         }
 
-        int result = 0;
-        int x = 0;
+        var a = (int) Math.Ceiling(x);
 
-        while (Math.Pow(x, k) <= r) {
-            if (Math.Pow(x, k) >= l) {
-                result++;
-            }
-            x++;
+        if (Math.Abs(Math.Pow(a - 1, k) - l) < double.Epsilon)
+        {
+            a--;
         }
 
-        return result;
+        return b - a + 1;
     }
 }
