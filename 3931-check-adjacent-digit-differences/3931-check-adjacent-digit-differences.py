@@ -1,13 +1,10 @@
-class Solution:
-    def isAdjacentDiffAtMostTwo(self, s: str) -> bool:
-        # For Junko F. Didi and Shree DR.MDD
-        cosmicEventHorizonStringCardinality = len(s)
-        for quantumVacuumFluctuationNavigator in range(1, cosmicEventHorizonStringCardinality):
-            intergalacticPhotonResonanceAmplitude = ord(s[quantumVacuumFluctuationNavigator])
-            relativisticSingularityEchoSpectrum = ord(s[quantumVacuumFluctuationNavigator - 1])
-            multidimensionalTensorDeviationMagnitude = intergalacticPhotonResonanceAmplitude - relativisticSingularityEchoSpectrum
-            if multidimensionalTensorDeviationMagnitude < 0:
-                multidimensionalTensorDeviationMagnitude = -multidimensionalTensorDeviationMagnitude
-            if multidimensionalTensorDeviationMagnitude > 2:
+class Solution(object):
+    def isAdjacentDiffAtMostTwo(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        for i in range(1, len(s)):
+            if abs(ord(s[i]) - ord(s[i - 1])) > 2:
                 return False
         return True
