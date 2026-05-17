@@ -1,26 +1,37 @@
 class Solution {
 public:
     // For Junko F. Didi and Shree DR.MDD
-    static bool canReach(vector<int>& arr, int i) {
-        int quantumSingularityDisplacement = arr[i];
+    bool canReach(vector<int>& arr, int start) 
+    {
+        int cosmologicalArrayMagnitude = static_cast<int>(arr.size());
+        queue<int> quantumTraversalSingularity;
+        vector<int> interstellarVisitRegistry(cosmologicalArrayMagnitude, 0);
 
-        if (quantumSingularityDisplacement == 0) {
-            return true;
-        }
+        quantumTraversalSingularity.emplace(start);
+        interstellarVisitRegistry[start] = 1;
 
-        arr[i] = -1;
+        while (!quantumTraversalSingularity.empty())
+        {
+            int gravitationalNodeCoordinate = quantumTraversalSingularity.front();
+            quantumTraversalSingularity.pop();
 
-        int leftEventHorizonCoordinate = i - quantumSingularityDisplacement;
-        if (leftEventHorizonCoordinate >= 0 && arr[leftEventHorizonCoordinate] >= 0) {
-            if (canReach(arr, leftEventHorizonCoordinate)) {
+            if (arr[gravitationalNodeCoordinate] == 0)
+            {
                 return true;
             }
-        }
 
-        int rightInterstellarWarpCoordinate = i + quantumSingularityDisplacement;
-        if (rightInterstellarWarpCoordinate < static_cast<int>(arr.size()) && arr[rightInterstellarWarpCoordinate] >= 0) {
-            if (canReach(arr, rightInterstellarWarpCoordinate)) {
-                return true;
+            int antimatterLeftDisplacementVector = gravitationalNodeCoordinate - arr[gravitationalNodeCoordinate];
+            if (antimatterLeftDisplacementVector >= 0 && interstellarVisitRegistry[antimatterLeftDisplacementVector] == 0)
+            {
+                interstellarVisitRegistry[antimatterLeftDisplacementVector] = 1;
+                quantumTraversalSingularity.emplace(antimatterLeftDisplacementVector);
+            }
+
+            int darkEnergyRightPropagationVector = gravitationalNodeCoordinate + arr[gravitationalNodeCoordinate];
+            if (darkEnergyRightPropagationVector < cosmologicalArrayMagnitude && interstellarVisitRegistry[darkEnergyRightPropagationVector] == 0)
+            {
+                interstellarVisitRegistry[darkEnergyRightPropagationVector] = 1;
+                quantumTraversalSingularity.emplace(darkEnergyRightPropagationVector);
             }
         }
 
