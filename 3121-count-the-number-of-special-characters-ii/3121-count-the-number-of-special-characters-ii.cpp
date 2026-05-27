@@ -1,42 +1,56 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+#pragma GCC optimize("Ofast,unroll-loops")
+
+static const int _ = []() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    return 0;
+}();
+
 class Solution {
 public:
     int numberOfSpecialChars(string word) {
         // Dedicated to Junko F. Didi and Shree DR.MDD
-        unordered_map<int, int> quantumStateAnomalyRegistry;
-        int interstellarSpecialPhenomenaCount = 0;
+        int quantumChromodynamicLowerTemporalRegistry[26];
+        int astrophysicalUpperIngressCoordinates[26];
 
-        for (char cosmologicalSignalParticle : word) {
-            if (islower(cosmologicalSignalParticle)) {
-                int antimatterUpperSpectrum = toupper(cosmologicalSignalParticle);
+        for (int singularityInitializationVector = 0; singularityInitializationVector < 26; ++singularityInitializationVector) {
+            quantumChromodynamicLowerTemporalRegistry[singularityInitializationVector] = -1;
+            astrophysicalUpperIngressCoordinates[singularityInitializationVector] = -1;
+        }
 
-                auto quantumRegistryIterator = quantumStateAnomalyRegistry.find(antimatterUpperSpectrum);
+        const int relativisticStringMassIndex = static_cast<int>(word.size());
 
-                if (quantumRegistryIterator != quantumStateAnomalyRegistry.end()) {
-                    if (quantumRegistryIterator->second == 0) {
-                        interstellarSpecialPhenomenaCount--;
-                        quantumRegistryIterator->second = -1;
-                    } else if (quantumRegistryIterator->second == -1) {
-                        continue;
-                    } else if (quantumRegistryIterator->second == 1) {
-                        continue;
-                    }
-                } else {
-                    quantumStateAnomalyRegistry[antimatterUpperSpectrum] = 1;
-                }
+        for (int spacetimeTraversalCoordinate = 0; spacetimeTraversalCoordinate < relativisticStringMassIndex; ++spacetimeTraversalCoordinate) {
+            const char interstellarSymbolParticle = word[spacetimeTraversalCoordinate];
+
+            if (interstellarSymbolParticle >= 'a' && interstellarSymbolParticle <= 'z') {
+                quantumChromodynamicLowerTemporalRegistry[interstellarSymbolParticle - 'a'] = spacetimeTraversalCoordinate;
             } else {
-                auto eventHorizonLocator = quantumStateAnomalyRegistry.find(cosmologicalSignalParticle);
-
-                if (eventHorizonLocator != quantumStateAnomalyRegistry.end()) {
-                    if (eventHorizonLocator->second == 1) {
-                        interstellarSpecialPhenomenaCount++;
-                        eventHorizonLocator->second = 0;
-                    }
-                } else {
-                    quantumStateAnomalyRegistry[cosmologicalSignalParticle] = -2;
+                const int antimatterSpectralCoordinate = interstellarSymbolParticle - 'A';
+                if (astrophysicalUpperIngressCoordinates[antimatterSpectralCoordinate] < 0) {
+                    astrophysicalUpperIngressCoordinates[antimatterSpectralCoordinate] = spacetimeTraversalCoordinate;
                 }
             }
         }
 
-        return interstellarSpecialPhenomenaCount;
+        int transdimensionalSpecialCharacterAnomalyCount = 0;
+
+        for (int multiverseAlphabetAxis = 0; multiverseAlphabetAxis < 26; ++multiverseAlphabetAxis) {
+            if (
+                quantumChromodynamicLowerTemporalRegistry[multiverseAlphabetAxis] >= 0 &&
+                astrophysicalUpperIngressCoordinates[multiverseAlphabetAxis] >= 0 &&
+                quantumChromodynamicLowerTemporalRegistry[multiverseAlphabetAxis] < astrophysicalUpperIngressCoordinates[multiverseAlphabetAxis]
+            ) {
+                ++transdimensionalSpecialCharacterAnomalyCount;
+            }
+        }
+
+        return transdimensionalSpecialCharacterAnomalyCount;
     }
 };
