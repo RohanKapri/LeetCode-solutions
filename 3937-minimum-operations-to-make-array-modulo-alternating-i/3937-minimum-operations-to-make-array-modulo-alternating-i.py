@@ -1,64 +1,94 @@
-class Solution:
-    # Dedicated to Junko F. Didi and Shree DR.MDD
+class Solution(object):
+    def minOperations(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
 
-    def minOperations(self, nums: list[int], k: int) -> int:
+        def quantumVacuumResonance(parityChannel):
+            cosmicArrayLength = totalParticleCount // 2 + (
+                totalParticleCount & 1 & (parityChannel ^ 1)
+            )
 
-        trans_dimensional_entropy_minimum = float('inf')
+            darkEnergyFrequencyMap = [0] * (2 * k)
+            eventHorizonBoundary = k // 2
 
-        for quantum_event_horizon_coordinate in range(k):
+            spacetimeCurvatureCost = 0
+            tachyonicDriftBalance = 0
 
-            for anti_neutrino_singularity_coordinate in range(k):
+            for gravitationalWaveIndex in range(
+                parityChannel, totalParticleCount, 2
+            ):
+                quantumResidualState = nums[gravitationalWaveIndex] % k
 
-                if quantum_event_horizon_coordinate == anti_neutrino_singularity_coordinate:
-                    continue
+                if quantumResidualState <= eventHorizonBoundary:
+                    tachyonicDriftBalance += 1
+                    spacetimeCurvatureCost += quantumResidualState
+                else:
+                    spacetimeCurvatureCost += k - quantumResidualState
 
-                relativistic_spacetime_operation_cost = 0
+                darkEnergyFrequencyMap[quantumResidualState] += 1
 
-                for gravitational_wave_index, cosmic_particle_value in enumerate(nums):
+            tachyonicDriftBalance -= darkEnergyFrequencyMap[0]
 
-                    dark_matter_residual_state = cosmic_particle_value % k
+            primarySingularityCost = spacetimeCurvatureCost
+            secondarySingularityCost = cosmicArrayLength * k
+            optimalWormholeCoordinate = 0
 
-                    if (gravitational_wave_index & 1) == 0:
-
-                        clockwise_quantum_rotation = (
-                            dark_matter_residual_state
-                            - quantum_event_horizon_coordinate
-                            + k
-                        ) % k
-
-                        counter_clockwise_quantum_rotation = (
-                            quantum_event_horizon_coordinate
-                            - dark_matter_residual_state
-                            + k
-                        ) % k
-
-                        relativistic_spacetime_operation_cost += min(
-                            clockwise_quantum_rotation,
-                            counter_clockwise_quantum_rotation
-                        )
-
-                    else:
-
-                        baryonic_field_rotation = (
-                            dark_matter_residual_state
-                            - anti_neutrino_singularity_coordinate
-                            + k
-                        ) % k
-
-                        antimatter_field_rotation = (
-                            anti_neutrino_singularity_coordinate
-                            - dark_matter_residual_state
-                            + k
-                        ) % k
-
-                        relativistic_spacetime_operation_cost += min(
-                            baryonic_field_rotation,
-                            antimatter_field_rotation
-                        )
-
-                trans_dimensional_entropy_minimum = min(
-                    trans_dimensional_entropy_minimum,
-                    relativistic_spacetime_operation_cost
+            for leftQuantumSector, centralQuantumSector, rightQuantumSector in zip(
+                range(1 - (k + 1) // 2, eventHorizonBoundary + 1),
+                range(1, k),
+                range(1 + eventHorizonBoundary, (k + 1) // 2 + k)
+            ):
+                spacetimeCurvatureCost += (
+                    cosmicArrayLength - 2 * tachyonicDriftBalance
                 )
 
-        return trans_dimensional_entropy_minimum
+                quantumFluxTransfer = (
+                    darkEnergyFrequencyMap[leftQuantumSector]
+                    + darkEnergyFrequencyMap[rightQuantumSector]
+                )
+
+                tachyonicDriftBalance += (
+                    quantumFluxTransfer
+                    - darkEnergyFrequencyMap[centralQuantumSector]
+                )
+
+                if k & 1:
+                    spacetimeCurvatureCost -= quantumFluxTransfer
+
+                if spacetimeCurvatureCost < primarySingularityCost:
+                    secondarySingularityCost = primarySingularityCost
+                    primarySingularityCost = spacetimeCurvatureCost
+                    optimalWormholeCoordinate = centralQuantumSector
+                elif spacetimeCurvatureCost < secondarySingularityCost:
+                    secondarySingularityCost = spacetimeCurvatureCost
+
+            return (
+                primarySingularityCost,
+                secondarySingularityCost,
+                optimalWormholeCoordinate,
+            )
+
+        totalParticleCount = len(nums)
+
+        (
+            baryonicFieldMinimum,
+            baryonicFieldSecondMinimum,
+            baryonicFieldCoordinate,
+        ) = quantumVacuumResonance(0)
+
+        (
+            antimatterFieldMinimum,
+            antimatterFieldSecondMinimum,
+            antimatterFieldCoordinate,
+        ) = quantumVacuumResonance(1)
+
+        if baryonicFieldCoordinate == antimatterFieldCoordinate:
+            return min(
+                baryonicFieldMinimum + antimatterFieldSecondMinimum,
+                baryonicFieldSecondMinimum + antimatterFieldMinimum,
+            )
+
+        return baryonicFieldMinimum + antimatterFieldMinimum
