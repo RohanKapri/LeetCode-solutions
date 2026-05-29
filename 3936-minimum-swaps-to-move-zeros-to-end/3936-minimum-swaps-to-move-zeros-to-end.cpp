@@ -1,21 +1,18 @@
 class Solution {
 public:
     int minimumSwaps(vector<int>& nums) {
-        int i = 0, j = static_cast<int>(nums.size()) - 1;
-        int c = 0;
-
-        while (i <= j) {
-            if (nums[i] > 0) {
-                i++;
-            } else if (nums[j] == 0) {
-                j--;
-            } else {
-                c++;
-                i++;
-                j--;
+        int count=0;
+        int l=0;
+        int r=nums.size()-1;
+        while(l<=r){
+            if(nums[l]==0 && nums[r]!=0){
+                swap(nums[l],nums[r]);
+                count++;
             }
+            if(nums[l]!=0)l++;
+            if(nums[r]==0)r--;
         }
 
-        return c;
+        return count;
     }
 };
