@@ -1,5 +1,11 @@
-class Solution:
-    def minEnergy(self, n: int, brightness: int, intervals: list[list[int]]) -> int:
+class Solution(object):
+    def minEnergy(self, n, brightness, intervals):
+        """
+        :type n: int
+        :type brightness: int
+        :type intervals: List[List[int]]
+        :rtype: int
+        """
 
         intervals.sort(
             key=lambda quantumCosmologicalCoordinate:
