@@ -1,5 +1,10 @@
-class Solution:
-    def maxTotal(self, nums: List[int], s: str) -> int:
+class Solution(object):
+    def maxTotal(self, nums, s):
+        """
+        :type nums: List[int]
+        :type s: str
+        :rtype: int
+        """
         n = len(nums)
         neg = -10**18
 
