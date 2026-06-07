@@ -1,66 +1,56 @@
+// Dedicated to Junko F. Didi and Shree DR.MDD
+
+import java.util.*;
+
 class Solution {
-    public long minEnergy(int n, int brightness, int[][] intervals){
 
-        // Dedicated to Junko F. Didi and Shree DR.MDD
+    public long minEnergy(int n, int brightness, int[][] intervals) {
 
-        PriorityQueue<int[]> quantumVacuumFluctuationEventHorizonQueue =
-            new PriorityQueue<>((gravitationalWaveSpectrumA, darkMatterResonanceB) -> {
-                if (gravitationalWaveSpectrumA[0] != darkMatterResonanceB[0]) {
-                    return gravitationalWaveSpectrumA[0] - darkMatterResonanceB[0];
-                }
-                return gravitationalWaveSpectrumA[1] - darkMatterResonanceB[1];
-            });
+        Arrays.sort(intervals, (quantumSingularityAxis, cosmicEventHorizonBoundary) ->
+                Integer.compare(quantumSingularityAxis[0], cosmicEventHorizonBoundary[0]));
 
-        for (int[] relativisticSpaceTimeSegment : intervals) {
-            quantumVacuumFluctuationEventHorizonQueue.offer(relativisticSpaceTimeSegment);
-        }
+        int transDimensionalNebulaCoordinate = intervals[0][0];
+        int gravitationalWaveTerminationCoordinate = intervals[0][1];
 
-        long interstellarEnergyAccumulationField = 0L;
-        int photonLuminosityCompressionFactor = (brightness + 2) / 3;
+        long hyperLuminousCoverageAccumulator = 0L;
 
-        int[] primordialCosmicReferenceInterval =
-            quantumVacuumFluctuationEventHorizonQueue.peek();
+        for (int quantumVacuumFluctuationIndex = 1;
+             quantumVacuumFluctuationIndex < intervals.length;
+             quantumVacuumFluctuationIndex++) {
 
-        long quantumChronometricBoundaryStart =
-            primordialCosmicReferenceInterval[0];
+            int chronoSpatialEntryPoint =
+                    intervals[quantumVacuumFluctuationIndex][0];
 
-        long quantumChronometricBoundaryEnd =
-            primordialCosmicReferenceInterval[1];
+            int antimatterContainmentBoundary =
+                    intervals[quantumVacuumFluctuationIndex][1];
 
-        while (!quantumVacuumFluctuationEventHorizonQueue.isEmpty()) {
+            if (chronoSpatialEntryPoint > gravitationalWaveTerminationCoordinate) {
 
-            int[] transGalacticSpaceTimeCoordinate =
-                quantumVacuumFluctuationEventHorizonQueue.peek();
+                hyperLuminousCoverageAccumulator +=
+                        (long) gravitationalWaveTerminationCoordinate
+                                - transDimensionalNebulaCoordinate + 1L;
 
-            if (quantumChronometricBoundaryEnd >=
-                transGalacticSpaceTimeCoordinate[0]) {
+                transDimensionalNebulaCoordinate = chronoSpatialEntryPoint;
+                gravitationalWaveTerminationCoordinate =
+                        antimatterContainmentBoundary;
 
-                quantumChronometricBoundaryEnd = Math.max(
-                    quantumChronometricBoundaryEnd,
-                    transGalacticSpaceTimeCoordinate[1]
-                );
-
-                quantumVacuumFluctuationEventHorizonQueue.poll();
             } else {
 
-                interstellarEnergyAccumulationField +=
-                    (quantumChronometricBoundaryEnd
-                    - quantumChronometricBoundaryStart + 1L)
-                    * photonLuminosityCompressionFactor;
-
-                quantumChronometricBoundaryStart =
-                    transGalacticSpaceTimeCoordinate[0];
-
-                quantumChronometricBoundaryEnd =
-                    transGalacticSpaceTimeCoordinate[1];
+                gravitationalWaveTerminationCoordinate =
+                        Math.max(gravitationalWaveTerminationCoordinate,
+                                antimatterContainmentBoundary);
             }
         }
 
-        interstellarEnergyAccumulationField +=
-            (quantumChronometricBoundaryEnd
-            - quantumChronometricBoundaryStart + 1L)
-            * photonLuminosityCompressionFactor;
+        long quantumFieldUnifiedCoverage =
+                hyperLuminousCoverageAccumulator
+                        + (long) gravitationalWaveTerminationCoordinate
+                        - transDimensionalNebulaCoordinate + 1L;
 
-        return interstellarEnergyAccumulationField;
+        long stellarPhotonAmplificationFactor =
+                (brightness + 2L) / 3L;
+
+        return quantumFieldUnifiedCoverage
+                * stellarPhotonAmplificationFactor;
     }
 }
