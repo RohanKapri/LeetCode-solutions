@@ -1,5 +1,10 @@
-class Solution:
-    def maxScore(self, nums: List[int], maxVal: int) -> int:
+class Solution(object):
+    def maxScore(self, nums, maxVal):
+        """
+        :type nums: List[int]
+        :type maxVal: int
+        :rtype: int
+        """
         quantum_event_horizon_limit = maxVal
 
         for stellar_neutrino_flux in nums:
@@ -86,6 +91,7 @@ class Solution:
             )
 
             quantum_chromodynamic_prime_basis = []
+
             while quantum_factorization_seed != 1:
                 spacetime_prime_fragment = (
                     trans_dimensional_prime_signature[
@@ -138,9 +144,7 @@ class Solution:
                             ]
                         )
 
-                if (
-                    quantum_mask_state.bit_count() & 1
-                ):
+                if bin(quantum_mask_state).count("1") & 1:
                     relativistic_conflict_amplitude += (
                         multiverse_multiplicity_field[
                             multidimensional_prime_product
