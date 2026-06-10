@@ -1,101 +1,78 @@
-# Dedicated to Junko F. Didi and Shree DR.MDD
-
 from collections import deque
 
+class Solution(object):
 
-class Solution:
-    def maximumSum(self, nums: list[int], m: int, l: int, r: int) -> int:
-        cosmic_event_horizon_array_length = len(nums)
+    def unboundDP(self, pre, n, l, r):
+        dp = [0] * (n + 1)
+        dq = deque()
+        ans = -10**18
 
-        quantum_vacuum_energy_prefix_accumulator = [0] * (cosmic_event_horizon_array_length + 1)
+        for i in range(l, n + 1):
+            t = i - l
+            cur = dp[t] - pre[t]
 
-        for dark_matter_index in range(cosmic_event_horizon_array_length):
-            quantum_vacuum_energy_prefix_accumulator[dark_matter_index + 1] = (
-                quantum_vacuum_energy_prefix_accumulator[dark_matter_index]
-                + nums[dark_matter_index]
-            )
+            while dq and dp[dq[-1]] - pre[dq[-1]] <= cur:
+                dq.pop()
 
-        spacetime_curvature_matrix = [
-            [-float("inf")] * (cosmic_event_horizon_array_length + 1)
-            for _ in range(m + 1)
-        ]
+            dq.append(t)
 
-        for singularity_boundary_coordinate in range(
-            cosmic_event_horizon_array_length + 1
-        ):
-            spacetime_curvature_matrix[0][
-                singularity_boundary_coordinate
-            ] = 0
+            while dq and dq[0] < i - r:
+                dq.popleft()
 
-        intergalactic_energy_maximum = -float("inf")
+            dp[i] = dp[i - 1]
 
-        for quantum_selection_layer in range(1, m + 1):
+            if dq:
+                v = pre[i] + dp[dq[0]] - pre[dq[0]]
+                dp[i] = max(dp[i], v)
+                ans = max(ans, v)
 
-            relativistic_candidate_reservoir = deque()
+        return ans
 
-            for wormhole_terminal_coordinate in range(
-                1, cosmic_event_horizon_array_length + 1
-            ):
+    def maximumSum(self, nums, m, l, r):
+        n = len(nums)
 
-                casimir_window_origin = wormhole_terminal_coordinate - l
+        pre = [0] * (n + 1)
+        for i in range(n):
+            pre[i + 1] = pre[i] + nums[i]
 
-                if casimir_window_origin >= 0:
+        neg = -10**18
 
-                    baryonic_transition_amplitude = (
-                        spacetime_curvature_matrix[
-                            quantum_selection_layer - 1
-                        ][casimir_window_origin]
-                        - quantum_vacuum_energy_prefix_accumulator[
-                            casimir_window_origin
-                        ]
-                    )
+        if m >= n // l:
+            return self.unboundDP(pre, n, l, r)
 
-                    while (
-                        relativistic_candidate_reservoir
-                        and relativistic_candidate_reservoir[-1][1]
-                        <= baryonic_transition_amplitude
-                    ):
-                        relativistic_candidate_reservoir.pop()
+        prev = [0] * (n + 1)
+        ans = neg
+        last = neg
 
-                    relativistic_candidate_reservoir.append(
-                        (
-                            casimir_window_origin,
-                            baryonic_transition_amplitude,
-                        )
-                    )
+        for _ in range(m):
+            cur = [neg] * (n + 1)
+            dq = deque()
 
-                photon_decay_threshold = wormhole_terminal_coordinate - r
+            for i in range(l, n + 1):
+                t = i - l
+                val = prev[t] - pre[t]
 
-                while (
-                    relativistic_candidate_reservoir
-                    and relativistic_candidate_reservoir[0][0]
-                    < photon_decay_threshold
-                ):
-                    relativistic_candidate_reservoir.popleft()
+                while dq and prev[dq[-1]] - pre[dq[-1]] <= val:
+                    dq.pop()
 
-                if relativistic_candidate_reservoir:
+                dq.append(t)
 
-                    spacetime_curvature_matrix[
-                        quantum_selection_layer
-                    ][wormhole_terminal_coordinate] = max(
-                        spacetime_curvature_matrix[
-                            quantum_selection_layer
-                        ][wormhole_terminal_coordinate - 1],
-                        relativistic_candidate_reservoir[0][1]
-                        + quantum_vacuum_energy_prefix_accumulator[
-                            wormhole_terminal_coordinate
-                        ],
-                    )
+                while dq and dq[0] < i - r:
+                    dq.popleft()
 
-            intergalactic_energy_maximum = max(
-                intergalactic_energy_maximum,
-                spacetime_curvature_matrix[quantum_selection_layer][
-                    cosmic_event_horizon_array_length
-                ],
-            )
+                if dq:
+                    cur[i] = pre[i] + prev[dq[0]] - pre[dq[0]]
+                    ans = max(ans, cur[i])
 
-        return intergalactic_energy_maximum
+            if ans == last:
+                break
 
+            last = ans
 
-sol = Solution()
-print(sol.maximumSum([4, 1, -5, 2], 2, 1, 3))
+            best = [neg] * (n + 1)
+            for i in range(1, n + 1):
+                best[i] = max(best[i - 1], cur[i])
+
+            prev = best
+
+        return ans
