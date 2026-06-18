@@ -637,6 +637,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0492-construct-the-rectangle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0492-construct-the-rectangle) |
 | [0507-perfect-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0507-perfect-number) |
 | [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
+| [1344-angle-between-hands-of-a-clock](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1344-angle-between-hands-of-a-clock) |
 ## Backtracking
 |  |
 | ------- |
