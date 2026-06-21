@@ -1,0 +1,8 @@
+(define/contract (check-good-integer n)
+  (-> exact-integer? boolean?)
+  (let loop ([num n] [sum 0])
+    (if (= num 0)
+        (>= sum 50)
+        (let ([digit (remainder num 10)])
+          (loop (quotient num 10)
+                (+ sum (* digit (- digit 1))))))))
