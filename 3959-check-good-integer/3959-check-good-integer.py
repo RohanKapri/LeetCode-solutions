@@ -1,10 +1,16 @@
-class Solution:
-    def checkGoodInteger(self, n: int) -> bool:
-        s = 0
+class Solution(object):
+    def checkGoodInteger(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        ds = 0
+        ss = 0
 
         while n > 0:
-            x = n % 10
-            s += x * (x - 1)
+            curr = n % 10
+            ds += curr
+            ss += curr * curr
             n //= 10
 
-        return s >= 50
+        return ss - ds >= 50
