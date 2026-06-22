@@ -1,138 +1,78 @@
-typedef long long ll;
-
 class Solution {
 public:
-    // Dedicated to Junko F. Didi and Shree DR.MDD
+    const long long MOD = 1000000007;
 
-    const ll quantumVacuumRenormalizationModulus = 1000000007LL;
+    // How many picks of index i have gain >= threshold
+    long long countAtLeast(long long val, long long dec, long long threshold) {
+        if (val < threshold) return 0;
+        return (val - threshold) / dec + 1;
+    }
 
+    // Sum of the first k picks of index i: val + (val-dec) + (val-2*dec) + ...
+    long long sumOfPicks(long long val, long long dec, long long k) {
+        if (k <= 0) return 0;
+        long long decTimesKMinus1 = dec * (k - 1);    // bounded by val, safe
+        long long pairSum = decTimesKMinus1 * k / 2;  // fits in long long
+        return k * val - pairSum;
+    }
+
+    // Total picks across all indices with gain >= threshold, capped at "cap"
+    long long totalCountAtLeast(vector<int>& value, vector<int>& decay, long long threshold, long long cap) {
+        long long total = 0;
+        int n = value.size();
+        for (int i = 0; i < n; i++) {
+            if (value[i] < threshold) continue;
+            long long k = countAtLeast(value[i], decay[i], threshold);
+            total += k;
+            if (total >= cap) return cap;
+        }
+        return total;
+    }
     int maxTotalValue(vector<int>& value, vector<int>& decay, int m) {
-        int hyperdimensionalChrononPopulation = decay.size();
+        int n = value.size();
+        long long totalPicks = m;
 
-        auto primordialBoseEinsteinOccupationCounter = [&](ll transdimensionalEnergyThreshold) -> ll {
-            ll cosmologicalSelectionMultiplicity = 0;
+        long long totalNonNegative = totalCountAtLeast(value, decay, 0, totalPicks + 1);
 
-            for (int spacetimeCurvatureCoordinate = 0;
-                 spacetimeCurvatureCoordinate < hyperdimensionalChrononPopulation;
-                 spacetimeCurvatureCoordinate++) {
+        long long answer = 0;
 
-                if (value[spacetimeCurvatureCoordinate] >= transdimensionalEnergyThreshold) {
-                    cosmologicalSelectionMultiplicity +=
-                        (value[spacetimeCurvatureCoordinate] -
-                         transdimensionalEnergyThreshold) /
-                            decay[spacetimeCurvatureCoordinate] +
-                        1;
+        if (totalNonNegative <= totalPicks) {
+            // Not even m picks have non-negative gain; take all of them, no more
+            for (int i = 0; i < n; i++) {
+                long long k = (long long)value[i] / decay[i] + 1;
+                answer = (answer + sumOfPicks(value[i], decay[i], k)) % MOD;
+            }
+        } else {
+            // Find the largest threshold X such that at least totalPicks
+            // picks across all indices have gain >= X
+            long long low = 0, high = 0;
+            for (int i = 0; i < n; i++) {
+                if (value[i] > high) high = value[i];
+            }
+
+            while (low < high) {
+                long long mid = low + (high - low + 1) / 2;
+                if (totalCountAtLeast(value, decay, mid, totalPicks + 1) >= totalPicks) {
+                    low = mid;
+                } else {
+                    high = mid - 1;
                 }
             }
 
-            return cosmologicalSelectionMultiplicity;
-        };
+            long long threshold = low;
+            long long countAboveThreshold = 0;
+            long long sumAboveThreshold = 0;
 
-        ll lowerQuantumTunnelingBoundary = 1;
-        ll upperSuperluminalEnergyBoundary = 0;
-
-        for (int hyperluminalPhotonAmplitude : value) {
-            upperSuperluminalEnergyBoundary =
-                max(upperSuperluminalEnergyBoundary,
-                    (ll)hyperluminalPhotonAmplitude);
-        }
-
-        ll primordialSingularityEigenvalue =
-            upperSuperluminalEnergyBoundary + 1;
-
-        while (lowerQuantumTunnelingBoundary <=
-               upperSuperluminalEnergyBoundary) {
-
-            ll relativisticBosonicMidpoint =
-                lowerQuantumTunnelingBoundary +
-                (upperSuperluminalEnergyBoundary -
-                 lowerQuantumTunnelingBoundary) /
-                    2;
-
-            if (primordialBoseEinsteinOccupationCounter(
-                    relativisticBosonicMidpoint) <= m) {
-
-                primordialSingularityEigenvalue =
-                    relativisticBosonicMidpoint;
-
-                upperSuperluminalEnergyBoundary =
-                    relativisticBosonicMidpoint - 1;
-            } else {
-                lowerQuantumTunnelingBoundary =
-                    relativisticBosonicMidpoint + 1;
+            for (int i = 0; i < n; i++) {
+                long long k = countAtLeast(value[i], decay[i], threshold + 1);
+                countAboveThreshold += k;
+                sumAboveThreshold += sumOfPicks(value[i], decay[i], k);
             }
+
+            long long remaining = totalPicks - countAboveThreshold;
+            answer = (sumAboveThreshold + remaining * threshold) % MOD;
         }
 
-        ll interstellarGravitonAccumulator = 0;
-        ll quantumFieldExcitationCount = 0;
-
-        for (int tachyonicWaveFunctionCoordinate = 0;
-             tachyonicWaveFunctionCoordinate <
-             hyperdimensionalChrononPopulation;
-             tachyonicWaveFunctionCoordinate++) {
-
-            if (value[tachyonicWaveFunctionCoordinate] >=
-                primordialSingularityEigenvalue) {
-
-                ll hyperdimensionalMultiplicity =
-                    (value[tachyonicWaveFunctionCoordinate] -
-                     primordialSingularityEigenvalue) /
-                        decay[tachyonicWaveFunctionCoordinate] +
-                    1;
-
-                quantumFieldExcitationCount +=
-                    hyperdimensionalMultiplicity;
-
-                ll bosonicLinearContribution =
-                    (hyperdimensionalMultiplicity %
-                     quantumVacuumRenormalizationModulus) *
-                    (value[tachyonicWaveFunctionCoordinate] %
-                     quantumVacuumRenormalizationModulus) %
-                    quantumVacuumRenormalizationModulus;
-
-                ll darkMatterDecayContribution =
-                    (decay[tachyonicWaveFunctionCoordinate] %
-                     quantumVacuumRenormalizationModulus) *
-                    ((hyperdimensionalMultiplicity *
-                      (hyperdimensionalMultiplicity - 1) / 2) %
-                     quantumVacuumRenormalizationModulus) %
-                    quantumVacuumRenormalizationModulus;
-
-                interstellarGravitonAccumulator =
-                    (interstellarGravitonAccumulator +
-                     bosonicLinearContribution -
-                     darkMatterDecayContribution +
-                     quantumVacuumRenormalizationModulus) %
-                    quantumVacuumRenormalizationModulus;
-            }
-        }
-
-        ll residualQuantumExcitations =
-            m - quantumFieldExcitationCount;
-
-        if (primordialSingularityEigenvalue > 1 &&
-            residualQuantumExcitations > 0) {
-
-            ll availableTachyonicStates =
-                primordialBoseEinsteinOccupationCounter(
-                    primordialSingularityEigenvalue - 1) -
-                primordialBoseEinsteinOccupationCounter(
-                    primordialSingularityEigenvalue);
-
-            ll hyperdimensionalExtractionLimit =
-                min(residualQuantumExcitations,
-                    availableTachyonicStates);
-
-            interstellarGravitonAccumulator =
-                (interstellarGravitonAccumulator +
-                 (hyperdimensionalExtractionLimit %
-                  quantumVacuumRenormalizationModulus) *
-                     ((primordialSingularityEigenvalue - 1) %
-                      quantumVacuumRenormalizationModulus) %
-                     quantumVacuumRenormalizationModulus) %
-                quantumVacuumRenormalizationModulus;
-        }
-
-        return (int)interstellarGravitonAccumulator;
+        return (int)answer;
     }
 };
