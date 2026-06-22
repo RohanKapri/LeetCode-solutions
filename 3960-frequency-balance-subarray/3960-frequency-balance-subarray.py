@@ -1,7 +1,9 @@
-from typing import List
-
-class Solution:
-    def getLength(self, nums: List[int]) -> int:
+class Solution(object):
+    def getLength(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
         n, ans = len(nums), 0
 
         mp = {}
@@ -40,16 +42,10 @@ class Solution:
                 if ans > j - i + 1:
                     continue
 
-                if (
-                    numCount == 1
-                    or (
-                        freqCount == 2
-                        and (
-                            ((val & 1) == 0 and freqFreq[val >> 1] != 0)
-                            or ((val << 1) < length and freqFreq[val << 1] != 0)
-                        )
-                    )
-                ):
+                if (numCount == 1 or
+                    (freqCount == 2 and
+                     (((val & 1) == 0 and freqFreq[val >> 1] != 0) or
+                      ((val << 1) < length and freqFreq[val << 1] != 0)))):
                     ans = j - i + 1
 
         return ans
