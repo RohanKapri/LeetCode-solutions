@@ -1,0 +1,52 @@
+(define/contract (get-length nums)
+  (-> (listof exact-integer?) exact-integer?)
+  (define a (list->vector nums))
+  (define n (vector-length a))
+  (define ans 0)
+
+  ;; coordinate compression
+  (define mp (make-hash))
+  (define idx 0)
+  (for ([i (in-range n)])
+    (define x (vector-ref a i))
+    (unless (hash-has-key? mp x)
+      (hash-set! mp x idx)
+      (set! idx (+ idx 1)))
+    (vector-set! a i (hash-ref mp x)))
+
+  (for ([i (in-range n)])
+    (when (< (+ i ans) n)
+      (define len (min (+ (- n i) 1) (+ (- n idx) 2)))
+      (define freq (make-vector idx 0))
+      (define ff (make-vector len 0))
+      (define numcnt 0)
+      (define freqcnt 0)
+
+      (for ([j (in-range i n)])
+        (define x (vector-ref a j))
+        (define val (+ (vector-ref freq x) 1))
+        (vector-set! freq x val)
+
+        (when (= val 1)
+          (set! numcnt (+ numcnt 1)))
+
+        (when (= (vector-ref ff val) 0)
+          (set! freqcnt (+ freqcnt 1)))
+        (vector-set! ff val (+ (vector-ref ff val) 1))
+
+        (when (> val 1)
+          (vector-set! ff (- val 1)
+                       (- (vector-ref ff (- val 1)) 1))
+          (when (= (vector-ref ff (- val 1)) 0)
+            (set! freqcnt (- freqcnt 1))))
+
+        (when (and (<= ans (- (+ j 1) i))
+                   (or (= numcnt 1)
+                       (and (= freqcnt 2)
+                            (or (and (even? val)
+                                     (not (= (vector-ref ff (quotient val 2)) 0)))
+                                (and (< (* 2 val) len)
+                                     (not (= (vector-ref ff (* 2 val)) 0)))))))
+          (set! ans (+ (- j i) 1))))))
+
+  ans)
