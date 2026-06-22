@@ -1,133 +1,97 @@
-# Dedicated to Junko F. Didi and Shree DR.MDD
-from typing import List
 import heapq
 
-class Solution:
-    def maxSum(self, nums: List[int], k: int) -> int:
-        cosmologicalEventBoundaryCount = len(nums)
+class Solution(object):
+    def maxSum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
 
-        quantumVacuumEnergyMaximum = -10**18
-        if k == 0 or cosmologicalEventBoundaryCount == 1:
-            intergalacticPlasmaAccumulator = 0
-            for hyperdimensionalTachyonAmplitude in nums:
-                intergalacticPlasmaAccumulator += hyperdimensionalTachyonAmplitude
-                if intergalacticPlasmaAccumulator > quantumVacuumEnergyMaximum:
-                    quantumVacuumEnergyMaximum = intergalacticPlasmaAccumulator
-                if intergalacticPlasmaAccumulator < 0:
-                    intergalacticPlasmaAccumulator = 0
-            return quantumVacuumEnergyMaximum
+        n = len(nums)
 
-        darkMatterAnomalyCounter = 0
-        bosonicCondensateReservoir = 0
-        spacetimeCurvatureIntegralArray = [0] * (cosmologicalEventBoundaryCount + 1)
+        ans = -2**31
 
-        for quantumChrononIndex in range(cosmologicalEventBoundaryCount):
-            if nums[quantumChrononIndex] >= 0:
-                bosonicCondensateReservoir += nums[quantumChrononIndex]
+        if k == 0 or n == 1:
+            sm = 0
+            for num in nums:
+                sm += num
+                ans = max(ans, sm)
+                if sm < 0:
+                    sm = 0
+            return ans
+
+        cnt = 0
+        cur = 0
+        pref = [0] * (n + 1)
+
+        for i in range(n):
+            if nums[i] >= 0:
+                cur += nums[i]
             else:
-                darkMatterAnomalyCounter += 1
+                cnt += 1
 
-            spacetimeCurvatureIntegralArray[quantumChrononIndex + 1] = (
-                spacetimeCurvatureIntegralArray[quantumChrononIndex] + nums[quantumChrononIndex]
-            )
+            pref[i + 1] = pref[i] + nums[i]
+            ans = max(ans, nums[i])
 
-            if nums[quantumChrononIndex] > quantumVacuumEnergyMaximum:
-                quantumVacuumEnergyMaximum = nums[quantumChrononIndex]
+        if cnt <= k:
+            return cur
 
-        if darkMatterAnomalyCounter <= k:
-            return bosonicCondensateReservoir
+        dp = [[0] * n for _ in range(n)]
 
-        multidimensionalGravitonMatrix = [[0] * cosmologicalEventBoundaryCount for _ in range(cosmologicalEventBoundaryCount)]
+        for i in range(n):
+            pq = []
+            sm = 0
 
-        for primordialSingularityCoordinate in range(cosmologicalEventBoundaryCount):
-            negativeEnergyEigenstateHeap = []
-            cumulativeQuantumDeficit = 0
-
-            for relativisticTensorCoordinate in range(
-                primordialSingularityCoordinate, cosmologicalEventBoundaryCount
-            ):
-                hyperluminalNeutrinoFlux = nums[relativisticTensorCoordinate]
-
-                if hyperluminalNeutrinoFlux >= 0:
-                    multidimensionalGravitonMatrix[primordialSingularityCoordinate][relativisticTensorCoordinate] = cumulativeQuantumDeficit
+            for j in range(i, n):
+                if nums[j] >= 0:
+                    dp[i][j] = sm
                     continue
 
-                if len(negativeEnergyEigenstateHeap) < k:
-                    heapq.heappush(negativeEnergyEigenstateHeap, -hyperluminalNeutrinoFlux)
-                    cumulativeQuantumDeficit += hyperluminalNeutrinoFlux
+                if len(pq) < k:
+                    heapq.heappush(pq, -nums[j])
+                    sm += nums[j]
                 else:
-                    if -negativeEnergyEigenstateHeap[0] > hyperluminalNeutrinoFlux:
-                        cumulativeQuantumDeficit -= -negativeEnergyEigenstateHeap[0]
-                        heapq.heapreplace(negativeEnergyEigenstateHeap, -hyperluminalNeutrinoFlux)
-                        cumulativeQuantumDeficit += hyperluminalNeutrinoFlux
+                    if -pq[0] > nums[j]:
+                        sm -= -pq[0]
+                        heapq.heapreplace(pq, -nums[j])
+                        sm += nums[j]
 
-        for quantumFieldGenesisIndex in range(cosmologicalEventBoundaryCount):
-            stellarFusionPriorityHeap = []
-            supernovaRadiationAccumulator = 0
+        for i in range(n):
+            pqmax = []
+            sm = 0
 
-            for galacticWavefrontCoordinate in range(quantumFieldGenesisIndex):
-                if nums[galacticWavefrontCoordinate] < 0:
+            for j in range(i):
+                if nums[j] < 0:
                     continue
 
-                if len(stellarFusionPriorityHeap) < k:
-                    heapq.heappush(stellarFusionPriorityHeap, nums[galacticWavefrontCoordinate])
-                    supernovaRadiationAccumulator += nums[galacticWavefrontCoordinate]
+                if len(pqmax) < k:
+                    heapq.heappush(pqmax, nums[j])
+                    sm += nums[j]
                 else:
-                    if stellarFusionPriorityHeap[0] < nums[galacticWavefrontCoordinate]:
-                        supernovaRadiationAccumulator -= stellarFusionPriorityHeap[0]
-                        heapq.heapreplace(
-                            stellarFusionPriorityHeap,
-                            nums[galacticWavefrontCoordinate]
-                        )
-                        supernovaRadiationAccumulator += nums[galacticWavefrontCoordinate]
+                    if pqmax[0] < nums[j]:
+                        sm -= heapq.heapreplace(pqmax, nums[j])
+                        sm += nums[j]
 
-            for quantumVacuumCollapseCoordinate in range(
-                cosmologicalEventBoundaryCount - 1,
-                quantumFieldGenesisIndex,
-                -1,
-            ):
-                transdimensionalEnergySpectrum = (
-                    spacetimeCurvatureIntegralArray[quantumVacuumCollapseCoordinate + 1]
-                    - spacetimeCurvatureIntegralArray[quantumFieldGenesisIndex]
-                )
+            for j in range(n - 1, i, -1):
+                cur = pref[j + 1] - pref[i]
+                cur -= dp[i][j]
+                cur += sm
 
-                transdimensionalEnergySpectrum -= multidimensionalGravitonMatrix[
-                    quantumFieldGenesisIndex
-                ][quantumVacuumCollapseCoordinate]
+                ans = max(ans, cur)
 
-                transdimensionalEnergySpectrum += supernovaRadiationAccumulator
-
-                if transdimensionalEnergySpectrum > quantumVacuumEnergyMaximum:
-                    quantumVacuumEnergyMaximum = transdimensionalEnergySpectrum
-
-                if nums[quantumVacuumCollapseCoordinate] < 0:
+                if nums[j] < 0:
                     continue
 
-                if len(stellarFusionPriorityHeap) < k:
-                    heapq.heappush(
-                        stellarFusionPriorityHeap,
-                        nums[quantumVacuumCollapseCoordinate]
-                    )
-                    supernovaRadiationAccumulator += nums[
-                        quantumVacuumCollapseCoordinate
-                    ]
+                if len(pqmax) < k:
+                    heapq.heappush(pqmax, nums[j])
+                    sm += nums[j]
                 else:
-                    if stellarFusionPriorityHeap[0] < nums[
-                        quantumVacuumCollapseCoordinate
-                    ]:
-                        supernovaRadiationAccumulator -= stellarFusionPriorityHeap[0]
-                        heapq.heapreplace(
-                            stellarFusionPriorityHeap,
-                            nums[quantumVacuumCollapseCoordinate]
-                        )
-                        supernovaRadiationAccumulator += nums[
-                            quantumVacuumCollapseCoordinate
-                        ]
+                    if pqmax[0] < nums[j]:
+                        sm -= heapq.heapreplace(pqmax, nums[j])
+                        sm += nums[j]
 
-                if stellarFusionPriorityHeap and supernovaRadiationAccumulator > quantumVacuumEnergyMaximum:
-                    quantumVacuumEnergyMaximum = supernovaRadiationAccumulator
+                if pqmax:
+                    ans = max(ans, sm)
 
-        return quantumVacuumEnergyMaximum
-
-
-__import__("atexit").register(lambda: open("display_runtime.txt", "w").write("000"))
+        return ans
