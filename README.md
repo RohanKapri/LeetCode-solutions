@@ -666,6 +666,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
 | [0386-lexicographical-numbers](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0386-lexicographical-numbers) |
 | [2492-minimum-score-of-a-path-between-two-cities](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2492-minimum-score-of-a-path-between-two-cities) |
+| [2685-count-the-number-of-complete-components](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2685-count-the-number-of-complete-components) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -678,6 +679,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0339-nested-list-weight-sum](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0339-nested-list-weight-sum) |
 | [0365-water-and-jug-problem](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0365-water-and-jug-problem) |
 | [2492-minimum-score-of-a-path-between-two-cities](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2492-minimum-score-of-a-path-between-two-cities) |
+| [2685-count-the-number-of-complete-components](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2685-count-the-number-of-complete-components) |
 ## Graph Theory
 |  |
 | ------- |
@@ -689,6 +691,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 | [1059-all-paths-from-source-lead-to-destination](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1059-all-paths-from-source-lead-to-destination) |
 | [2492-minimum-score-of-a-path-between-two-cities](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2492-minimum-score-of-a-path-between-two-cities) |
+| [2685-count-the-number-of-complete-components](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2685-count-the-number-of-complete-components) |
 ## Database
 |  |
 | ------- |
@@ -733,6 +736,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0261-graph-valid-tree](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0261-graph-valid-tree) |
 | [0323-number-of-connected-components-in-an-undirected-graph](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0323-number-of-connected-components-in-an-undirected-graph) |
 | [2492-minimum-score-of-a-path-between-two-cities](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2492-minimum-score-of-a-path-between-two-cities) |
+| [2685-count-the-number-of-complete-components](https://github.com/RohanKapri/LeetCode-solutions/tree/master/2685-count-the-number-of-complete-components) |
 ## Brainteaser
 |  |
 | ------- |
