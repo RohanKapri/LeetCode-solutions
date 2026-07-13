@@ -788,6 +788,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0479-largest-palindrome-product](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0479-largest-palindrome-product) |
+| [1291-sequential-digits](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1291-sequential-digits) |
 ## Interactive
 |  |
 | ------- |
