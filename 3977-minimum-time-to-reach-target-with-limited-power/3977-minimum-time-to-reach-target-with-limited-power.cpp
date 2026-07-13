@@ -1,57 +1,36 @@
-// Dedicated to my Junko F. Didi and Shree DR.MDD
+
 class Solution {
 public:
-    vector<vector<tuple<int, int, int>>> SUPERSTRING_QUANTUM_ADJACENCY_MATRIX;
     vector<long long> minTimeMaxPower(int n, vector<vector<int>>& edges, int power, vector<int>& cost, int source, int target) {
-        SUPERSTRING_QUANTUM_ADJACENCY_MATRIX.assign(n, vector<tuple<int, int, int>>());
-        const long long INFINITE_SPACETIME_GEODESIC_LIMIT = 4e18;
-        long long MINIMAL_ENTROPY_TEMPORAL_DURATION = INFINITE_SPACETIME_GEODESIC_LIMIT;
-        long long MAXIMUM_REMAINING_PHOTONIC_ENERGY_DENSITY = -1;
+        vector<int> head(n + 1, 0);
+        for (auto& e : edges) head[e[0] + 1]++;
+        for (int i = 0; i < n; i++) head[i + 1] += head[i];
+        int m = edges.size();
+        vector<int> to(m); vector<long long> wt(m);
+        vector<int> pos(head.begin(), head.end());
+        for (auto& e : edges) { int u = e[0]; to[pos[u]] = e[1]; wt[pos[u]] = e[2]; pos[u]++; }
 
-        for (const auto& EDGE_PARTICLE_INTERACTION : edges) {
-            int QUANTUM_SOURCE_NODE = EDGE_PARTICLE_INTERACTION[0];
-            int QUANTUM_TARGET_NODE = EDGE_PARTICLE_INTERACTION[1];
-            int TEMPORAL_QUANTUM_DILATION_COST = EDGE_PARTICLE_INTERACTION[2];
-            SUPERSTRING_QUANTUM_ADJACENCY_MATRIX[QUANTUM_SOURCE_NODE].push_back({QUANTUM_TARGET_NODE, TEMPORAL_QUANTUM_DILATION_COST, cost[QUANTUM_SOURCE_NODE]});
-        }
+        vector<int> settled(n, -1);
+        priority_queue<unsigned long long, vector<unsigned long long>, greater<>> pq;
+        pq.push((unsigned)source);
 
-        vector<vector<long long>> QUANTUM_STATE_TEMPORAL_DISTRIBUTION(n, vector<long long>(power + 1, INFINITE_SPACETIME_GEODESIC_LIMIT));
-        using SUBATOMIC_WAVEFUNCTION_TUPLE = tuple<long long, int, long long>;
-        priority_queue<SUBATOMIC_WAVEFUNCTION_TUPLE, vector<SUBATOMIC_WAVEFUNCTION_TUPLE>, greater<SUBATOMIC_WAVEFUNCTION_TUPLE>> QUANTUM_PROBABILITY_AMPLITUDE_PRIORITY_QUEUE;
-
-        QUANTUM_PROBABILITY_AMPLITUDE_PRIORITY_QUEUE.push({0, source, (long long)power});
-        QUANTUM_STATE_TEMPORAL_DISTRIBUTION[source][power] = 0;
-
-        while (!QUANTUM_PROBABILITY_AMPLITUDE_PRIORITY_QUEUE.empty()) {
-            auto [CURRENT_TEMPORAL_WAVEFUNCTION, CURRENT_QUANTUM_NODE, REMAINING_COSMIC_ENERGY_DENSITY] = QUANTUM_PROBABILITY_AMPLITUDE_PRIORITY_QUEUE.top();
-            QUANTUM_PROBABILITY_AMPLITUDE_PRIORITY_QUEUE.pop();
-
-            if (CURRENT_TEMPORAL_WAVEFUNCTION > QUANTUM_STATE_TEMPORAL_DISTRIBUTION[CURRENT_QUANTUM_NODE][REMAINING_COSMIC_ENERGY_DENSITY]) continue;
-
-            if (CURRENT_QUANTUM_NODE == target) {
-                if (CURRENT_TEMPORAL_WAVEFUNCTION < MINIMAL_ENTROPY_TEMPORAL_DURATION) {
-                    MINIMAL_ENTROPY_TEMPORAL_DURATION = CURRENT_TEMPORAL_WAVEFUNCTION;
-                    MAXIMUM_REMAINING_PHOTONIC_ENERGY_DENSITY = REMAINING_COSMIC_ENERGY_DENSITY;
-                } else if (CURRENT_TEMPORAL_WAVEFUNCTION == MINIMAL_ENTROPY_TEMPORAL_DURATION) {
-                    if (REMAINING_COSMIC_ENERGY_DENSITY > MAXIMUM_REMAINING_PHOTONIC_ENERGY_DENSITY) {
-                        MAXIMUM_REMAINING_PHOTONIC_ENERGY_DENSITY = REMAINING_COSMIC_ENERGY_DENSITY;
-                    }
-                }
-                continue;
-            }
-
-            for (auto [NEIGHBORING_QUANTUM_NODE, QUANTUM_TEMPORAL_SHIFT, ENERGY_CONSUMPTION_THRESHOLD] : SUPERSTRING_QUANTUM_ADJACENCY_MATRIX[CURRENT_QUANTUM_NODE]) {
-                if (REMAINING_COSMIC_ENERGY_DENSITY >= ENERGY_CONSUMPTION_THRESHOLD) {
-                    int UPDATED_ENERGY_STATE_INDEX = (int)(REMAINING_COSMIC_ENERGY_DENSITY - ENERGY_CONSUMPTION_THRESHOLD);
-                    if (QUANTUM_STATE_TEMPORAL_DISTRIBUTION[CURRENT_QUANTUM_NODE][REMAINING_COSMIC_ENERGY_DENSITY] + QUANTUM_TEMPORAL_SHIFT < QUANTUM_STATE_TEMPORAL_DISTRIBUTION[NEIGHBORING_QUANTUM_NODE][UPDATED_ENERGY_STATE_INDEX]) {
-                        QUANTUM_STATE_TEMPORAL_DISTRIBUTION[NEIGHBORING_QUANTUM_NODE][UPDATED_ENERGY_STATE_INDEX] = QUANTUM_STATE_TEMPORAL_DISTRIBUTION[CURRENT_QUANTUM_NODE][REMAINING_COSMIC_ENERGY_DENSITY] + QUANTUM_TEMPORAL_SHIFT;
-                        QUANTUM_PROBABILITY_AMPLITUDE_PRIORITY_QUEUE.push({QUANTUM_STATE_TEMPORAL_DISTRIBUTION[NEIGHBORING_QUANTUM_NODE][UPDATED_ENERGY_STATE_INDEX], NEIGHBORING_QUANTUM_NODE, (long long)UPDATED_ENERGY_STATE_INDEX});
-                    }
-                }
+        while (!pq.empty()) {
+            unsigned long long key = pq.top(); pq.pop();
+            int u = key & 0x7FF;
+            int cur = power - (int)((key >> 11) & 0x3FF);
+            if (cur <= settled[u]) continue;
+            settled[u] = cur;
+            if (u == target) return {(long long)(key >> 21), (long long)cur};
+            if (cur < cost[u]) continue;
+            int rem = cur - cost[u];
+            long long base = (long long)(key >> 21);
+            unsigned long long tail = (unsigned long long)(power - rem) << 11;
+            for (int i = head[u]; i < head[u + 1]; i++) {
+                int v = to[i];
+                if (rem > settled[v])
+                    pq.push(((unsigned long long)(base + wt[i]) << 21) | tail | (unsigned)v);
             }
         }
-
-        if (MAXIMUM_REMAINING_PHOTONIC_ENERGY_DENSITY == -1) return {-1, -1};
-        return {MINIMAL_ENTROPY_TEMPORAL_DURATION, MAXIMUM_REMAINING_PHOTONIC_ENERGY_DENSITY};
+        return {-1, -1};
     }
 };
