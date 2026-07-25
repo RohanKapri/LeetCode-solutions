@@ -638,6 +638,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0507-perfect-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0507-perfect-number) |
 | [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
 | [1344-angle-between-hands-of-a-clock](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1344-angle-between-hands-of-a-clock) |
+| [3536-maximum-product-of-two-digits](https://github.com/RohanKapri/LeetCode-solutions/tree/master/3536-maximum-product-of-two-digits) |
 | [3658-gcd-of-odd-and-even-sums](https://github.com/RohanKapri/LeetCode-solutions/tree/master/3658-gcd-of-odd-and-even-sums) |
 | [3754-concatenate-non-zero-digits-and-multiply-by-sum-i](https://github.com/RohanKapri/LeetCode-solutions/tree/master/3754-concatenate-non-zero-digits-and-multiply-by-sum-i) |
 ## Backtracking
@@ -795,4 +796,8 @@ The journey is ongoing. The repository will continue to grow. And with every new
 |  |
 | ------- |
 | [0489-robot-room-cleaner](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0489-robot-room-cleaner) |
+## Sorting
+|  |
+| ------- |
+| [3536-maximum-product-of-two-digits](https://github.com/RohanKapri/LeetCode-solutions/tree/master/3536-maximum-product-of-two-digits) |
 <!---LeetCode Topics End-->
