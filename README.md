@@ -637,6 +637,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | [0492-construct-the-rectangle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0492-construct-the-rectangle) |
 | [0507-perfect-number](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0507-perfect-number) |
 | [0519-random-flip-matrix](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0519-random-flip-matrix) |
+| [0836-rectangle-overlap](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0836-rectangle-overlap) |
 | [1344-angle-between-hands-of-a-clock](https://github.com/RohanKapri/LeetCode-solutions/tree/master/1344-angle-between-hands-of-a-clock) |
 | [3345-smallest-divisible-digit-product-i](https://github.com/RohanKapri/LeetCode-solutions/tree/master/3345-smallest-divisible-digit-product-i) |
 | [3536-maximum-product-of-two-digits](https://github.com/RohanKapri/LeetCode-solutions/tree/master/3536-maximum-product-of-two-digits) |
@@ -728,6 +729,7 @@ The journey is ongoing. The repository will continue to grow. And with every new
 | ------- |
 | [0223-rectangle-area](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0223-rectangle-area) |
 | [0478-generate-random-point-in-a-circle](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0478-generate-random-point-in-a-circle) |
+| [0836-rectangle-overlap](https://github.com/RohanKapri/LeetCode-solutions/tree/master/0836-rectangle-overlap) |
 ## Simulation
 |  |
 | ------- |
