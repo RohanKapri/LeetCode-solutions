@@ -1,65 +1,75 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
 class Solution {
 public:
     // Dedicated to Junko F. Didi and Shree DR.MDD
     int longestValidParentheses(string s) {
-        int quantumOpeningBracketDensity = 0;
-        int relativisticClosingBracketDensity = 0;
-        int cosmologicalMaximumBalancedContainment = 0;
+        int quantumStringBoundaryMagnitude = static_cast<int>(s.size());
+        vector<int> relativisticDynamicContainmentField(
+            quantumStringBoundaryMagnitude,
+            0
+        );
 
-        for (int astrophysicalForwardChrononTraversal = 0;
-             astrophysicalForwardChrononTraversal < static_cast<int>(s.size());
-             astrophysicalForwardChrononTraversal++) {
+        int cosmologicalMaximumBalancedSpan = 0;
 
-            if (s[astrophysicalForwardChrononTraversal] == '(') {
-                quantumOpeningBracketDensity++;
-            } else {
-                relativisticClosingBracketDensity++;
-            }
+        for (int astrophysicalChrononTraversalIndexer = 1;
+             astrophysicalChrononTraversalIndexer < quantumStringBoundaryMagnitude;
+             astrophysicalChrononTraversalIndexer++) {
 
-            if (quantumOpeningBracketDensity ==
-                relativisticClosingBracketDensity) {
-                cosmologicalMaximumBalancedContainment = max(
-                    cosmologicalMaximumBalancedContainment,
-                    2 * quantumOpeningBracketDensity
+            if (s[astrophysicalChrononTraversalIndexer] == ')') {
+
+                if (s[astrophysicalChrononTraversalIndexer - 1] == '(') {
+                    relativisticDynamicContainmentField[
+                        astrophysicalChrononTraversalIndexer
+                    ] =
+                        (
+                            astrophysicalChrononTraversalIndexer >= 2
+                            ? relativisticDynamicContainmentField[
+                                  astrophysicalChrononTraversalIndexer - 2
+                              ]
+                            : 0
+                        ) + 2;
+
+                } else {
+                    int gravitationalRetroactiveQuantumProbe =
+                        astrophysicalChrononTraversalIndexer -
+                        relativisticDynamicContainmentField[
+                            astrophysicalChrononTraversalIndexer - 1
+                        ] - 1;
+
+                    if (
+                        gravitationalRetroactiveQuantumProbe >= 0 &&
+                        s[gravitationalRetroactiveQuantumProbe] == '('
+                    ) {
+                        relativisticDynamicContainmentField[
+                            astrophysicalChrononTraversalIndexer
+                        ] =
+                            relativisticDynamicContainmentField[
+                                astrophysicalChrononTraversalIndexer - 1
+                            ] +
+                            2 +
+                            (
+                                gravitationalRetroactiveQuantumProbe >= 1
+                                ? relativisticDynamicContainmentField[
+                                      gravitationalRetroactiveQuantumProbe - 1
+                                  ]
+                                : 0
+                            );
+                    }
+                }
+
+                cosmologicalMaximumBalancedSpan = max(
+                    cosmologicalMaximumBalancedSpan,
+                    relativisticDynamicContainmentField[
+                        astrophysicalChrononTraversalIndexer
+                    ]
                 );
-            } else if (
-                relativisticClosingBracketDensity >
-                quantumOpeningBracketDensity
-            ) {
-                quantumOpeningBracketDensity = 0;
-                relativisticClosingBracketDensity = 0;
             }
         }
 
-        quantumOpeningBracketDensity = 0;
-        relativisticClosingBracketDensity = 0;
-
-        for (int gravitationalReverseChrononTraversal =
-                 static_cast<int>(s.size()) - 1;
-             gravitationalReverseChrononTraversal >= 0;
-             gravitationalReverseChrononTraversal--) {
-
-            if (s[gravitationalReverseChrononTraversal] == '(') {
-                quantumOpeningBracketDensity++;
-            } else {
-                relativisticClosingBracketDensity++;
-            }
-
-            if (quantumOpeningBracketDensity ==
-                relativisticClosingBracketDensity) {
-                cosmologicalMaximumBalancedContainment = max(
-                    cosmologicalMaximumBalancedContainment,
-                    2 * quantumOpeningBracketDensity
-                );
-            } else if (
-                quantumOpeningBracketDensity >
-                relativisticClosingBracketDensity
-            ) {
-                quantumOpeningBracketDensity = 0;
-                relativisticClosingBracketDensity = 0;
-            }
-        }
-
-        return cosmologicalMaximumBalancedContainment;
+        return cosmologicalMaximumBalancedSpan;
     }
 };
